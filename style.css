@@ -1,0 +1,1621 @@
+/* ==========================================================================
+   AAKAR FILMS — STYLESHEET (style.css)
+   Aesthetic: Pure Soft Light Pink & Luxury Editorial Serif
+   Features: Full-screen Auto-Slider (Slide 1: Hero -> Slide 2: Our Photography Portfolio)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Theme Variables
+   -------------------------------------------------------------------------- */
+:root {
+    --bg-primary: #FDF0F4;          /* Pure elegant soft light pink */
+    --bg-secondary: #FCE8EE;        /* Subtle soft light blush accent */
+    --bg-card: #FFFFFF;
+    --color-text-main: #262320;     /* Deep rich charcoal */
+    --color-text-muted: #736C63;    /* Muted editorial taupe */
+    --color-text-light: #9E9589;
+    --color-accent: #C4AD98;        /* Exact warm nude from "VIEW PACKAGES" button */
+    --color-accent-hover: #AF9680;
+    --color-rose: #DE688E;          /* Soft royal rose accent */
+    --color-rose-dark: #BA3862;     /* Deep royal magenta/rose */
+    --color-gold: #D4AF37;          /* Luxury gold */
+    --color-whatsapp: #25D366;      /* Official WhatsApp Green */
+    --color-whatsapp-hover: #1EBE5D;
+    --color-border: #ECD7DF;
+    --color-border-light: #F5E6EC;
+    --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    --shadow-card: 0 16px 40px rgba(40, 32, 25, 0.08);
+    --shadow-soft: 0 8px 24px rgba(40, 32, 25, 0.06);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-primary);
+    color: var(--color-text-main);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    transition: var(--transition);
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Site Header: Studio Logo & Name
+   -------------------------------------------------------------------------- */
+.site-header {
+    width: 100%;
+    background-color: rgba(253, 240, 244, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(236, 215, 223, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 16px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Studio Logo + "AAKAR FILMS" beside it */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;  /* Eliminates white background cleanly */
+    filter: contrast(1.15) brightness(0.95);
+    transition: transform 0.3s ease;
+}
+
+.brand-link:hover .brand-logo-img {
+    transform: scale(1.04);
+}
+
+.brand-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    line-height: 1;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+}
+
+.brand-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.38em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--color-text-main);
+    padding: 8px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    transition: var(--transition);
+}
+
+.header-whatsapp-link i {
+    color: var(--color-whatsapp);
+    font-size: 1rem;
+}
+
+.header-whatsapp-link:hover {
+    border-color: var(--color-whatsapp);
+    background-color: var(--color-whatsapp);
+    color: #FFFFFF;
+}
+
+.header-whatsapp-link:hover i {
+    color: #FFFFFF;
+}
+
+.header-admin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--color-rose-dark);
+    padding: 8px 14px;
+    border: 1px solid rgba(222, 104, 142, 0.4);
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: var(--transition);
+}
+
+.header-admin-link i {
+    font-size: 0.8rem;
+}
+
+.header-admin-link:hover {
+    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    border-color: var(--color-rose-dark);
+    color: #FFFFFF;
+}
+
+
+/* --------------------------------------------------------------------------
+   2.5. Royal Pre-Wedding Cinematic Background Video Hero Section
+   -------------------------------------------------------------------------- */
+.royal-video-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #0E090C;
+}
+
+.royal-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cinema-video-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.royal-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(180deg, 
+            rgba(20, 10, 15, 0.45) 0%, 
+            rgba(30, 15, 22, 0.35) 40%,
+            rgba(253, 240, 244, 0.75) 80%,
+            rgba(253, 240, 244, 1) 100%),
+        radial-gradient(circle at center, 
+            rgba(0, 0, 0, 0.15) 0%, 
+            rgba(20, 10, 15, 0.6) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.royal-hero-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1140px;
+    padding: 70px 24px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.royal-cinema-card {
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 28px 70px rgba(186, 56, 98, 0.2), 0 10px 26px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+}
+
+.royal-cinema-card .card-kicker {
+    color: var(--color-rose-dark);
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Automatic Page Slider Viewport & Track
+   -------------------------------------------------------------------------- */
+.page-slider-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.page-slider-track {
+    display: flex;
+    width: 300%;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.page-slide {
+    width: calc(100% / 3);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-primary);
+}
+
+/* Luxury Interactive Slide Navigation Bar */
+.slider-nav-pills {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: -45px auto 35px;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    padding: 6px 10px;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(186, 56, 98, 0.12);
+}
+
+.nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    border-radius: 30px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-pill:hover {
+    color: var(--color-rose-dark);
+}
+
+.nav-pill.active {
+    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(186, 56, 98, 0.35);
+}
+
+.nav-pill .pill-num {
+    font-weight: 700;
+    font-size: 0.72rem;
+    opacity: 0.9;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Slide 1: Hero Section (Exact Replica of Reference Image 1)
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    padding: 20px 32px 85px;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* 3-Panel Background Photography */
+.hero-triptych {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.triptych-panel {
+    position: relative;
+    overflow: hidden;
+    background-color: #ECE7DF;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.triptych-panel img {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    max-height: 610px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.triptych-panel:hover img {
+    transform: scale(1.035);
+}
+
+.panel-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.12) 100%);
+    pointer-events: none;
+}
+
+/* Floating Centered Card */
+.hero-floating-card {
+    position: relative;
+    max-width: 680px;
+    margin: -110px auto 0;
+    z-index: 10;
+    padding: 0 16px;
+}
+
+.floating-card-inner {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    padding: 42px 48px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+
+.card-kicker {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.card-divider {
+    width: 48px;
+    height: 1px;
+    background-color: var(--color-accent);
+    margin: 18px auto;
+    opacity: 0.7;
+}
+
+.card-description {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+/* The Action Buttons */
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn-nude {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-accent);
+    color: #FFFFFF !important;
+    padding: 13px 26px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 6px 18px rgba(196, 173, 152, 0.35);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-nude:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    box-shadow: 0 10px 24px rgba(196, 173, 152, 0.45);
+    transform: translateY(-2px);
+}
+
+.btn-portfolio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--color-text-main);
+    padding: 13px 26px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-portfolio:hover {
+    background-color: var(--color-text-main);
+    border-color: var(--color-text-main);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-whatsapp);
+    color: #FFFFFF !important;
+    padding: 13px 24px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-whatsapp);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-whatsapp i {
+    font-size: 1rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--color-whatsapp-hover);
+    border-color: var(--color-whatsapp-hover);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    transform: translateY(-2px);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Slide 2: "2. Our Photography Portfolio"
+   -------------------------------------------------------------------------- */
+.portfolio-page-content {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 36px 32px 85px;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.portfolio-header {
+    margin-bottom: 40px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    padding: 34px 28px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-card);
+}
+
+.portfolio-main-title {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    line-height: 1.25;
+}
+
+.portfolio-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    max-width: 620px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* 6 Portfolio Categories Grid */
+.portfolio-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-accent);
+}
+
+.category-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #EAE4DA;
+}
+
+.category-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card:hover .category-image-wrap img {
+    transform: scale(1.06);
+}
+
+.category-num {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: rgba(38, 35, 32, 0.75);
+    backdrop-filter: blur(4px);
+    color: #FFFFFF;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+.category-info {
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.category-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.category-desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    min-height: 52px;
+}
+
+.btn-card-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-card-book:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #FFFFFF;
+}
+
+.portfolio-slide-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.2 Slide 3: Packages, Client Love Stories, Craftsmanship & FAQs
+   -------------------------------------------------------------------------- */
+.reviews-packages-content {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 40px 36px 100px;
+    box-sizing: border-box;
+}
+
+.slide-section-header {
+    margin-bottom: 50px;
+}
+
+.slide-main-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.slide-subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.12rem;
+    color: var(--color-text-muted);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.slide-subblock {
+    margin-bottom: 75px;
+}
+
+.block-subheading {
+    margin-bottom: 38px;
+}
+
+.subheading-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: var(--color-rose-dark);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.block-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
+}
+
+.block-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Feature 1: Studio Investment & Curated Packages --- */
+.pricing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(186, 56, 98, 0.12);
+    border-color: var(--color-rose-dark);
+}
+
+.featured-pricing-card {
+    border: 2px solid var(--color-rose-dark);
+    box-shadow: 0 24px 55px rgba(186, 56, 98, 0.16);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF8FA 100%);
+}
+
+.featured-ribbon {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(186, 56, 98, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.package-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.package-name {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+}
+
+.package-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 22px;
+    min-height: 42px;
+    line-height: 1.5;
+}
+
+.package-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 24px;
+}
+
+.package-price .currency {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--color-rose-dark);
+    font-weight: 600;
+}
+
+.package-price .amount {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.package-price .period {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.package-features {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+}
+
+.package-features li i {
+    color: var(--color-rose-dark);
+    font-size: 0.82rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* --- Feature 2: Client Love Stories & Verified Testimonials --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.testimonial-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(186, 56, 98, 0.1);
+    border-color: var(--color-rose-dark);
+}
+
+.testimonial-rating {
+    color: #F5A623;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 4px;
+}
+
+.testimonial-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.testimonial-couple {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.couple-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.couple-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.couple-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 2px;
+}
+
+.couple-location {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+}
+
+.couple-location i {
+    color: var(--color-rose-dark);
+    font-size: 0.72rem;
+    margin-right: 4px;
+}
+
+.testimonial-badge {
+    margin-top: 14px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #2E7D32;
+    background-color: #E8F5E9;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+}
+
+/* --- Feature 3: The 4-Step Studio Craftsmanship Timeline --- */
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.process-step-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 32px 22px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.process-step-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-rose-dark);
+    box-shadow: 0 16px 36px rgba(186, 56, 98, 0.1);
+}
+
+.step-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--color-rose-dark);
+    background-color: var(--bg-primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    margin-bottom: 16px;
+}
+
+.step-icon-wrap {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FDF0F4 0%, #FCE8EE 100%);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.35rem;
+    color: var(--color-rose-dark);
+    transition: var(--transition);
+}
+
+.process-step-card:hover .step-icon-wrap {
+    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+.step-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+}
+
+.step-desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* --- Feature 4: Interactive Studio FAQ Accordion --- */
+.faq-accordion-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-item.open {
+    border-color: var(--color-rose-dark);
+    box-shadow: 0 12px 30px rgba(186, 56, 98, 0.09);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 26px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+    background-color: #FFF9FB;
+}
+
+.faq-q-text {
+    font-family: var(--font-serif);
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    line-height: 1.4;
+    padding-right: 16px;
+}
+
+.faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--color-rose-dark);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background-color: var(--color-rose-dark);
+    color: #FFFFFF;
+    border-color: var(--color-rose-dark);
+}
+
+.faq-answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 26px;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 400px;
+    opacity: 1;
+    padding: 0 26px 22px;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* --- Feature 5: Slide 3 Footer Actions & Navigation --- */
+.slide-footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Interactive Booking Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 23, 20, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 540px;
+    padding: 44px 40px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.35s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.open .modal-box {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 2rem;
+    color: var(--color-text-muted);
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--color-text-main);
+}
+
+.modal-header {
+    margin-bottom: 28px;
+}
+
+.modal-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.modal-logo-img {
+    height: 38px;
+    width: auto;
+    mix-blend-mode: multiply;
+}
+
+.modal-brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    letter-spacing: 0.16em;
+    color: var(--color-text-main);
+}
+
+.modal-heading {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: var(--color-text-main);
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.modal-sub {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+}
+
+/* Booking Form Elements */
+.booking-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.booking-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.booking-form label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--color-text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: var(--color-accent);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(196, 173, 152, 0.15);
+}
+
+.btn-block {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+/* Success Notice */
+.form-success-notice {
+    display: none;
+    text-align: center;
+    padding: 24px 10px;
+}
+
+.form-success-notice.show {
+    display: block;
+}
+
+.success-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    font-size: 1.6rem;
+}
+
+.form-success-notice h3 {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    margin-bottom: 8px;
+}
+
+.form-success-notice p {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .hero-triptych {
+        grid-template-columns: 1fr 1fr;
+    }
+    .panel-right {
+        display: none;
+    }
+    .portfolio-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pricing-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pricing-card.featured-pricing-card {
+        grid-column: span 2;
+    }
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonial-card:last-child {
+        grid-column: span 2;
+    }
+    .process-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 14px 20px;
+    }
+
+    .brand-logo-img {
+        height: 44px;
+    }
+
+    .brand-title {
+        font-size: 1.55rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.58rem;
+    }
+
+    .header-whatsapp-link span {
+        display: none;
+    }
+
+    .header-whatsapp-link {
+        padding: 8px 12px;
+        border-radius: 50%;
+    }
+
+    .header-admin-link span {
+        display: none;
+    }
+
+    .header-admin-link {
+        padding: 8px 11px;
+        border-radius: 50%;
+    }
+
+
+
+    .royal-video-hero {
+        min-height: 80vh;
+        padding: 40px 16px;
+    }
+
+    .royal-hero-content {
+        padding: 24px 12px;
+    }
+
+    .royal-cinema-card .floating-card-inner {
+        padding: 28px 18px;
+    }
+
+
+
+    .hero-section {
+        padding: 14px 16px 60px;
+    }
+
+    .hero-triptych {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-left {
+        display: none;
+    }
+
+    .triptych-panel img {
+        min-height: 400px;
+        max-height: 460px;
+    }
+
+    .hero-floating-card {
+        margin-top: -60px;
+        padding: 0;
+    }
+
+    .floating-card-inner {
+        padding: 32px 20px;
+    }
+
+    .card-title {
+        font-size: 1.7rem;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .btn-nude, .btn-portfolio, .btn-whatsapp {
+        width: 100%;
+    }
+
+    .portfolio-page-content {
+        padding: 24px 16px 100px;
+    }
+
+    .portfolio-main-title {
+        font-size: 1.85rem;
+    }
+
+    .portfolio-categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .category-desc {
+        min-height: auto;
+    }
+
+    /* Slide 3 Mobile Adaptations */
+    .reviews-packages-content {
+        padding: 24px 16px 80px;
+    }
+
+    .slide-main-title {
+        font-size: 1.85rem;
+    }
+
+    .slide-subblock {
+        margin-bottom: 50px;
+    }
+
+    .block-title {
+        font-size: 1.55rem;
+    }
+
+    .pricing-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .pricing-card.featured-pricing-card {
+        grid-column: span 1;
+    }
+
+    .pricing-card {
+        padding: 30px 20px;
+    }
+
+    .package-price .amount {
+        font-size: 2.25rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .testimonial-card:last-child {
+        grid-column: span 1;
+    }
+
+    .process-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .faq-question {
+        padding: 16px 18px;
+    }
+
+    .faq-q-text {
+        font-size: 1.02rem;
+    }
+
+    .faq-answer {
+        padding: 0 18px;
+    }
+
+    .faq-item.open .faq-answer {
+        padding: 0 18px 18px;
+    }
+
+    .slide-footer-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .slide-footer-nav .btn-portfolio,
+    .slide-footer-nav .btn-nude,
+    .slide-footer-nav .btn-whatsapp {
+        width: 100%;
+    }
+
+    .modal-box {
+        padding: 30px 20px;
+    }
+
+    .booking-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
