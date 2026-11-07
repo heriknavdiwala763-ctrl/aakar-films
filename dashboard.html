@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard — AAKAR FILMS Studio Operations</title>
+    <title>Admin Dashboard — AAKAR FILMS</title>
     
     <!-- Google Fonts: Cormorant Garamond & Jost -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Admin Dedicated Stylesheet -->
+    <!-- Admin Stylesheet -->
     <link rel="stylesheet" href="admin.css">
 </head>
 <body class="dashboard-body">
@@ -27,63 +27,38 @@
             <div class="sidebar-top">
                 <!-- Studio Brand Block -->
                 <div class="sidebar-brand">
-                    <img src="../assets/aakar-logo.jpg" alt="Aakar Films Logo" class="sidebar-logo-img">
-                    <div>
-                        <div class="sidebar-title">AAKAR</div>
+                    <img src="assets/aakar-logo.jpg" onerror="this.src='../assets/aakar-logo.jpg'; this.onerror=function(){this.src='aakar-logo.jpg';};" alt="Aakar Films Logo" class="sidebar-logo-img">
+                    <div class="brand-text-block">
+                        <span class="sidebar-title">AAKAR</span>
                         <span class="sidebar-subtitle">ADMIN PANEL</span>
                     </div>
                 </div>
 
-                <!-- Navigation Menu Tabs -->
+                <!-- Navigation Menu -->
                 <nav class="sidebar-menu">
-                    <span class="sidebar-section-label">STUDIO OPERATIONS</span>
+                    <span class="sidebar-section-label">WORKSPACE</span>
                     
-                    <!-- 1. Overview Tab -->
-                    <button type="button" class="nav-item tab-btn active" data-tab="tab-overview">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <span>Overview</span>
-                    </button>
-
-                    <!-- 2. Bookings & Inquiries CRM -->
-                    <button type="button" class="nav-item tab-btn" data-tab="tab-bookings">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        <span>All Bookings</span>
-                        <span class="badge-tag" id="badgeBookingCount">0</span>
-                    </button>
-
-                    <!-- 3. Shoots Schedule Calendar -->
-                    <button type="button" class="nav-item tab-btn" data-tab="tab-schedule">
-                        <i class="fa-solid fa-camera-retro"></i>
-                        <span>Shoots Schedule</span>
-                    </button>
-
-                    <!-- 4. Packages & Pricing -->
-                    <button type="button" class="nav-item tab-btn" data-tab="tab-packages">
-                        <i class="fa-solid fa-gem"></i>
-                        <span>Studio Packages</span>
-                    </button>
-
-                    <!-- 5. Gear & Crew Status -->
-                    <button type="button" class="nav-item tab-btn" data-tab="tab-crew">
-                        <i class="fa-solid fa-film"></i>
-                        <span>Gear & Crew</span>
-                    </button>
+                    <!-- Admin Dashboard Workspace (Active) -->
+                    <a href="dashboard.html" class="nav-item active">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Admin Dashboard</span>
+                    </a>
 
                     <span class="sidebar-section-label">SWITCH VIEW</span>
 
-                    <!-- Return to Customer Site -->
-                    <a href="../index.html" class="nav-item nav-item-customer-highlight" title="Switch to Customer Website" target="_blank">
+                    <!-- Customer Dashboard Link (Opens Customer Multi-Slide Website) -->
+                    <a href="index.html" class="nav-item nav-item-customer-highlight" id="navCustomerDashboardLink" title="Switch to Customer Dashboard">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <span>Customer Website</span>
+                        <span>Customer Dashboard</span>
                     </a>
                 </nav>
             </div>
 
-            <!-- Sidebar Footer with User Details & Logout -->
+            <!-- Sidebar Footer with User Profile & Logout -->
             <div class="sidebar-footer">
                 <div class="admin-user-pill">
                     <div class="user-avatar">
-                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-user"></i>
                     </div>
                     <div class="user-meta">
                         <span class="user-name">Master Admin</span>
@@ -99,516 +74,55 @@
         </aside>
 
         <!-- ===================================================================
-             MAIN AREA: STUDIO DASHBOARD
+             MAIN AREA: ADMIN DASHBOARD WORKSPACE (CLEAN CANVAS)
              =================================================================== -->
         <main class="admin-main-container">
             
-            <!-- Global Dashboard Topbar -->
+            <!-- Workspace Topbar -->
             <header class="admin-topbar">
                 <div class="topbar-left">
-                    <div>
-                        <span class="topbar-kicker">STUDIO WORKSPACE & CRM</span>
-                        <h2 class="topbar-title" id="pageHeaderTitle">Studio Operations Hub</h2>
-                    </div>
+                    <h2 class="topbar-title">Admin Dashboard Workspace</h2>
                 </div>
                 <div class="topbar-right">
-                    <!-- Real-time Clock -->
-                    <div class="topbar-pill topbar-clock">
-                        <i class="fa-regular fa-clock"></i>
-                        <span id="liveClockText">Live Clock</span>
-                    </div>
-
-                    <!-- Quick Add Shoot Button -->
-                    <button type="button" class="btn-primary-action" id="btnOpenNewBookingModal">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>New Booking</span>
-                    </button>
+                    <a href="index.html" class="btn-topbar-customer" id="topbarCustomerLink" target="_blank" title="Preview Customer Site">
+                        <i class="fa-regular fa-eye"></i>
+                        <span>Customer Site</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </header>
 
-            <!-- Dashboard Dynamic Tab Views Container -->
+            <!-- Workspace Clean Canvas Area -->
             <div class="dashboard-content-area">
-
-                <!-- ===============================================================
-                     TAB 1: OVERVIEW & ANALYTICS (DEFAULT)
-                     =============================================================== -->
-                <section class="tab-pane active" id="tab-overview">
-                    
-                    <!-- KPI Metric Cards Grid -->
-                    <div class="kpi-metrics-grid">
-                        
-                        <!-- 1. Total Bookings -->
-                        <div class="metric-card">
-                            <div class="metric-header">
-                                <span class="metric-title">TOTAL BOOKINGS</span>
-                                <div class="metric-icon-box bg-rose-light">
-                                    <i class="fa-solid fa-calendar-check"></i>
-                                </div>
-                            </div>
-                            <div class="metric-value-row">
-                                <h3 class="metric-value" id="kpiTotalBookings">0</h3>
-                                <span class="metric-growth positive">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> +18.4%
-                                </span>
-                            </div>
-                            <p class="metric-caption">Active inquiries & confirmed shoots</p>
+                <div class="admin-canvas-wrapper">
+                    <div class="admin-canvas-box">
+                        <div class="canvas-icon-badge">
+                            <span class="canvas-monogram">Aa</span>
                         </div>
-
-                        <!-- 2. Projected Revenue -->
-                        <div class="metric-card">
-                            <div class="metric-header">
-                                <span class="metric-title">PROJECTED REVENUE</span>
-                                <div class="metric-icon-box bg-gold-light">
-                                    <i class="fa-solid fa-indian-rupee-sign"></i>
-                                </div>
-                            </div>
-                            <div class="metric-value-row">
-                                <h3 class="metric-value" id="kpiRevenue">₹14.80 L</h3>
-                                <span class="metric-growth positive">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> +24.1%
-                                </span>
-                            </div>
-                            <p class="metric-caption">Pipeline across wedding & destination shoots</p>
-                        </div>
-
-                        <!-- 3. Scheduled Shoots -->
-                        <div class="metric-card">
-                            <div class="metric-header">
-                                <span class="metric-title">UPCOMING SHOOTS</span>
-                                <div class="metric-icon-box bg-blue-light">
-                                    <i class="fa-solid fa-camera-retro"></i>
-                                </div>
-                            </div>
-                            <div class="metric-value-row">
-                                <h3 class="metric-value" id="kpiUpcomingCount">8</h3>
-                                <span class="metric-badge">This Month</span>
-                            </div>
-                            <p class="metric-caption">Udaipur, Jaipur & Studio 1</p>
-                        </div>
-
-                        <!-- 4. Pending Follow-ups -->
-                        <div class="metric-card">
-                            <div class="metric-header">
-                                <span class="metric-title">PENDING FOLLOW-UPS</span>
-                                <div class="metric-icon-box bg-pink-light">
-                                    <i class="fa-solid fa-bell"></i>
-                                </div>
-                            </div>
-                            <div class="metric-value-row">
-                                <h3 class="metric-value" id="kpiPendingCount">3</h3>
-                                <span class="metric-growth warning">Action Needed</span>
-                            </div>
-                            <p class="metric-caption">Recent web inquiries waiting reply</p>
-                        </div>
-
+                        <h1 class="canvas-title">Admin Dashboard Canvas</h1>
+                        <p class="canvas-desc">
+                            Aa blank page tamara custom admin dashboard mate ready chhe. Tame tamara custom widgets, statistics, booking management ke reports ahi add kari sako chho.
+                        </p>
                     </div>
-
-                    <!-- 2-Column Overview Layout -->
-                    <div class="overview-dual-grid">
-                        
-                        <!-- Left: Live Recent Bookings Table Preview -->
-                        <div class="dash-card bookings-overview-card">
-                            <div class="dash-card-header">
-                                <div>
-                                    <h4 class="card-heading">Recent Inquiries & Bookings</h4>
-                                    <p class="card-subheading">Latest leads captured from website & phone</p>
-                                </div>
-                                <button type="button" class="btn-text-action" id="btnGoToAllBookings">
-                                    <span>View All</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="table-responsive">
-                                <table class="studio-table" id="recentBookingsTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Client</th>
-                                            <th>Shoot Type</th>
-                                            <th>Date & Venue</th>
-                                            <th>Status</th>
-                                            <th>Quick Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="recentBookingsTbody">
-                                        <!-- Dynamically Populated by admin.js -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Right Column: Category Distribution & Live Schedule -->
-                        <div class="dash-sidebar-col">
-                            
-                            <!-- Category Share Card -->
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h4 class="card-heading">Service Popularity</h4>
-                                    <span class="badge-tag">Season 2026</span>
-                                </div>
-                                
-                                <div class="category-bars-list">
-                                    <div class="cat-bar-item">
-                                        <div class="cat-bar-meta">
-                                            <span>Royal Wedding Cinema</span>
-                                            <span class="cat-pct">45%</span>
-                                        </div>
-                                        <div class="cat-progress"><div class="cat-fill" style="width: 45%;"></div></div>
-                                    </div>
-                                    <div class="cat-bar-item">
-                                        <div class="cat-bar-meta">
-                                            <span>Pre-Wedding Shoots</span>
-                                            <span class="cat-pct">30%</span>
-                                        </div>
-                                        <div class="cat-progress"><div class="cat-fill bg-rose" style="width: 30%;"></div></div>
-                                    </div>
-                                    <div class="cat-bar-item">
-                                        <div class="cat-bar-meta">
-                                            <span>Fashion & Editorial</span>
-                                            <span class="cat-pct">15%</span>
-                                        </div>
-                                        <div class="cat-progress"><div class="cat-fill bg-gold" style="width: 15%;"></div></div>
-                                    </div>
-                                    <div class="cat-bar-item">
-                                        <div class="cat-bar-meta">
-                                            <span>Maternity & Baby</span>
-                                            <span class="cat-pct">10%</span>
-                                        </div>
-                                        <div class="cat-progress"><div class="cat-fill bg-blue" style="width: 10%;"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Direct WhatsApp Fast Lead Follow-up -->
-                            <div class="dash-card whatsapp-hub-card">
-                                <div class="wa-hub-header">
-                                    <i class="fa-brands fa-whatsapp wa-big-icon"></i>
-                                    <div>
-                                        <h5>Instant Client Connect</h5>
-                                        <p>Send customized shoot quote or greeting directly</p>
-                                    </div>
-                                </div>
-                                <div class="wa-hub-input-row">
-                                    <input type="tel" id="waDirectPhone" placeholder="Enter Client Mobile (10-digit)" class="wa-input">
-                                    <button type="button" class="btn-wa-send" id="btnSendDirectWa">
-                                        <i class="fa-solid fa-paper-plane"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===============================================================
-                     TAB 2: ALL BOOKINGS & INQUIRIES (FULL CRM TABLE)
-                     =============================================================== -->
-                <section class="tab-pane" id="tab-bookings">
-                    
-                    <div class="dash-card full-table-card">
-                        
-                        <!-- Filter & Action Bar -->
-                        <div class="table-toolbar">
-                            <div class="toolbar-search">
-                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                                <input type="text" id="bookingSearchInput" placeholder="Search by client name, mobile or city..." class="search-input">
-                            </div>
-
-                            <div class="toolbar-filters">
-                                <!-- Category Filter -->
-                                <select id="filterCategory" class="filter-select">
-                                    <option value="ALL">All Categories</option>
-                                    <option value="Wedding Photography">Wedding Photography</option>
-                                    <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
-                                    <option value="Maternity Photography">Maternity Photography</option>
-                                    <option value="Baby Shower Shoot">Baby Shower Shoot</option>
-                                    <option value="Fashion & Editorial">Fashion & Editorial</option>
-                                    <option value="Cinematic Films">Cinematic Films</option>
-                                </select>
-
-                                <!-- Status Filter -->
-                                <select id="filterStatus" class="filter-select">
-                                    <option value="ALL">All Status</option>
-                                    <option value="Confirmed">Confirmed</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Completed">Completed</option>
-                                </select>
-
-                                <!-- Export CSV -->
-                                <button type="button" class="btn-secondary-action" id="btnExportCsv" title="Export to CSV Spreadsheet">
-                                    <i class="fa-solid fa-file-excel"></i>
-                                    <span>Export CSV</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Full CRM Table -->
-                        <div class="table-responsive">
-                            <table class="studio-table" id="allBookingsTable">
-                                <thead>
-                                    <tr>
-                                        <th>Booking ID</th>
-                                        <th>Client Name & Phone</th>
-                                        <th>Service Category</th>
-                                        <th>Date & Location</th>
-                                        <th>Est. Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="allBookingsTbody">
-                                    <!-- Populated via admin.js -->
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===============================================================
-                     TAB 3: SHOOTS SCHEDULE CALENDAR
-                     =============================================================== -->
-                <section class="tab-pane" id="tab-schedule">
-                    <div class="schedule-grid" id="scheduleListContainer">
-                        <!-- Populated by admin.js with upcoming production shoots -->
-                    </div>
-                </section>
-
-                <!-- ===============================================================
-                     TAB 4: STUDIO PACKAGES & RATES
-                     =============================================================== -->
-                <section class="tab-pane" id="tab-packages">
-                    <div class="packages-grid">
-                        
-                        <!-- 1. Royal Wedding Package -->
-                        <div class="package-card featured">
-                            <div class="package-badge">MOST POPULAR</div>
-                            <h3 class="package-name">Royal Wedding Cinema</h3>
-                            <div class="package-price">₹3,50,000<span>/ Event</span></div>
-                            <p class="package-desc">Complete 3-day royal wedding coverage with cinema lenses and full master deliverables.</p>
-                            <ul class="package-features">
-                                <li><i class="fa-solid fa-check"></i> 2 Traditional + 2 Candid Cinematographers</li>
-                                <li><i class="fa-solid fa-check"></i> 4K Drone Aerial Coverage</li>
-                                <li><i class="fa-solid fa-check"></i> 3-5 Minute Teaser & 45 Min Full Film</li>
-                                <li><i class="fa-solid fa-check"></i> 2 Luxury Premium Hardcover Albums</li>
-                            </ul>
-                        </div>
-
-                        <!-- 2. Pre-Wedding Destination -->
-                        <div class="package-card">
-                            <h3 class="package-name">Pre-Wedding Destination</h3>
-                            <div class="package-price">₹1,20,000<span>/ 2 Days</span></div>
-                            <p class="package-desc">Exquisite cinematic love story shoot at destination palaces, beaches or mountain landscapes.</p>
-                            <ul class="package-features">
-                                <li><i class="fa-solid fa-check"></i> 2 Senior Cinematographers & Gimbals</li>
-                                <li><i class="fa-solid fa-check"></i> 4K Drone Cinematography</li>
-                                <li><i class="fa-solid fa-check"></i> 50 Fine-Art Retouched Portraits</li>
-                                <li><i class="fa-solid fa-check"></i> 1 Romantic Teaser Video (Reel & 4K)</li>
-                            </ul>
-                        </div>
-
-                        <!-- 3. Fashion & Editorial -->
-                        <div class="package-card">
-                            <h3 class="package-name">Fashion & Editorial</h3>
-                            <div class="package-price">₹85,000<span>/ Day</span></div>
-                            <p class="package-desc">Designer lookbooks, magazine editorials, model portfolios and commercial campaigns.</p>
-                            <ul class="package-features">
-                                <li><i class="fa-solid fa-check"></i> Studio Lighting Setup & Profoto Strobes</li>
-                                <li><i class="fa-solid fa-check"></i> High-End Skin & Fabric Retouching</li>
-                                <li><i class="fa-solid fa-check"></i> 30 Final Commercial Ready Assets</li>
-                                <li><i class="fa-solid fa-check"></i> Behind The Scenes Reel</li>
-                            </ul>
-                        </div>
-
-                        <!-- 4. Maternity & Baby -->
-                        <div class="package-card">
-                            <h3 class="package-name">Maternity & Newborn</h3>
-                            <div class="package-price">₹45,000<span>/ Session</span></div>
-                            <p class="package-desc">Gentle, luminous indoor studio session celebrating the timeless glow of motherhood.</p>
-                            <ul class="package-features">
-                                <li><i class="fa-solid fa-check"></i> 3 Wardrobe Changes & Studio Props</li>
-                                <li><i class="fa-solid fa-check"></i> 25 Color-Graded Fine Art Prints</li>
-                                <li><i class="fa-solid fa-check"></i> Digital High-Res Gallery Access</li>
-                                <li><i class="fa-solid fa-check"></i> Family & Partner Portraits Included</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- ===============================================================
-                     TAB 5: GEAR & CREW INVENTORY
-                     =============================================================== -->
-                <section class="tab-pane" id="tab-crew">
-                    <div class="crew-dual-grid">
-                        
-                        <!-- Gear Equipment Status -->
-                        <div class="dash-card">
-                            <div class="dash-card-header">
-                                <h4 class="card-heading">Camera & Drone Inventory</h4>
-                                <span class="badge-tag">Checked Today</span>
-                            </div>
-                            <div class="gear-list">
-                                <div class="gear-row">
-                                    <div class="gear-meta">
-                                        <i class="fa-solid fa-video gear-icon"></i>
-                                        <div>
-                                            <strong>Sony FX6 Full-Frame Cinema Line</strong>
-                                            <span>Primary Wedding & Narrative Rig</span>
-                                        </div>
-                                    </div>
-                                    <span class="gear-status status-ready">Ready on Field</span>
-                                </div>
-                                <div class="gear-row">
-                                    <div class="gear-meta">
-                                        <i class="fa-solid fa-camera gear-icon"></i>
-                                        <div>
-                                            <strong>Sony Alpha 7S III (x2 Units)</strong>
-                                            <span>Low-Light Candid & S-Log3</span>
-                                        </div>
-                                    </div>
-                                    <span class="gear-status status-ready">Calibrated</span>
-                                </div>
-                                <div class="gear-row">
-                                    <div class="gear-meta">
-                                        <i class="fa-solid fa-helicopter gear-icon"></i>
-                                        <div>
-                                            <strong>DJI Inspire 3 & Mavic 3 Pro</strong>
-                                            <span>8K Aerial Cinematography</span>
-                                        </div>
-                                    </div>
-                                    <span class="gear-status status-ready">Batteries 100%</span>
-                                </div>
-                                <div class="gear-row">
-                                    <div class="gear-meta">
-                                        <i class="fa-solid fa-lightbulb gear-icon"></i>
-                                        <div>
-                                            <strong>Aputure 600d & Amaran RGB Tubes</strong>
-                                            <span>Studio Ambient & Color Kit</span>
-                                        </div>
-                                    </div>
-                                    <span class="gear-status status-ready">In Studio 1</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Lead Photographers & Editors Roster -->
-                        <div class="dash-card">
-                            <div class="dash-card-header">
-                                <h4 class="card-heading">Creative Team & Roster</h4>
-                                <span class="badge-tag">5 Active Artists</span>
-                            </div>
-                            <div class="crew-list">
-                                <div class="crew-item">
-                                    <div class="crew-avatar">H</div>
-                                    <div class="crew-details">
-                                        <strong>Herik Navdiwala</strong>
-                                        <span>Founder & Lead Director of Photography</span>
-                                    </div>
-                                    <span class="crew-role">Director</span>
-                                </div>
-                                <div class="crew-item">
-                                    <div class="crew-avatar">V</div>
-                                    <div class="crew-details">
-                                        <strong>Vikram Rathore</strong>
-                                        <span>Senior Candid Wedding Photographer</span>
-                                    </div>
-                                    <span class="crew-role">Candid Lead</span>
-                                </div>
-                                <div class="crew-item">
-                                    <div class="crew-avatar">P</div>
-                                    <div class="crew-details">
-                                        <strong>Pooja Shah</strong>
-                                        <span>Fashion & Maternity Specialist</span>
-                                    </div>
-                                    <span class="crew-role">Portraitist</span>
-                                </div>
-                                <div class="crew-item">
-                                    <div class="crew-avatar">A</div>
-                                    <div class="crew-details">
-                                        <strong>Aniket Verma</strong>
-                                        <span>Lead Colorist & Film Editor</span>
-                                    </div>
-                                    <span class="crew-role">Post-Production</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
+                </div>
             </div>
 
         </main>
 
     </div>
 
-    <!-- =======================================================================
-         MODAL: ADD NEW BOOKING / INQUIRY (FOR ADMIN)
-         ======================================================================= -->
-    <div class="admin-modal-backdrop" id="newBookingModal">
-        <div class="admin-modal-card">
-            <div class="modal-card-header">
-                <h3><i class="fa-solid fa-calendar-plus"></i> New Shoot Booking / Inquiry</h3>
-                <button type="button" class="btn-modal-close" id="btnCloseNewBookingModal">&times;</button>
-            </div>
-            
-            <form id="newBookingForm" class="modal-form">
-                <div class="modal-form-row">
-                    <div class="form-group">
-                        <label class="form-label">Client Full Name *</label>
-                        <input type="text" id="mClientName" required placeholder="e.g. Aryan & Riya" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Client Mobile / WhatsApp *</label>
-                        <input type="tel" id="mClientPhone" required placeholder="e.g. 9876543210" class="form-input">
-                    </div>
-                </div>
-
-                <div class="modal-form-row">
-                    <div class="form-group">
-                        <label class="form-label">Shoot Category *</label>
-                        <select id="mShootType" required class="form-input form-select">
-                            <option value="Wedding Photography">Wedding Photography</option>
-                            <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
-                            <option value="Maternity Photography">Maternity Photography</option>
-                            <option value="Baby Shower Shoot">Baby Shower Shoot</option>
-                            <option value="Fashion & Editorial">Fashion & Editorial</option>
-                            <option value="Cinematic Films">Cinematic Films</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Shoot Date *</label>
-                        <input type="date" id="mShootDate" required class="form-input">
-                    </div>
-                </div>
-
-                <div class="modal-form-row">
-                    <div class="form-group">
-                        <label class="form-label">Venue / City / Location</label>
-                        <input type="text" id="mLocation" placeholder="e.g. Udaipur City Palace, Rajasthan" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Est. Budget / Package (₹)</label>
-                        <input type="text" id="mBudget" placeholder="e.g. ₹1,50,000" class="form-input">
-                    </div>
-                </div>
-
-                <div class="modal-form-actions">
-                    <button type="button" class="btn-cancel" id="btnCancelBookingModal">Cancel</button>
-                    <button type="submit" class="btn-confirm-save">
-                        <i class="fa-solid fa-check"></i>
-                        <span>Save Booking</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Admin Dedicated Logic -->
+    <!-- Admin Logic -->
     <script src="admin.js"></script>
+    <script>
+        // Ensure customer links work whether opened from /admin/ or root
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSubdir = window.location.pathname.includes('/admin');
+            const targetCustomerHref = isSubdir ? '../index.html' : 'index.html';
+            const navLink = document.getElementById('navCustomerDashboardLink');
+            if (navLink) navLink.setAttribute('href', targetCustomerHref);
+            const topLink = document.getElementById('topbarCustomerLink');
+            if (topLink) topLink.setAttribute('href', targetCustomerHref);
+        });
+    </script>
 </body>
 </html>

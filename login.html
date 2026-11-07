@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Studio Admin Portal — AAKAR FILMS</title>
+    <title>Studio Admin Portal — AAKAR FILMS</title>
     
-    <!-- Google Fonts: Cormorant Garamond, Jost, Courier Prime (Camera Meta), Caveat (Handwritten Polaroid Notes) -->
+    <!-- Google Fonts: Cormorant Garamond, Jost, Courier Prime, Caveat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,12 +21,31 @@
     <!-- Studio Darkroom / Cutting-Mat Background Grid -->
     <div class="studio-grid-overlay"></div>
 
-    <div class="studio-stage-wrapper">
-        
-        <!-- Ambient Studio Soft Light Spheres -->
-        <div class="ambient-circle ambient-circle-1"></div>
-        <div class="ambient-circle ambient-circle-2"></div>
+    <!-- Surrounding Photography Lens HUD Badges (Floating in corners) -->
+    <div class="studio-floating-hud hud-top-left">
+        <span class="hud-rec-dot"></span>
+        <span>REC 4K CINEMA RAW • 24 FPS</span>
+    </div>
+    <div class="studio-floating-hud hud-top-right">
+        <i class="fa-solid fa-camera"></i>
+        <span>SONY FX3 • 85MM GM • ƒ/1.2 • ISO 100</span>
+    </div>
+    <div class="studio-floating-hud hud-bottom-left">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>COLOR SCIENCE: 16-BIT DAVINCI GAMUT</span>
+    </div>
+    <div class="studio-floating-hud hud-bottom-right">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>STUDIO ENCRYPTION • AES-256 SECURE</span>
+    </div>
 
+    <!-- Ambient Studio Soft Light Orbs & Optical Concentric Rings -->
+    <div class="ambient-circle ambient-circle-1"></div>
+    <div class="ambient-circle ambient-circle-2"></div>
+    <div class="ambient-lens-ring lens-ring-1"></div>
+    <div class="ambient-lens-ring lens-ring-2"></div>
+
+    <div class="studio-stage-wrapper">
         <div class="studio-workspace-stage">
 
             <!-- ===============================================================
@@ -147,7 +166,7 @@
                     <!-- Studio Branding Header -->
                     <div class="login-brand-header">
                         <div class="login-logo-container">
-                            <img src="../assets/aakar-logo.jpg" alt="Aakar Films Logo" class="login-logo-img">
+                            <img src="assets/aakar-logo.jpg" onerror="this.src='../assets/aakar-logo.jpg'; this.onerror=function(){this.src='aakar-logo.jpg';};" alt="Aakar Films Logo" class="login-logo-img">
                         </div>
                         <h1 class="login-title">AAKAR FILMS</h1>
                         <span class="login-tagline">PHOTO STUDIO MASTER CONSOLE</span>
@@ -188,7 +207,7 @@
                             </div>
                         </div>
 
-                        <!-- Password Checklist (Live Feedback) -->
+                        <!-- Password Checklist (Real-time Live Requirement Checklist) -->
                         <div class="password-requirements-card">
                             <div class="requirements-title">
                                 <i class="fa-solid fa-shield-halved"></i>
@@ -205,7 +224,7 @@
                                 </li>
                                 <li class="req-item" id="reqSpecial">
                                     <i class="fa-regular fa-circle-check"></i>
-                                    <span>At least 1 Special Character (!@#$%^&*...)</span>
+                                    <span>At least 1 Special Character (!@#$%...)</span>
                                 </li>
                                 <li class="req-item" id="reqLength">
                                     <i class="fa-regular fa-circle-check"></i>
@@ -233,7 +252,7 @@
 
                     <!-- Return to Customer Site -->
                     <div class="login-footer-nav">
-                        <a href="../index.html" class="back-to-site-link">
+                        <a href="index.html" class="back-to-site-link" id="linkReturnToCustomer">
                             <i class="fa-solid fa-arrow-left"></i>
                             <span>Return to Customer Website</span>
                         </a>
@@ -297,7 +316,16 @@
 
     </div>
 
-    <!-- Admin Dedicated Logic -->
+    <!-- Admin Logic -->
     <script src="admin.js"></script>
+    <script>
+        // Ensure back-to-site link points to correct location
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSubdir = window.location.pathname.includes('/admin');
+            const targetCustomerHref = isSubdir ? '../index.html' : 'index.html';
+            const returnLink = document.getElementById('linkReturnToCustomer');
+            if (returnLink) returnLink.setAttribute('href', targetCustomerHref);
+        });
+    </script>
 </body>
 </html>

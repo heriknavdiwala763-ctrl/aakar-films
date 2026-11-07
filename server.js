@@ -129,7 +129,8 @@ server.listen(PORT, () => {
     console.log(`===============================================`);
     console.log(` AAKAR FILMS Backend Server Running!           `);
     console.log(` Local URL: http://localhost:${PORT}          `);
-    console.log(` Contact Number: +91 63548 96783              `);
+    console.log(` Contact 1: Chaitya Koradiya (+91 63548 96783)   `);
+    console.log(` Contact 2: Shrey Doshi (+91 76219 87470)        `);
     console.log(`===============================================`);
 });
 

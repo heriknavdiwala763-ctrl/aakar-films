@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — AAKAR FILMS</title>
+    
+    <!-- Google Fonts: Cormorant Garamond & Jost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="admin-layout">
+        
+        <!-- ===================================================================
+             SIDEBAR NAVIGATION
+             =================================================================== -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-top">
+                <!-- Studio Brand Block -->
+                <div class="sidebar-brand">
+                    <img src="../assets/aakar-logo.jpg" onerror="this.src='../aakar-logo.jpg'; this.onerror=function(){this.src='aakar-logo.jpg';};" alt="Aakar Films Logo" class="sidebar-logo-img">
+                    <div class="brand-text-block">
+                        <span class="sidebar-title">AAKAR</span>
+                        <span class="sidebar-subtitle">ADMIN PANEL</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="sidebar-menu">
+                    <span class="sidebar-section-label">WORKSPACE</span>
+                    
+                    <!-- Admin Dashboard Workspace (Active) -->
+                    <a href="dashboard.html" class="nav-item active">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Admin Dashboard</span>
+                    </a>
+
+                    <span class="sidebar-section-label">SWITCH VIEW</span>
+
+                    <!-- Customer Dashboard Link (Opens Customer Multi-Slide Website) -->
+                    <a href="../index.html" class="nav-item nav-item-customer-highlight" id="navCustomerDashboardLink" title="Switch to Customer Dashboard">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Customer Dashboard</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Sidebar Footer with User Profile & Logout -->
+            <div class="sidebar-footer">
+                <div class="admin-user-pill">
+                    <div class="user-avatar">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="user-meta">
+                        <span class="user-name">Master Admin</span>
+                        <span class="user-role" id="displayAdminEmail">admin@aakarfilms.com</span>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn-logout" id="btnLogout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>LOGOUT</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ===================================================================
+             MAIN AREA: ADMIN DASHBOARD WORKSPACE (CLEAN CANVAS)
+             =================================================================== -->
+        <main class="admin-main-container">
+            
+            <!-- Workspace Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <h2 class="topbar-title">Admin Dashboard Workspace</h2>
+                </div>
+                <div class="topbar-right">
+                    <a href="../index.html" class="btn-topbar-customer" id="topbarCustomerLink" target="_blank" title="Preview Customer Site">
+                        <i class="fa-regular fa-eye"></i>
+                        <span>Customer Site</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Workspace Clean Canvas Area -->
+            <div class="dashboard-content-area">
+                <div class="admin-canvas-wrapper">
+                    <div class="admin-canvas-box">
+                        <div class="canvas-icon-badge">
+                            <span class="canvas-monogram">Aa</span>
+                        </div>
+                        <h1 class="canvas-title">Admin Dashboard Canvas</h1>
+                        <p class="canvas-desc">
+                            Aa blank page tamara custom admin dashboard mate ready chhe. Tame tamara custom widgets, statistics, booking management ke reports ahi add kari sako chho.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Admin Logic -->
+    <script src="admin.js"></script>
+    <script>
+        // Ensure customer links work whether opened from /admin/ or root
+        document.addEventListener('DOMContentLoaded', () => {
+            const isSubdir = window.location.pathname.includes('/admin');
+            const targetCustomerHref = isSubdir ? '../index.html' : 'index.html';
+            const navLink = document.getElementById('navCustomerDashboardLink');
+            if (navLink) navLink.setAttribute('href', targetCustomerHref);
+            const topLink = document.getElementById('topbarCustomerLink');
+            if (topLink) topLink.setAttribute('href', targetCustomerHref);
+        });
+    </script>
+</body>
+</html>
+
