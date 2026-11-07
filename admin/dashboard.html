@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard — AAKAR FILMS</title>
+    <title>Admin Dashboard — AAKAR FILMS Studio Operations</title>
     
     <!-- Google Fonts: Cormorant Garamond & Jost -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Admin Stylesheet -->
+    <!-- Admin Dedicated Stylesheet -->
     <link rel="stylesheet" href="admin.css">
 </head>
 <body class="dashboard-body">
@@ -34,31 +34,56 @@
                     </div>
                 </div>
 
-                <!-- Navigation Menu -->
+                <!-- Navigation Menu Tabs -->
                 <nav class="sidebar-menu">
-                    <span class="sidebar-section-label">WORKSPACE</span>
+                    <span class="sidebar-section-label">STUDIO OPERATIONS</span>
                     
-                    <!-- Admin Dashboard Workspace (Active) -->
-                    <a href="dashboard.html" class="nav-item active">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <span>Admin Dashboard</span>
-                    </a>
+                    <!-- 1. Overview Tab -->
+                    <button type="button" class="nav-item tab-btn active" data-tab="tab-overview">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Overview</span>
+                    </button>
+
+                    <!-- 2. Bookings & Inquiries CRM -->
+                    <button type="button" class="nav-item tab-btn" data-tab="tab-bookings">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>All Bookings</span>
+                        <span class="badge-tag" id="badgeBookingCount">0</span>
+                    </button>
+
+                    <!-- 3. Shoots Schedule Calendar -->
+                    <button type="button" class="nav-item tab-btn" data-tab="tab-schedule">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span>Shoots Schedule</span>
+                    </button>
+
+                    <!-- 4. Studio Packages -->
+                    <button type="button" class="nav-item tab-btn" data-tab="tab-packages">
+                        <i class="fa-solid fa-gem"></i>
+                        <span>Studio Packages</span>
+                    </button>
+
+                    <!-- 5. Gear & Crew Status -->
+                    <button type="button" class="nav-item tab-btn" data-tab="tab-crew">
+                        <i class="fa-solid fa-film"></i>
+                        <span>Gear & Crew</span>
+                    </button>
 
                     <span class="sidebar-section-label">SWITCH VIEW</span>
 
-                    <!-- Customer Dashboard Link (Opens Customer Multi-Slide Website) -->
-                    <a href="../index.html" class="nav-item nav-item-customer-highlight" id="navCustomerDashboardLink" title="Switch to Customer Dashboard">
+                    <!-- Return to Customer Site -->
+                    <a href="../index.html" class="nav-item nav-item-customer-highlight" id="navCustomerDashboardLink" title="Switch to Customer Website" target="_blank">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         <span>Customer Dashboard</span>
                     </a>
                 </nav>
             </div>
 
-            <!-- Sidebar Footer with User Profile & Logout -->
+            <!-- Sidebar Footer with User Details & Logout -->
             <div class="sidebar-footer">
                 <div class="admin-user-pill">
                     <div class="user-avatar">
-                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-camera"></i>
                     </div>
                     <div class="user-meta">
                         <span class="user-name">Master Admin</span>
@@ -74,17 +99,33 @@
         </aside>
 
         <!-- ===================================================================
-             MAIN AREA: ADMIN DASHBOARD WORKSPACE (CLEAN CANVAS)
+             MAIN AREA: STUDIO DASHBOARD
              =================================================================== -->
         <main class="admin-main-container">
             
-            <!-- Workspace Topbar -->
+            <!-- Global Dashboard Topbar -->
             <header class="admin-topbar">
                 <div class="topbar-left">
-                    <h2 class="topbar-title">Admin Dashboard Workspace</h2>
+                    <div>
+                        <span class="topbar-kicker">STUDIO WORKSPACE & CRM</span>
+                        <h2 class="topbar-title" id="pageHeaderTitle">Studio Operations Hub</h2>
+                    </div>
                 </div>
                 <div class="topbar-right">
-                    <a href="../index.html" class="btn-topbar-customer" id="topbarCustomerLink" target="_blank" title="Preview Customer Site">
+                    <!-- Real-time Clock -->
+                    <div class="topbar-clock">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="liveClockText">Live Clock</span>
+                    </div>
+
+                    <!-- Quick Add Shoot Button -->
+                    <button type="button" class="btn-primary-action" id="btnOpenNewBookingModal">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>New Booking</span>
+                    </button>
+
+                    <!-- Customer Site Button -->
+                    <a href="../index.html" class="btn-topbar-customer" id="topbarCustomerLink" target="_blank" title="View Customer Website">
                         <i class="fa-regular fa-eye"></i>
                         <span>Customer Site</span>
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -92,23 +133,656 @@
                 </div>
             </header>
 
-            <!-- Workspace Clean Canvas Area -->
+            <!-- Dashboard Dynamic Tab Views Container -->
             <div class="dashboard-content-area">
-                <div class="admin-canvas-wrapper">
-                    <div class="admin-canvas-box">
-                        <div class="canvas-icon-badge">
-                            <span class="canvas-monogram">Aa</span>
+
+                <!-- ===============================================================
+                     TAB 1: OVERVIEW & ANALYTICS (DEFAULT)
+                     =============================================================== -->
+                <section class="tab-pane active" id="tab-overview">
+                    
+                    <!-- KPI Metric Cards Grid -->
+                    <div class="kpi-metrics-grid">
+                        
+                        <!-- 1. Total Bookings -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">TOTAL INQUIRIES</span>
+                                <div class="metric-icon-box bg-rose-light">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value-row">
+                                <h3 class="metric-value" id="kpiTotalBookings">0</h3>
+                                <span class="metric-growth positive"><i class="fa-solid fa-arrow-trend-up"></i> +18%</span>
+                            </div>
+                            <p class="metric-caption">Active inquiries & dates reserved</p>
                         </div>
-                        <h1 class="canvas-title">Admin Dashboard Canvas</h1>
-                        <p class="canvas-desc">
-                            Aa blank page tamara custom admin dashboard mate ready chhe. Tame tamara custom widgets, statistics, booking management ke reports ahi add kari sako chho.
-                        </p>
+
+                        <!-- 2. Confirmed Revenue -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">PIPELINE VALUE</span>
+                                <div class="metric-icon-box bg-gold-light">
+                                    <i class="fa-solid fa-coins"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value-row">
+                                <h3 class="metric-value" id="kpiTotalRevenue">₹0</h3>
+                                <span class="metric-badge">Season 2026</span>
+                            </div>
+                            <p class="metric-caption">Estimated booked assignments</p>
+                        </div>
+
+                        <!-- 3. Scheduled Shoots -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">UPCOMING SHOOTS</span>
+                                <div class="metric-icon-box bg-blue-light">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value-row">
+                                <h3 class="metric-value" id="kpiShootsThisMonth">0</h3>
+                                <span class="metric-growth positive">On Schedule</span>
+                            </div>
+                            <p class="metric-caption">Confirmed dates in calendar</p>
+                        </div>
+
+                        <!-- 4. Client Satisfaction -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">CLIENT RATING</span>
+                                <div class="metric-icon-box bg-pink-light">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="metric-value-row">
+                                <h3 class="metric-value">4.95</h3>
+                                <span class="metric-growth positive">★★★★★</span>
+                            </div>
+                            <p class="metric-caption">Based on 140+ couple reviews</p>
+                        </div>
+
                     </div>
-                </div>
+
+                    <!-- Dual Grid: Recent Bookings Table & Studio Call Sheet -->
+                    <div class="overview-dual-grid">
+                        
+                        <!-- Left: Recent 5 Bookings Table -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <div>
+                                    <h4 class="card-heading">Recent Booking Inquiries</h4>
+                                    <p class="card-subheading">Latest inquiries captured from customer website</p>
+                                </div>
+                                <button type="button" class="btn-text-action" id="btnViewAllBookings">
+                                    <span>View All</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="studio-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Client</th>
+                                            <th>Shoot Type</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="overviewRecentTableBody">
+                                        <!-- Dynamically generated rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Call Sheet & Studio Target -->
+                        <div>
+                            <!-- Today's Studio Call Sheet -->
+                            <div class="dash-card">
+                                <div class="dash-card-header">
+                                    <div>
+                                        <h4 class="card-heading">Today's Call Sheet</h4>
+                                        <p class="card-subheading">Active production & crew assignment</p>
+                                    </div>
+                                    <span class="metric-badge" style="background:#E8F5E9; color:#2E7D32;">LIVE</span>
+                                </div>
+
+                                <div class="schedule-meta" style="margin-bottom: 0;">
+                                    <span><i class="fa-solid fa-crown" style="color:var(--color-rose-dark);"></i> <strong>Dev & Riya Royal Wedding</strong></span>
+                                    <span><i class="fa-solid fa-location-dot"></i> The Oberoi Udaivilas, Udaipur</span>
+                                    <span><i class="fa-solid fa-user-tie"></i> Lead: Chaitya Koradiya (+91 63548 96783)</span>
+                                    <span><i class="fa-solid fa-helicopter"></i> Drone Master: Shrey Doshi (+91 76219 87470)</span>
+                                    <span><i class="fa-solid fa-film"></i> Gear: Sony FX3 4K + 85mm GM + Mavic 3 Cine</span>
+                                </div>
+                            </div>
+
+                            <!-- Category Volume Distribution -->
+                            <div class="dash-card">
+                                <div class="dash-card-header">
+                                    <div>
+                                        <h4 class="card-heading">Service Distribution</h4>
+                                        <p class="card-subheading">Demand across photography categories</p>
+                                    </div>
+                                </div>
+
+                                <div class="category-bars-list">
+                                    <div class="cat-bar-item">
+                                        <div class="cat-bar-meta">
+                                            <span>Royal Wedding Photography</span>
+                                            <span class="cat-pct">54%</span>
+                                        </div>
+                                        <div class="cat-progress">
+                                            <div class="cat-fill" style="width: 54%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cat-bar-item">
+                                        <div class="cat-bar-meta">
+                                            <span>Pre-Wedding Cinematic Shoots</span>
+                                            <span class="cat-pct">28%</span>
+                                        </div>
+                                        <div class="cat-progress">
+                                            <div class="cat-fill bg-rose" style="width: 28%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cat-bar-item">
+                                        <div class="cat-bar-meta">
+                                            <span>Maternity & Baby Milestones</span>
+                                            <span class="cat-pct">12%</span>
+                                        </div>
+                                        <div class="cat-progress">
+                                            <div class="cat-fill bg-gold" style="width: 12%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cat-bar-item">
+                                        <div class="cat-bar-meta">
+                                            <span>Fashion & Commercial Editorial</span>
+                                            <span class="cat-pct">6%</span>
+                                        </div>
+                                        <div class="cat-progress">
+                                            <div class="cat-fill bg-blue" style="width: 6%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick WhatsApp Test Message Hub -->
+                            <div class="dash-card whatsapp-hub-card">
+                                <div class="wa-hub-header">
+                                    <i class="fa-brands fa-whatsapp wa-big-icon"></i>
+                                    <div>
+                                        <h5>Direct WhatsApp Chat Hub</h5>
+                                        <p>Quick message any client or crew member</p>
+                                    </div>
+                                </div>
+                                <div class="wa-hub-input-row">
+                                    <input type="tel" id="waQuickPhone" placeholder="Enter 10-digit number" class="wa-input" value="6354896783">
+                                    <button type="button" class="btn-wa-send" id="btnWaQuickSend" title="Open WhatsApp Chat">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ===============================================================
+                     TAB 2: ALL BOOKINGS CRM (FULL TABLE, SEARCH, FILTER, EXPORT)
+                     =============================================================== -->
+                <section class="tab-pane" id="tab-bookings">
+                    
+                    <div class="dash-card full-table-card">
+                        
+                        <!-- Toolbar -->
+                        <div class="table-toolbar">
+                            <div class="toolbar-search">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" id="crmSearchInput" class="search-input" placeholder="Search by client name, phone, city, or shoot type...">
+                            </div>
+
+                            <div class="toolbar-filters">
+                                <select id="crmStatusFilter" class="filter-select">
+                                    <option value="ALL">All Statuses</option>
+                                    <option value="Confirmed">Confirmed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Completed">Completed</option>
+                                </select>
+
+                                <button type="button" class="btn-secondary-action" id="btnExportCSV" title="Export Bookings to CSV">
+                                    <i class="fa-solid fa-file-csv"></i>
+                                    <span>Export CSV</span>
+                                </button>
+
+                                <button type="button" class="btn-primary-action" id="btnOpenNewBookingModal2">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <span>New Booking</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="studio-table">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Client Name & Contact</th>
+                                        <th>Shoot Type</th>
+                                        <th>Shoot Date</th>
+                                        <th>City / Location</th>
+                                        <th>Est. Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="crmBookingsTableBody">
+                                    <!-- Populated dynamically via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ===============================================================
+                     TAB 3: SHOOTS SCHEDULE CALENDAR
+                     =============================================================== -->
+                <section class="tab-pane" id="tab-schedule">
+                    
+                    <div class="schedule-grid">
+                        
+                        <!-- Shoot 1 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Nov 18, 2026 • 09:00 AM</span>
+                                <h4 class="schedule-title">Rohan & Ananya Sharma</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Pre-Wedding Cinematic Teaser</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> City Palace & Lake Pichola, Udaipur</span>
+                                    <span><i class="fa-solid fa-camera"></i> Sony FX3 + 85mm GM Prime</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 98251 64720</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Lead: Chaitya Koradiya</span>
+                                <span class="status-pill status-confirmed">Confirmed</span>
+                            </div>
+                        </div>
+
+                        <!-- Shoot 2 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Nov 24, 2026 • Full Day</span>
+                                <h4 class="schedule-title">Priya & Dev Patel</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Royal Heritage Wedding & Sangeet</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> The Oberoi Udaivilas, Udaipur</span>
+                                    <span><i class="fa-solid fa-helicopter"></i> Dual FX3 + DJI Mavic 3 Cine Drone</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 98982 34110</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Drone Master: Shrey Doshi</span>
+                                <span class="status-pill status-confirmed">Confirmed</span>
+                            </div>
+                        </div>
+
+                        <!-- Shoot 3 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Dec 02, 2026 • 02:00 PM</span>
+                                <h4 class="schedule-title">Dr. Pooja & Harshil Desai</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Maternity & Heirloom Baby Session</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> Aakar Signature Studio, Ahmedabad</span>
+                                    <span><i class="fa-solid fa-camera"></i> Sony A7S III + Profoto Softbox Light</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 97123 45678</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Studio Master: Chaitya K.</span>
+                                <span class="status-pill status-confirmed">Confirmed</span>
+                            </div>
+                        </div>
+
+                        <!-- Shoot 4 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Dec 08, 2026 • Golden Hour</span>
+                                <h4 class="schedule-title">Sneha & Karan Mehta</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Sunset Pre-Wedding Story</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> White Desert, Rann of Kutch</span>
+                                    <span><i class="fa-solid fa-camera"></i> Sony FX3 + DJI Ronin Gimbal</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 98240 11223</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Creative Team: Chaitya & Shrey</span>
+                                <span class="status-pill status-pending">Pending Advance</span>
+                            </div>
+                        </div>
+
+                        <!-- Shoot 5 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Dec 15, 2026 • 3 Days</span>
+                                <h4 class="schedule-title">Vikram & Natasha Joshi</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Platinum Imperial Destination Wedding</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> Fairmont Jaipur, Rajasthan</span>
+                                    <span><i class="fa-solid fa-film"></i> Full 6-Member Elite Crew & Drone</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 99099 88776</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Director: Chaitya Koradiya</span>
+                                <span class="status-pill status-confirmed">Confirmed</span>
+                            </div>
+                        </div>
+
+                        <!-- Shoot 6 -->
+                        <div class="schedule-card">
+                            <div>
+                                <span class="schedule-date-badge"><i class="fa-regular fa-calendar"></i> Dec 22, 2026 • 11:00 AM</span>
+                                <h4 class="schedule-title">Aarav Singhania</h4>
+                                <div class="schedule-meta">
+                                    <span><i class="fa-solid fa-gem"></i> Designer Fashion Lookbook</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> Heritage Haveli, Ahmedabad</span>
+                                    <span><i class="fa-solid fa-camera"></i> 50mm f/1.2 Prime Editorial</span>
+                                    <span><i class="fa-brands fa-whatsapp"></i> +91 97234 56789</span>
+                                </div>
+                            </div>
+                            <div class="schedule-footer">
+                                <span class="schedule-photographer">Colorist: Shrey Doshi</span>
+                                <span class="status-pill status-completed">Completed</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ===============================================================
+                     TAB 4: STUDIO PACKAGES & PRICING
+                     =============================================================== -->
+                <section class="tab-pane" id="tab-packages">
+                    
+                    <div class="packages-grid">
+                        
+                        <!-- Package 1: Silver Classic -->
+                        <div class="package-card">
+                            <span class="package-badge">POPULAR</span>
+                            <h4 class="package-name">Silver Classic</h4>
+                            <div class="package-price">₹45,000 <span>/ Day</span></div>
+                            <p class="package-desc">Ideal for intimate weddings, pre-wedding, maternity & milestones.</p>
+                            <ul class="package-features">
+                                <li><i class="fa-solid fa-check"></i> 1 Cinematographer & 1 Photographer</li>
+                                <li><i class="fa-solid fa-check"></i> 250+ Master Color-Graded Photos</li>
+                                <li><i class="fa-solid fa-check"></i> 3-5 Min 4K Cinematic Highlight Reel</li>
+                                <li><i class="fa-solid fa-check"></i> Private 4K Online Cloud Gallery (1 Year)</li>
+                                <li><i class="fa-solid fa-check"></i> 48-Hour Sneak Peek Teaser Delivery</li>
+                            </ul>
+                        </div>
+
+                        <!-- Package 2: Gold Royal Heritage (Featured) -->
+                        <div class="package-card featured">
+                            <span class="package-badge">MOST BOOKED</span>
+                            <h4 class="package-name">Gold Royal Heritage</h4>
+                            <div class="package-price">₹1,25,000 <span>/ 2 Days</span></div>
+                            <p class="package-desc">Complete 2-day royal wedding, Sangeet, and ceremonial coverage.</p>
+                            <ul class="package-features">
+                                <li><i class="fa-solid fa-check"></i> 2 Cinematographers & 2 Candid Masters</li>
+                                <li><i class="fa-solid fa-check"></i> 4K Drone Aerial Cinematography Included</li>
+                                <li><i class="fa-solid fa-check"></i> 600+ Master Color-Graded Photos</li>
+                                <li><i class="fa-solid fa-check"></i> 15-20 Min 4K Film + 60s Instagram Reel</li>
+                                <li><i class="fa-solid fa-check"></i> Italian Leather Heirloom Album (40 Pages)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Package 3: Platinum Imperial VIP -->
+                        <div class="package-card">
+                            <span class="package-badge">DESTINATION VIP</span>
+                            <h4 class="package-name">Platinum Imperial VIP</h4>
+                            <div class="package-price">₹2,50,000 <span>/ 3-4 Days</span></div>
+                            <p class="package-desc">Royal destination celebrations (Udaipur, Jaipur, Goa, Kerala).</p>
+                            <ul class="package-features">
+                                <li><i class="fa-solid fa-check"></i> 6-Member Elite Crew & Lead Director</li>
+                                <li><i class="fa-solid fa-check"></i> Feature Film + Traditional Docu-Cut</li>
+                                <li><i class="fa-solid fa-check"></i> Unlimited 4K Drone Aerial Coverage</li>
+                                <li><i class="fa-solid fa-check"></i> 2 Crystal Albums + 2 Parent Mini Albums</li>
+                                <li><i class="fa-solid fa-check"></i> Raw Footage on Custom Engraved Wood SSD</li>
+                            </ul>
+                        </div>
+
+                        <!-- Package 4: Custom Bespoke Commission -->
+                        <div class="package-card">
+                            <span class="package-badge">CUSTOM</span>
+                            <h4 class="package-name">Bespoke Commission</h4>
+                            <div class="package-price">₹ Custom <span>/ Project</span></div>
+                            <p class="package-desc">Tailor-made itineraries for multi-destination celebrity shoots.</p>
+                            <ul class="package-features">
+                                <li><i class="fa-solid fa-check"></i> Flexible Crew Count (1 to 10 Specialists)</li>
+                                <li><i class="fa-solid fa-check"></i> DaVinci Resolve Master Color Grading</li>
+                                <li><i class="fa-solid fa-check"></i> Multi-Camera Wireless Audio & Lighting</li>
+                                <li><i class="fa-solid fa-check"></i> International Travel Ready Crew</li>
+                                <li><i class="fa-solid fa-check"></i> Express 24-Hour Social Reel Delivery</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ===============================================================
+                     TAB 5: GEAR & CREW STATUS
+                     =============================================================== -->
+                <section class="tab-pane" id="tab-crew">
+                    
+                    <div class="crew-dual-grid">
+                        
+                        <!-- Studio Cinematographers & Team -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <div>
+                                    <h4 class="card-heading">Studio Creative Crew</h4>
+                                    <p class="card-subheading">Cinematographers, photographers & editors</p>
+                                </div>
+                                <span class="metric-badge">4 Specialists</span>
+                            </div>
+
+                            <div class="crew-list">
+                                <div class="crew-item">
+                                    <div class="crew-avatar">CK</div>
+                                    <div class="crew-details">
+                                        <strong>Chaitya Koradiya</strong>
+                                        <span>Lead Cinematographer & Creative Director • +91 63548 96783</span>
+                                    </div>
+                                    <span class="crew-role" style="color:#BA3862; border-color:#BA3862;">Lead Director</span>
+                                </div>
+
+                                <div class="crew-item">
+                                    <div class="crew-avatar">SD</div>
+                                    <div class="crew-details">
+                                        <strong>Shrey Doshi</strong>
+                                        <span>Senior Aerial Drone Pilot & Master Colorist • +91 76219 87470</span>
+                                    </div>
+                                    <span class="crew-role" style="color:#2E7D32; border-color:#2E7D32;">Drone & Colorist</span>
+                                </div>
+
+                                <div class="crew-item">
+                                    <div class="crew-avatar">RP</div>
+                                    <div class="crew-details">
+                                        <strong>Rishi Panchal</strong>
+                                        <span>Senior Candid Wedding Photographer</span>
+                                    </div>
+                                    <span class="crew-role">Candid Master</span>
+                                </div>
+
+                                <div class="crew-item">
+                                    <div class="crew-avatar">KV</div>
+                                    <div class="crew-details">
+                                        <strong>Karan Vora</strong>
+                                        <span>Lighting Artist & Sound Engineer</span>
+                                    </div>
+                                    <span class="crew-role">Audio / Lighting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Camera & Gear Inventory -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <div>
+                                    <h4 class="card-heading">Gear & Camera Inventory</h4>
+                                    <p class="card-subheading">Production equipment ready for deployment</p>
+                                </div>
+                                <span class="metric-badge" style="background:#E8F5E9; color:#2E7D32;">ALL OPERATIONAL</span>
+                            </div>
+
+                            <div class="gear-list">
+                                <div class="gear-row">
+                                    <div class="gear-meta">
+                                        <i class="fa-solid fa-video gear-icon"></i>
+                                        <div>
+                                            <strong>Sony FX3 Full-Frame Cinema Line (Unit A & B)</strong>
+                                            <span>4K 120fps • S-Cinetone • 16-Bit RAW Output</span>
+                                        </div>
+                                    </div>
+                                    <span class="gear-status status-ready">Active on Shoot</span>
+                                </div>
+
+                                <div class="gear-row">
+                                    <div class="gear-meta">
+                                        <i class="fa-solid fa-camera-retro gear-icon"></i>
+                                        <div>
+                                            <strong>Sony A7S III Mirrorless Camera Body</strong>
+                                            <span>Low-light Specialist • Dual Base ISO</span>
+                                        </div>
+                                    </div>
+                                    <span class="gear-status status-ready">In Studio</span>
+                                </div>
+
+                                <div class="gear-row">
+                                    <div class="gear-meta">
+                                        <i class="fa-solid fa-helicopter gear-icon"></i>
+                                        <div>
+                                            <strong>DJI Mavic 3 Pro Cine Drone</strong>
+                                            <span>Triple Camera System • Apple ProRes • 4K HDR</span>
+                                        </div>
+                                    </div>
+                                    <span class="gear-status status-ready">Checked Out (Shrey)</span>
+                                </div>
+
+                                <div class="gear-row">
+                                    <div class="gear-meta">
+                                        <i class="fa-solid fa-circle-dot gear-icon"></i>
+                                        <div>
+                                            <strong>Sony G-Master Prime Lens Set (24mm, 50mm, 85mm)</strong>
+                                            <span>ƒ/1.2 & ƒ/1.4 Ultra-fast Aperture</span>
+                                        </div>
+                                    </div>
+                                    <span class="gear-status status-ready">Ready</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
             </div>
 
         </main>
 
+    </div>
+
+    <!-- =======================================================================
+         MODAL: "+ NEW BOOKING" (CREATE OR ADD INQUIRY)
+         ======================================================================= -->
+    <div class="admin-modal-backdrop" id="adminNewBookingModal">
+        <div class="admin-modal-card">
+            <div class="modal-card-header">
+                <h3><i class="fa-solid fa-calendar-plus" style="color:var(--color-rose-dark);"></i> Add New Photo Shoot Booking</h3>
+                <button type="button" class="btn-modal-close" id="btnCloseNewBookingModal">&times;</button>
+            </div>
+            <form id="adminNewBookingForm" class="modal-form">
+                <div class="modal-form-row">
+                    <div class="form-group">
+                        <label class="form-label">Client Full Name *</label>
+                        <input type="text" id="modalClientName" class="form-input" placeholder="e.g. Pooja & Meet Shah" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone / WhatsApp Number *</label>
+                        <input type="tel" id="modalClientPhone" class="form-input" placeholder="e.g. 9825012345" required>
+                    </div>
+                </div>
+
+                <div class="modal-form-row">
+                    <div class="form-group">
+                        <label class="form-label">Shoot Date *</label>
+                        <input type="date" id="modalShootDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Service / Shoot Type *</label>
+                        <select id="modalShootType" class="form-input">
+                            <option value="Wedding Photography">Wedding Photography</option>
+                            <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
+                            <option value="Birthday Photography">Birthday Photography</option>
+                            <option value="Maternity Shoot">Maternity Shoot</option>
+                            <option value="Baby Photography">Baby Photography</option>
+                            <option value="Fashion Photography">Fashion Photography</option>
+                            <option value="Silver Classic (₹45,000)">Silver Classic (₹45,000)</option>
+                            <option value="Gold Royal Heritage (₹1,25,000)">Gold Royal Heritage (₹1,25,000)</option>
+                            <option value="Platinum Imperial VIP (₹2,50,000)">Platinum Imperial VIP (₹2,50,000)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-form-row">
+                    <div class="form-group">
+                        <label class="form-label">City / Venue Location</label>
+                        <input type="text" id="modalShootLocation" class="form-input" placeholder="e.g. Udaipur, Ahmedabad, Jaipur">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Estimated Amount (₹)</label>
+                        <input type="text" id="modalShootAmount" class="form-input" placeholder="e.g. ₹1,25,000">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">Initial Booking Status</label>
+                    <select id="modalShootStatus" class="form-input">
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="modal-form-actions">
+                    <button type="button" class="btn-cancel" id="btnCancelNewBooking">Cancel</button>
+                    <button type="submit" class="btn-confirm-save">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Save Booking</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Admin Logic -->
@@ -126,4 +800,3 @@
     </script>
 </body>
 </html>
-

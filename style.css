@@ -171,25 +171,52 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: var(--color-text-main);
-    padding: 8px 18px;
+    padding: 6px 14px;
     border: 1px solid var(--color-border);
-    border-radius: 30px;
+    border-radius: 26px;
     background-color: #FFFFFF;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.header-wa-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.15;
+}
+
+.header-wa-number {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-text-main);
+    transition: var(--transition);
+}
+
+.header-wa-name {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-rose-dark);
     transition: var(--transition);
 }
 
 .header-whatsapp-link i {
     color: var(--color-whatsapp);
-    font-size: 1rem;
+    font-size: 1.1rem;
+    transition: var(--transition);
 }
 
 .header-whatsapp-link:hover {
     border-color: var(--color-whatsapp);
     background-color: var(--color-whatsapp);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.header-whatsapp-link:hover .header-wa-number,
+.header-whatsapp-link:hover .header-wa-name {
     color: #FFFFFF;
 }
 
@@ -323,12 +350,12 @@ button {
 
 .page-slider-track {
     display: flex;
-    width: 300%;
+    width: 400%;
     transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .page-slide {
-    width: calc(100% / 3);
+    width: 25%;
     flex-shrink: 0;
     box-sizing: border-box;
     background-color: var(--bg-primary);
@@ -1443,6 +1470,7 @@ button {
         font-size: 0.58rem;
     }
 
+    .header-whatsapp-link .header-wa-text,
     .header-whatsapp-link span {
         display: none;
     }
@@ -1618,4 +1646,768 @@ button {
         grid-template-columns: 1fr;
         gap: 0;
     }
+
+    /* Slide 4 Responsive Adjustments */
+    .connect-studio-content {
+        padding: 30px 16px 80px;
+    }
+
+    .calc-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .calculator-glass-card {
+        padding: 22px 16px;
+    }
+
+    .directors-dual-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .director-card {
+        padding: 22px 18px;
+    }
+
+    .studio-lounge-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .studio-amenities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inpage-form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .inpage-booking-card {
+        padding: 24px 16px;
+    }
+
+    .insta-film-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* ==========================================================================
+   5.3 Slide 4: Studio Connect, Estimator, Directors & Flagship Lounge
+   ========================================================================== */
+.connect-studio-content {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 40px 36px 100px;
+    box-sizing: border-box;
+}
+
+/* 1. Calculator Styles */
+.calculator-glass-card {
+    background: rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(222, 104, 142, 0.1), inset 0 1px 2px rgba(255, 255, 255, 1);
+    padding: 36px;
+    margin-bottom: 20px;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.calc-group {
+    margin-bottom: 24px;
+}
+
+.calc-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.calc-label i {
+    color: var(--color-rose-dark);
+}
+
+.calc-tier-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calc-tier-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.calc-tier-card input {
+    display: none;
+}
+
+.calc-tier-card:hover,
+.calc-tier-card.active {
+    border-color: var(--color-rose);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 237, 243, 0.92) 100%);
+    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.14), inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.tier-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(222, 104, 142, 0.15);
+    color: var(--color-rose-dark);
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.tier-name {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.tier-sub {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--color-text-muted);
+}
+
+.tier-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-rose-dark);
+    font-family: var(--font-serif);
+}
+
+.calc-addons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.addon-checkbox-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    transition: var(--transition);
+    gap: 12px;
+}
+
+.addon-checkbox-card input[type="checkbox"] {
+    accent-color: var(--color-rose-dark);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.addon-checkbox-card:hover,
+.addon-checkbox-card:has(input:checked) {
+    border-color: rgba(222, 104, 142, 0.5);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.08);
+}
+
+.addon-title {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.addon-title i {
+    color: var(--color-rose-dark);
+    margin-right: 4px;
+}
+
+.addon-sub {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+}
+
+.addon-cost {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-rose-dark);
+    flex-shrink: 0;
+}
+
+/* Summary Card */
+.calc-summary-glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 240, 245, 0.95) 100%);
+    border: 1.5px solid rgba(222, 104, 142, 0.35);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 16px 40px rgba(222, 104, 142, 0.15), inset 0 1.5px 2px rgba(255, 255, 255, 1);
+    position: sticky;
+    top: 30px;
+}
+
+.summary-badge {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--color-rose-dark);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.summary-heading {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
+}
+
+.summary-divider {
+    height: 1px;
+    background: rgba(236, 215, 223, 0.8);
+    margin: 14px 0;
+}
+
+.summary-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.summary-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-text-main);
+    padding: 3px 0;
+}
+
+.summary-item-row span:last-child {
+    font-weight: 600;
+    color: var(--color-rose-dark);
+}
+
+.summary-total-box {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(222, 104, 142, 0.35);
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.total-caption {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.total-figure {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-rose-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+    transition: var(--transition);
+}
+
+.total-note {
+    font-size: 0.68rem;
+    color: var(--color-text-light);
+}
+
+.summary-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 2. Directors Dual Grid */
+.directors-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.director-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 16px 45px rgba(222, 104, 142, 0.1);
+    padding: 32px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.director-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 55px rgba(222, 104, 142, 0.18);
+    border-color: rgba(222, 104, 142, 0.4);
+}
+
+.director-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.director-avatar-wrap {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.director-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-rose);
+}
+
+.director-online-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #25D366;
+    border: 2px solid #FFFFFF;
+}
+
+.director-role-tag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--color-rose-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.director-name {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 2px;
+}
+
+.director-phone {
+    font-size: 0.78rem;
+    color: #25D366;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.director-bio {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.director-stats-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-top: 1px solid rgba(236, 215, 223, 0.6);
+    border-bottom: 1px solid rgba(236, 215, 223, 0.6);
+    margin-bottom: 20px;
+}
+
+.d-stat {
+    text-align: center;
+}
+
+.d-stat strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.d-stat span {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+}
+
+.director-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-director-wa {
+    flex-grow: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #25D366;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-director-wa:hover {
+    background: #1EBE5B;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-director-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-director-call:hover {
+    background: var(--bg-pink);
+    border-color: var(--color-rose);
+    color: var(--color-rose-dark);
+}
+
+/* 3. Studio Lounge & Flagship Experience Center */
+.studio-lounge-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.6fr;
+    gap: 28px;
+}
+
+.studio-location-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 16px 45px rgba(222, 104, 142, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.location-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.location-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(222, 104, 142, 0.15);
+    color: var(--color-rose-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    border: 1px solid rgba(222, 104, 142, 0.25);
+}
+
+.location-kicker {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-rose-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.location-name {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.location-address-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.location-address-box i {
+    color: var(--color-rose-dark);
+    width: 16px;
+}
+
+.location-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-location-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid var(--color-rose);
+    color: var(--color-rose-dark);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-location-map:hover {
+    background: var(--color-rose);
+    color: #FFFFFF;
+}
+
+.studio-amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.amenity-item {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.06);
+    transition: var(--transition);
+}
+
+.amenity-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(222, 104, 142, 0.4);
+    box-shadow: 0 12px 30px rgba(222, 104, 142, 0.12);
+}
+
+.amenity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(222, 104, 142, 0.12);
+    color: var(--color-rose-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+}
+
+.amenity-item h5 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.amenity-item p {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* 4. In-Page VIP Reservation Suite */
+.inpage-booking-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 20px 60px rgba(222, 104, 142, 0.12);
+}
+
+.inpage-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.inpage-form .form-group label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.inpage-form .form-group label i {
+    color: var(--color-rose-dark);
+    margin-right: 4px;
+}
+
+.inpage-form input,
+.inpage-form select,
+.inpage-form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.84rem;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.inpage-form input:focus,
+.inpage-form select:focus,
+.inpage-form textarea:focus {
+    border-color: var(--color-rose);
+    box-shadow: 0 0 0 3px rgba(222, 104, 142, 0.15);
+    background: #FFFFFF;
+}
+
+.inpage-submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.inpage-guarantee {
+    font-size: 0.72rem;
+    color: var(--color-text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.inpage-guarantee i {
+    color: #2E7D32;
+}
+
+/* 5. Instagram Film Grid */
+.insta-film-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+}
+
+.insta-film-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: var(--transition);
+    display: block;
+}
+
+.insta-film-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 28px rgba(222, 104, 142, 0.25);
+}
+
+.insta-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.insta-film-card:hover .insta-img {
+    transform: scale(1.1);
+}
+
+.insta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(38, 35, 32, 0.8) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    gap: 6px;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.insta-film-card:hover .insta-overlay {
+    opacity: 1;
 }

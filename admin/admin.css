@@ -886,20 +886,172 @@ button {
 
 /* ==========================================================================
    2. ADMIN DASHBOARD STYLING (admin/dashboard.html)
-   Clean, blank dashboard workspace with Customer Dashboard switcher
+   Aesthetic: Ultra-Luxurious Glassmorphism (Frosted Glass), Soft Light Pink Palette,
+   Crystal Specular Highlights, Interactive Click Sheen & Tactile Waves
    ========================================================================== */
+
+.dashboard-body {
+    background-color: var(--bg-pink);
+    background: radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(252, 232, 238, 0.95) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(253, 240, 244, 0.9) 0%, transparent 50%),
+                var(--bg-pink);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ambient Optical Glowing Orbs behind the Glass */
 .admin-layout {
     display: flex;
     min-height: 100vh;
     width: 100%;
+    position: relative;
 }
 
-/* Sidebar Navigation */
+.admin-layout::before {
+    content: '';
+    position: fixed;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(222, 104, 142, 0.18) 0%, rgba(252, 232, 238, 0.08) 55%, transparent 75%);
+    top: -120px;
+    right: 8%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(45px);
+}
+
+.admin-layout::after {
+    content: '';
+    position: fixed;
+    width: 580px;
+    height: 580px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 173, 152, 0.22) 0%, rgba(253, 240, 244, 0.06) 55%, transparent 75%);
+    bottom: -150px;
+    left: 18%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(55px);
+}
+
+/* ==========================================================================
+   GLASSMORPHISM CORE & INTERACTIVE CLICK UTILITIES
+   ========================================================================== */
+.glass-interactive {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.glass-interactive:hover {
+    transform: translateY(-3px);
+    border-color: rgba(222, 104, 142, 0.45) !important;
+    box-shadow: 0 14px 35px rgba(222, 104, 142, 0.12), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+}
+
+/* Glass Sheen Light Beam */
+.glass-sheen-beam {
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.35) 30%,
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(255, 255, 255, 0.35) 70%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes glassSheenBeam {
+    0% {
+        left: -130%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.9;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        left: 230%;
+        opacity: 0;
+    }
+}
+
+.trigger-sheen .glass-sheen-beam {
+    animation: glassSheenBeam 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Circular Crystal Ripple on Click */
+.glass-ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: glassRippleAnim 0.65s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(222, 104, 142, 0.35) 45%, rgba(255, 255, 255, 0) 70%);
+    box-shadow: 0 0 24px rgba(222, 104, 142, 0.45);
+    pointer-events: none;
+    z-index: 9;
+}
+
+@keyframes glassRippleAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* Pressed Crystal Active State */
+.glassy-clicked {
+    border-color: rgba(222, 104, 142, 0.8) !important;
+    box-shadow: 0 0 0 3px rgba(222, 104, 142, 0.32), inset 0 0 24px rgba(255, 255, 255, 0.95), 0 16px 40px rgba(222, 104, 142, 0.24) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    transform: scale(0.985) translateY(-2px) !important;
+}
+
+/* Persistent Selected Feature Highlight */
+.glassy-selected {
+    border-color: var(--color-rose) !important;
+    box-shadow: 0 0 0 2px rgba(222, 104, 142, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 1), 0 14px 35px rgba(222, 104, 142, 0.18) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 240, 244, 0.92) 100%) !important;
+}
+
+/* Active Row in Studio Table */
+.glassy-row-active {
+    background: linear-gradient(90deg, rgba(252, 232, 238, 0.75) 0%, rgba(255, 255, 255, 0.8) 100%) !important;
+    box-shadow: inset 3px 0 0 var(--color-rose-dark), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   SIDEBAR NAVIGATION (Frosted Glass Panel)
+   ========================================================================== */
 .admin-sidebar {
     width: 280px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border-right: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    border-right: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow: 4px 0 28px rgba(222, 104, 142, 0.06), inset -1px 0 0 rgba(255, 255, 255, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -908,6 +1060,7 @@ button {
     position: sticky;
     top: 0;
     height: 100vh;
+    z-index: 30;
 }
 
 .sidebar-top {
@@ -919,9 +1072,9 @@ button {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--color-border);
-    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(236, 215, 223, 0.65);
+    margin-bottom: 24px;
 }
 
 .sidebar-logo-img {
@@ -932,7 +1085,7 @@ button {
 
 .sidebar-title {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     color: var(--color-text-main);
@@ -970,10 +1123,18 @@ button {
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 0.84rem;
     font-weight: 500;
     color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     transition: var(--transition);
 }
 
@@ -986,8 +1147,11 @@ button {
 }
 
 .nav-item:hover {
-    background-color: var(--bg-pink);
-    color: var(--color-text-main);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-rose-dark);
+    border-color: rgba(222, 104, 142, 0.4);
+    box-shadow: 0 6px 18px rgba(222, 104, 142, 0.12), inset 0 1px 1.5px rgba(255, 255, 255, 1);
+    transform: translateX(4px);
 }
 
 .nav-item:hover i {
@@ -995,11 +1159,11 @@ button {
 }
 
 .nav-item.active {
-    background-color: #FFFFFF;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 240, 244, 0.9) 100%);
     color: var(--color-rose-dark);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 12px rgba(222, 104, 142, 0.1);
     font-weight: 600;
+    border: 1.5px solid rgba(222, 104, 142, 0.5);
+    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.18), inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .nav-item.active i {
@@ -1008,11 +1172,13 @@ button {
 
 /* Highlighted "Customer Dashboard" Switcher Button */
 .nav-item-customer-highlight {
-    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F8 100%);
-    border: 1.5px solid var(--color-rose);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(254, 237, 243, 0.85) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(222, 104, 142, 0.6);
     color: var(--color-rose-dark);
     font-weight: 600;
-    box-shadow: 0 6px 18px rgba(222, 104, 142, 0.15);
+    box-shadow: 0 8px 20px rgba(222, 104, 142, 0.16), inset 0 1px 1.5px rgba(255, 255, 255, 1);
     margin-top: 6px;
 }
 
@@ -1025,7 +1191,7 @@ button {
     color: #FFFFFF;
     border-color: var(--color-rose-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.3);
+    box-shadow: 0 10px 28px rgba(222, 104, 142, 0.35);
 }
 
 .nav-item-customer-highlight:hover i {
@@ -1033,19 +1199,21 @@ button {
 }
 
 .badge-tag {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     letter-spacing: 0.1em;
-    padding: 2px 6px;
-    background-color: rgba(222, 104, 142, 0.15);
+    padding: 3px 8px;
+    background: rgba(222, 104, 142, 0.16);
     color: var(--color-rose-dark);
-    border-radius: 4px;
+    border-radius: 6px;
     margin-left: auto;
+    font-weight: 700;
+    border: 1px solid rgba(222, 104, 142, 0.2);
 }
 
 /* Sidebar User Info & Logout */
 .sidebar-footer {
     padding-top: 20px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(236, 215, 223, 0.65);
 }
 
 .admin-user-pill {
@@ -1053,6 +1221,13 @@ button {
     align-items: center;
     gap: 10px;
     margin-bottom: 14px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 .user-avatar {
@@ -1060,13 +1235,14 @@ button {
     height: 38px;
     border-radius: 50%;
     background-color: var(--bg-pink);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(222, 104, 142, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-rose-dark);
     font-weight: 600;
     font-size: 0.85rem;
+    box-shadow: 0 2px 6px rgba(222, 104, 142, 0.12);
 }
 
 .user-meta {
@@ -1093,13 +1269,18 @@ button {
     gap: 8px;
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
     font-size: 0.74rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    cursor: pointer;
     transition: var(--transition);
 }
 
@@ -1107,21 +1288,28 @@ button {
     background-color: #FFEBEE;
     color: var(--color-error);
     border-color: #FFCDD2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.15);
 }
 
-/* Main Dashboard Content Area */
+/* ==========================================================================
+   MAIN DASHBOARD CONTAINER & TOPBAR (Frosted Crystal Header)
+   ========================================================================== */
 .admin-main-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    z-index: 10;
 }
 
-/* Dashboard Topbar Styling */
 .admin-topbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow: 0 6px 25px rgba(222, 104, 142, 0.05);
     padding: 16px 32px;
     display: flex;
     align-items: center;
@@ -1130,7 +1318,7 @@ button {
     flex-wrap: wrap;
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 25;
 }
 
 .topbar-kicker {
@@ -1163,14 +1351,24 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 14px;
-    background: #FAF8F6;
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
     font-size: 0.76rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     color: var(--color-text-muted);
+    box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 4px 12px rgba(222, 104, 142, 0.06);
+    transition: var(--transition);
+}
+
+.topbar-clock:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(222, 104, 142, 0.35);
+    transform: translateY(-1px);
 }
 
 .topbar-clock i {
@@ -1181,95 +1379,25 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 18px;
-    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    padding: 9px 20px;
+    background: linear-gradient(135deg, rgba(222, 104, 142, 0.95) 0%, rgba(186, 56, 98, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #FFFFFF;
     font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    border-radius: 6px;
-    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.3);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 22px rgba(222, 104, 142, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .btn-primary-action:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(222, 104, 142, 0.45);
-}
-
-/* Dashboard Tab Navigation & Content Container */
-.dashboard-content-area {
-    flex-grow: 1;
-    padding: 28px 32px 50px;
-}
-
-/* ==========================================================================
-   CLEAN ADMIN DASHBOARD CANVAS (Exact match to user's requested workspace)
-   ========================================================================== */
-.admin-canvas-wrapper {
-    width: 100%;
-    min-height: calc(100vh - 140px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.admin-canvas-box {
-    width: 100%;
-    max-width: 960px;
-    background: #FFFFFF;
-    border: 2px dashed rgba(222, 104, 142, 0.45);
-    border-radius: 18px;
-    padding: 85px 40px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(222, 104, 142, 0.05);
-    transition: var(--transition);
-}
-
-.admin-canvas-box:hover {
-    border-color: var(--color-rose);
-    box-shadow: 0 16px 45px rgba(222, 104, 142, 0.12);
-}
-
-.canvas-icon-badge {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #FDF0F4 0%, #FCE8EE 100%);
-    border: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    box-shadow: 0 6px 18px rgba(222, 104, 142, 0.15);
-}
-
-.canvas-monogram {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    font-weight: 600;
-    font-style: italic;
-    color: var(--color-rose-dark);
-}
-
-.canvas-title {
-    font-family: var(--font-serif);
-    font-size: 2.3rem;
-    font-weight: 500;
-    color: var(--color-text-main);
-    letter-spacing: 0.04em;
-    margin-bottom: 12px;
-}
-
-.canvas-desc {
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    max-width: 620px;
-    margin: 0 auto;
-    line-height: 1.7;
+    box-shadow: 0 12px 28px rgba(222, 104, 142, 0.5);
 }
 
 .btn-topbar-customer {
@@ -1277,27 +1405,36 @@ button {
     align-items: center;
     gap: 8px;
     padding: 8px 18px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F8 100%);
-    border: 1px solid var(--color-rose);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(222, 104, 142, 0.45);
     color: var(--color-rose-dark);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.12), inset 0 1px 1.5px rgba(255, 255, 255, 1);
     transition: var(--transition);
-    box-shadow: 0 2px 8px rgba(222, 104, 142, 0.12);
 }
 
 .btn-topbar-customer:hover {
     background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
     color: #FFFFFF;
     border-color: var(--color-rose-dark);
-    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.3);
+    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Dashboard Tab Views Container */
+.dashboard-content-area {
+    flex-grow: 1;
+    padding: 28px 32px 50px;
 }
 
 .tab-pane {
     display: none;
-    animation: fadeInTab 0.35s ease forwards;
+    animation: fadeInTab 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .tab-pane.active {
@@ -1305,11 +1442,13 @@ button {
 }
 
 @keyframes fadeInTab {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 1. KPI Metrics Grid */
+/* ==========================================================================
+   1. KPI METRICS GRID (Frosted Crystal Cards)
+   ========================================================================== */
 .kpi-metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1318,18 +1457,17 @@ button {
 }
 
 .metric-card {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    padding: 20px 22px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 12px 32px rgba(222, 104, 142, 0.07), inset 0 1.5px 1.5px rgba(255, 255, 255, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     transition: var(--transition);
-}
-
-.metric-card:hover {
-    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.12);
-    border-color: rgba(222, 104, 142, 0.3);
-    transform: translateY(-2px);
 }
 
 .metric-header {
@@ -1348,19 +1486,23 @@ button {
 }
 
 .metric-icon-box {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.95rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-.bg-rose-light { background: rgba(222, 104, 142, 0.12); color: var(--color-rose-dark); }
-.bg-gold-light { background: rgba(196, 173, 152, 0.22); color: #8F6B47; }
-.bg-blue-light { background: rgba(70, 130, 180, 0.12); color: #3574A8; }
-.bg-pink-light { background: rgba(233, 30, 99, 0.12); color: #C2185B; }
+.bg-rose-light { background: rgba(222, 104, 142, 0.15); color: var(--color-rose-dark); }
+.bg-gold-light { background: rgba(196, 173, 152, 0.25); color: #8F6B47; }
+.bg-blue-light { background: rgba(70, 130, 180, 0.15); color: #3574A8; }
+.bg-pink-light { background: rgba(233, 30, 99, 0.15); color: #C2185B; }
 
 .metric-value-row {
     display: flex;
@@ -1371,7 +1513,7 @@ button {
 
 .metric-value {
     font-family: var(--font-serif);
-    font-size: 1.85rem;
+    font-size: 1.95rem;
     font-weight: 600;
     color: var(--color-text-main);
     line-height: 1;
@@ -1380,27 +1522,30 @@ button {
 .metric-growth {
     font-size: 0.72rem;
     font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .metric-growth.positive {
-    background: #E8F5E9;
+    background: rgba(232, 245, 233, 0.85);
     color: #2E7D32;
 }
 
 .metric-growth.warning {
-    background: #FFF3E0;
+    background: rgba(255, 243, 224, 0.85);
     color: #E65100;
 }
 
 .metric-badge {
     font-size: 0.68rem;
     font-weight: 600;
-    padding: 2px 8px;
+    padding: 3px 9px;
     border-radius: 12px;
-    background: #F1F5F9;
+    background: rgba(241, 245, 249, 0.85);
     color: #475569;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .metric-caption {
@@ -1408,20 +1553,27 @@ button {
     color: var(--color-text-muted);
 }
 
-/* 2. Overview Dual Grid */
+/* ==========================================================================
+   2. OVERVIEW DUAL GRID & DASH CARDS (Frosted Glass Panels)
+   ========================================================================== */
 .overview-dual-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 24px;
 }
 
-.dash-card {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
+.dash-card, .full-table-card {
+    background: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(22px) saturate(185%);
+    -webkit-backdrop-filter: blur(22px) saturate(185%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 14px 40px rgba(222, 104, 142, 0.08), inset 0 1.5px 2px rgba(255, 255, 255, 1);
     margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
 }
 
 .dash-card:last-child {
@@ -1434,12 +1586,12 @@ button {
     justify-content: space-between;
     margin-bottom: 20px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #F3EDE9;
+    border-bottom: 1px solid rgba(236, 215, 223, 0.6);
 }
 
 .card-heading {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--color-text-main);
 }
@@ -1462,14 +1614,17 @@ button {
     gap: 6px;
     cursor: pointer;
     transition: var(--transition);
+    padding: 6px 10px;
+    border-radius: 6px;
 }
 
 .btn-text-action:hover {
     gap: 9px;
     color: var(--color-text-main);
+    background: rgba(253, 240, 244, 0.6);
 }
 
-/* Studio Table */
+/* Studio Table with Glass Rows */
 .table-responsive {
     overflow-x: auto;
     width: 100%;
@@ -1489,19 +1644,28 @@ button {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-text-light);
-    border-bottom: 1.5px solid var(--color-border);
-    background: #FAF8F6;
+    border-bottom: 1.5px solid rgba(236, 215, 223, 0.8);
+    background: rgba(250, 248, 246, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .studio-table td {
     padding: 14px;
-    border-bottom: 1px solid #F5EFEB;
+    border-bottom: 1px solid rgba(245, 239, 235, 0.7);
     color: var(--color-text-main);
     vertical-align: middle;
 }
 
+.studio-table tbody tr {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
 .studio-table tbody tr:hover {
-    background-color: #FDFAFC;
+    background: rgba(253, 240, 244, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .client-name-cell {
@@ -1520,42 +1684,49 @@ button {
     margin-top: 2px;
 }
 
-/* Category Badges */
+/* Category Badges (Frosted Glass) */
 .category-badge {
     display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 9px;
+    border-radius: 6px;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
-.cat-wedding { background: #FCE8EE; color: #BA3862; }
-.cat-prewedding { background: #FFF0F5; color: #DE688E; }
-.cat-maternity { background: #EDE7F6; color: #5E35B1; }
-.cat-baby { background: #E0F2F1; color: #00796B; }
-.cat-fashion { background: #FFF8E1; color: #F57F17; }
-.cat-cinema { background: #E8EAF6; color: #283593; }
+.cat-wedding { background: rgba(252, 232, 238, 0.85); color: #BA3862; }
+.cat-prewedding { background: rgba(255, 240, 245, 0.85); color: #DE688E; }
+.cat-maternity { background: rgba(237, 231, 246, 0.85); color: #5E35B1; }
+.cat-baby { background: rgba(224, 242, 241, 0.85); color: #00796B; }
+.cat-fashion { background: rgba(255, 248, 225, 0.85); color: #F57F17; }
+.cat-cinema { background: rgba(232, 234, 246, 0.85); color: #283593; }
 
 /* Status Badges */
 .status-pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     cursor: pointer;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.03);
     transition: var(--transition);
 }
 
-.status-confirmed { background: #E8F5E9; color: #2E7D32; }
-.status-pending { background: #FFF3E0; color: #E65100; }
-.status-completed { background: #E3F2FD; color: #1565C0; }
-.status-review { background: #F3E5F5; color: #7B1FA2; }
+.status-confirmed { background: rgba(232, 245, 233, 0.88); color: #2E7D32; }
+.status-pending { background: rgba(255, 243, 224, 0.88); color: #E65100; }
+.status-completed { background: rgba(227, 242, 253, 0.88); color: #1565C0; }
+.status-review { background: rgba(243, 229, 245, 0.88); color: #7B1FA2; }
 
 /* Table Action Buttons */
 .table-actions-group {
@@ -1565,17 +1736,20 @@ button {
 }
 
 .action-btn-sm {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-border);
-    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--color-text-muted);
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.03);
     transition: var(--transition);
 }
 
@@ -1583,6 +1757,7 @@ button {
     background: var(--bg-pink);
     color: var(--color-rose-dark);
     border-color: var(--color-rose);
+    transform: translateY(-1px);
 }
 
 .action-btn-whatsapp {
@@ -1594,6 +1769,7 @@ button {
     background: #25D366;
     color: #FFFFFF;
     border-color: #25D366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .action-btn-delete:hover {
@@ -1630,10 +1806,11 @@ button {
 
 .cat-progress {
     width: 100%;
-    height: 7px;
-    background: #F1EDE9;
+    height: 8px;
+    background: rgba(241, 237, 233, 0.7);
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .cat-fill {
@@ -1647,10 +1824,15 @@ button {
 .cat-fill.bg-gold { background: #B38F68; }
 .cat-fill.bg-blue { background: #4682B4; }
 
-/* WhatsApp Instant Hub */
+/* WhatsApp Instant Hub (Frosted Emerald Glass) */
 .whatsapp-hub-card {
-    background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
-    border-color: rgba(37, 211, 102, 0.3);
+    background: linear-gradient(135deg, rgba(240, 253, 244, 0.78) 0%, rgba(255, 255, 255, 0.82) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.08), inset 0 1.5px 1.5px rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    padding: 24px;
 }
 
 .wa-hub-header {
@@ -1661,7 +1843,7 @@ button {
 }
 
 .wa-big-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #25D366;
 }
 
@@ -1684,37 +1866,43 @@ button {
 .wa-input {
     flex-grow: 1;
     padding: 10px 14px;
-    border: 1px solid rgba(37, 211, 102, 0.4);
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(37, 211, 102, 0.45);
+    border-radius: 8px;
     font-size: 0.82rem;
     outline: none;
+    transition: var(--transition);
 }
 
 .wa-input:focus {
     border-color: #25D366;
-    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+    background: #FFFFFF;
 }
 
 .btn-wa-send {
-    padding: 0 16px;
+    padding: 0 18px;
     background: #25D366;
     color: #FFFFFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 0.88rem;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
     transition: var(--transition);
 }
 
 .btn-wa-send:hover {
     background: #1EBE5B;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
 }
 
-/* Full Table Toolbar */
-.full-table-card {
-    padding: 24px;
-}
-
+/* ==========================================================================
+   3. BOOKINGS CRM & FULL TABLE TOOLBAR
+   ========================================================================== */
 .table-toolbar {
     display: flex;
     align-items: center;
@@ -1742,18 +1930,21 @@ button {
 .search-input {
     width: 100%;
     padding: 10px 14px 10px 38px;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
     font-size: 0.84rem;
     outline: none;
-    background: #FAF8F6;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(222, 104, 142, 0.04);
     transition: var(--transition);
 }
 
 .search-input:focus {
     background: #FFFFFF;
     border-color: var(--color-rose);
-    box-shadow: 0 0 0 3px rgba(222, 104, 142, 0.12);
+    box-shadow: 0 0 0 3px rgba(222, 104, 142, 0.15);
 }
 
 .toolbar-filters {
@@ -1764,42 +1955,54 @@ button {
 }
 
 .filter-select {
-    padding: 9px 12px;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
     font-size: 0.8rem;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--color-text-main);
     outline: none;
     cursor: pointer;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
 }
 
 .filter-select:focus {
     border-color: var(--color-rose);
+    background: #FFFFFF;
 }
 
 .btn-secondary-action {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 9px 14px;
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    padding: 9px 16px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-text-main);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(222, 104, 142, 0.05);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .btn-secondary-action:hover {
-    background: #FAF8F6;
+    background: rgba(255, 255, 255, 0.95);
     border-color: var(--color-rose);
     color: var(--color-rose-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.15);
 }
 
-/* Schedule Grid */
+/* ==========================================================================
+   4. SHOOTS SCHEDULE CALENDAR (Frosted Crystal Cards)
+   ========================================================================== */
 .schedule-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1807,21 +2010,20 @@ button {
 }
 
 .schedule-card {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    padding: 22px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(222, 104, 142, 0.07), inset 0 1.5px 1.5px rgba(255, 255, 255, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     transition: var(--transition);
-}
-
-.schedule-card:hover {
-    border-color: var(--color-rose);
-    box-shadow: 0 8px 24px rgba(222, 104, 142, 0.12);
-    transform: translateY(-2px);
 }
 
 .schedule-date-badge {
@@ -1830,15 +2032,17 @@ button {
     font-weight: 700;
     letter-spacing: 0.08em;
     padding: 4px 10px;
-    border-radius: 4px;
-    background: var(--bg-pink);
+    border-radius: 6px;
+    background: rgba(253, 240, 244, 0.9);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(222, 104, 142, 0.25);
     color: var(--color-rose-dark);
     margin-bottom: 12px;
 }
 
 .schedule-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--color-text-main);
     margin-bottom: 6px;
@@ -1850,13 +2054,13 @@ button {
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .schedule-meta span {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
 }
 
 .schedule-meta i {
@@ -1869,16 +2073,18 @@ button {
     align-items: center;
     justify-content: space-between;
     padding-top: 14px;
-    border-top: 1px solid #F5EFEB;
+    border-top: 1px solid rgba(245, 239, 235, 0.75);
 }
 
 .schedule-photographer {
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     font-weight: 600;
     color: var(--color-text-main);
 }
 
-/* Packages Grid */
+/* ==========================================================================
+   5. STUDIO PACKAGES & PRICING (Frosted Crystal Cards)
+   ========================================================================== */
 .packages-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1886,31 +2092,37 @@ button {
 }
 
 .package-card {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
     padding: 28px 22px;
     position: relative;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(222, 104, 142, 0.07), inset 0 1.5px 1.5px rgba(255, 255, 255, 1);
+    cursor: pointer;
     transition: var(--transition);
 }
 
 .package-card.featured {
-    border-color: var(--color-rose);
-    box-shadow: 0 8px 26px rgba(222, 104, 142, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(253, 240, 244, 0.85) 100%);
+    border: 1.5px solid rgba(222, 104, 142, 0.6);
+    box-shadow: 0 18px 45px rgba(222, 104, 142, 0.18), inset 0 1.5px 2px rgba(255, 255, 255, 1);
 }
 
 .package-badge {
     position: absolute;
     top: -10px;
     right: 20px;
-    background: var(--color-rose-dark);
+    background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
     color: #FFFFFF;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(222, 104, 142, 0.3);
 }
 
 .package-name {
@@ -1922,7 +2134,7 @@ button {
 }
 
 .package-price {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: 700;
     color: var(--color-rose-dark);
     margin-bottom: 12px;
@@ -1940,7 +2152,7 @@ button {
     line-height: 1.5;
     margin-bottom: 18px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #F3EDE9;
+    border-bottom: 1px solid rgba(243, 237, 233, 0.75);
 }
 
 .package-features {
@@ -1964,7 +2176,9 @@ button {
     margin-top: 2px;
 }
 
-/* Gear & Crew Grid */
+/* ==========================================================================
+   6. GEAR & CREW DUAL GRID (Chaitya Koradiya, Shrey Doshi & Equipment)
+   ========================================================================== */
 .crew-dual-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1981,19 +2195,27 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 14px;
-    background: #FAF8F6;
-    border-radius: 8px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.04), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
 .gear-meta {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
 .gear-icon {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--color-rose-dark);
 }
 
@@ -2011,12 +2233,14 @@ button {
 .gear-status {
     font-size: 0.72rem;
     font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .status-ready {
-    background: #E8F5E9;
+    background: rgba(232, 245, 233, 0.9);
     color: #2E7D32;
 }
 
@@ -2024,24 +2248,33 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 14px;
-    background: #FAF8F6;
-    border-radius: 8px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.04), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
 .crew-avatar {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: var(--bg-pink);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(222, 104, 142, 0.35);
     color: var(--color-rose-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 0.9rem;
-    margin-right: 12px;
+    font-size: 0.92rem;
+    margin-right: 14px;
+    box-shadow: 0 2px 8px rgba(222, 104, 142, 0.12);
 }
 
 .crew-details {
@@ -2050,7 +2283,7 @@ button {
 
 .crew-details strong {
     display: block;
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     color: var(--color-text-main);
 }
 
@@ -2062,14 +2295,18 @@ button {
 .crew-role {
     font-size: 0.72rem;
     font-weight: 700;
-    padding: 3px 8px;
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 6px;
     color: var(--color-text-main);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-/* Modal Styling */
+/* ==========================================================================
+   7. MODAL STYLING (Luxury Frosted Crystal Dialog)
+   ========================================================================== */
 .admin-modal-backdrop {
     display: none;
     position: fixed;
@@ -2077,8 +2314,9 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(38, 35, 32, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
@@ -2090,17 +2328,20 @@ button {
 }
 
 .admin-modal-card {
-    background: #FFFFFF;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
     width: 100%;
     max-width: 620px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 30px 80px rgba(222, 104, 142, 0.22), inset 0 1.5px 2px rgba(255, 255, 255, 1);
     overflow: hidden;
-    animation: modalPop 0.3s ease;
+    animation: modalPop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @keyframes modalPop {
-    from { opacity: 0; transform: scale(0.95); }
+    from { opacity: 0; transform: scale(0.94); }
     to { opacity: 1; transform: scale(1); }
 }
 
@@ -2109,8 +2350,8 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 20px 24px;
-    border-bottom: 1px solid var(--color-border);
-    background: #FAF8F6;
+    border-bottom: 1px solid rgba(236, 215, 223, 0.7);
+    background: rgba(250, 248, 246, 0.7);
 }
 
 .modal-card-header h3 {
@@ -2130,10 +2371,11 @@ button {
     color: var(--color-text-light);
     cursor: pointer;
     line-height: 1;
+    transition: var(--transition);
 }
 
 .btn-modal-close:hover {
-    color: var(--color-text-main);
+    color: var(--color-rose-dark);
 }
 
 .modal-form {
@@ -2153,18 +2395,24 @@ button {
     gap: 12px;
     margin-top: 24px;
     padding-top: 18px;
-    border-top: 1px solid #F3EDE9;
+    border-top: 1px solid rgba(243, 237, 233, 0.7);
 }
 
 .btn-cancel {
     padding: 10px 18px;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.75);
     border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-text-muted);
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-cancel:hover {
+    background: #FFFFFF;
+    color: var(--color-text-main);
 }
 
 .btn-confirm-save {
@@ -2172,7 +2420,7 @@ button {
     background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
     color: #FFFFFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -2180,50 +2428,39 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.35);
+    transition: var(--transition);
 }
 
 .btn-confirm-save:hover {
-    box-shadow: 0 4px 14px rgba(222, 104, 142, 0.4);
+    box-shadow: 0 6px 18px rgba(222, 104, 142, 0.5);
+    transform: translateY(-1px);
 }
 
-/* Responsive */
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 1220px) {
-    .studio-workspace-stage {
-        gap: 20px;
+    .kpi-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .film-strip-column {
-        width: 210px;
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .darkroom-pinboard-column {
-        width: 240px;
-    }
-
-    .film-photo-window {
-        height: 120px;
-    }
-
-    .studio-polaroid {
-        width: 220px;
-    }
-
-    .polaroid-inner-photo {
-        height: 140px;
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 1040px) {
-    .film-strip-column {
-        display: none;
+    .overview-dual-grid {
+        grid-template-columns: 1fr;
     }
 
-    .darkroom-pinboard-column {
-        display: none;
-    }
-
-    .studio-stage-wrapper {
-        padding: 24px 16px;
+    .crew-dual-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2238,12 +2475,13 @@ button {
         position: static;
     }
 
-    .blank-canvas-container {
-        padding: 40px 20px;
-        min-height: 380px;
+    .dashboard-content-area {
+        padding: 20px 16px;
     }
 
-    .blank-canvas-heading {
-        font-size: 1.75rem;
+    .kpi-metrics-grid,
+    .packages-grid,
+    .schedule-grid {
+        grid-template-columns: 1fr;
     }
 }

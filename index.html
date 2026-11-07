@@ -36,11 +36,21 @@
                 </a>
             </div>
 
-            <!-- Direct Quick Action in Header -->
+            <!-- Direct Quick Action in Header (Chaitya Koradiya & Shrey Doshi) -->
             <div class="header-action">
-                <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener" class="header-whatsapp-link">
+                <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20would%20like%20to%20inquire%20about%20Aakar%20Films%20photoshoot%20services" target="_blank" rel="noopener" class="header-whatsapp-link" title="WhatsApp: Chaitya Koradiya (+91 63548 96783)">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>+91 63548 96783</span>
+                    <div class="header-wa-text">
+                        <span class="header-wa-number">+91 63548 96783</span>
+                        <span class="header-wa-name">Chaitya Koradiya</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20would%20like%20to%20inquire%20about%20Aakar%20Films%20photoshoot%20services" target="_blank" rel="noopener" class="header-whatsapp-link" title="WhatsApp: Shrey Doshi (+91 76219 87470)">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="header-wa-text">
+                        <span class="header-wa-number">+91 76219 87470</span>
+                        <span class="header-wa-name">Shrey Doshi</span>
+                    </div>
                 </a>
                 <a href="admin/login.html" class="header-admin-link" title="Admin Portal Login">
                     <i class="fa-solid fa-lock"></i>
@@ -626,7 +636,11 @@
                             <i class="fa-solid fa-arrow-left"></i>
                             <span>← PORTFOLIO</span>
                         </button>
-                        <button class="btn-nude trigger-book-modal" data-default-service="Gold Royal Edition (₹1,25,000)">
+                        <button class="btn-nude" id="btnSlideToConnect">
+                            <span>04. STUDIO CONNECT & ESTIMATOR →</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="btn-card-book trigger-book-modal" data-default-service="Gold Royal Edition (₹1,25,000)">
                             <i class="fa-regular fa-calendar-check"></i>
                             <span>RESERVE YOUR DATE</span>
                         </button>
@@ -643,9 +657,525 @@
                 </div>
             </section>
 
+            <!-- ===============================================================
+                 SLIDE 4: FOURTH PAGE ("4. Studio Connect, Bespoke Estimator & Flagship Lounge")
+                 =============================================================== -->
+            <section class="page-slide" id="slide4" data-index="3">
+                <div class="connect-studio-content">
+                    
+                    <!-- Section Main Header -->
+                    <div class="slide-section-header text-center">
+                        <span class="card-kicker"><i class="fa-solid fa-gem"></i> 4. STUDIO CONNECT, ESTIMATOR & BESPOKE PRODUCTION</span>
+                        <h2 class="slide-main-title">Connect With Directors & Studio Lounge</h2>
+                        <div class="card-divider"></div>
+                        <p class="slide-subtitle">
+                            Calculate your customized wedding investment in real time, speak directly with Visual Directors Chaitya Koradiya & Shrey Doshi, visit our private 4K cinema lounge, or submit an instant VIP date reservation.
+                        </p>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 1: INTERACTIVE REAL-TIME WEDDING ESTIMATOR / CALCULATOR
+                         ----------------------------------------------------------- -->
+                    <div class="slide-subblock">
+                        <div class="block-subheading text-center">
+                            <span class="subheading-tag">INTERACTIVE ESTIMATOR</span>
+                            <h3 class="block-title">Instant Bespoke Package Calculator</h3>
+                            <p class="block-desc">Customize your shoot days, aerial drone, luxury albums, and add-ons to see an instant transparent investment estimate.</p>
+                        </div>
+
+                        <div class="calculator-glass-card">
+                            <div class="calc-grid">
+                                
+                                <!-- Left: Options Controls -->
+                                <div class="calc-controls-col">
+                                    
+                                    <!-- 1. Coverage Duration Selection -->
+                                    <div class="calc-group">
+                                        <label class="calc-label"><i class="fa-solid fa-calendar-days"></i> 1. Select Shoot Duration & Scale</label>
+                                        <div class="calc-tier-options">
+                                            <label class="calc-tier-card active">
+                                                <input type="radio" name="calcDuration" value="125000" data-tier-name="2 Days Royal Wedding" checked>
+                                                <div class="tier-info">
+                                                    <span class="tier-badge">POPULAR</span>
+                                                    <strong class="tier-name">2 Days Royal Wedding</strong>
+                                                    <span class="tier-sub">Sangeet + Wedding Ceremony Full Coverage</span>
+                                                </div>
+                                                <span class="tier-price">₹1,25,000</span>
+                                            </label>
+
+                                            <label class="calc-tier-card">
+                                                <input type="radio" name="calcDuration" value="45000" data-tier-name="1 Day Classic Coverage">
+                                                <div class="tier-info">
+                                                    <span class="tier-badge">INTIMATE</span>
+                                                    <strong class="tier-name">1 Day Classic Coverage</strong>
+                                                    <span class="tier-sub">Pre-Wedding / Intimate Day Celebration</span>
+                                                </div>
+                                                <span class="tier-price">₹45,000</span>
+                                            </label>
+
+                                            <label class="calc-tier-card">
+                                                <input type="radio" name="calcDuration" value="250000" data-tier-name="3-4 Days Destination Grandeur">
+                                                <div class="tier-info">
+                                                    <span class="tier-badge">IMPERIAL</span>
+                                                    <strong class="tier-name">3-4 Days Destination VIP</strong>
+                                                    <span class="tier-sub">Udaipur, Jaipur, Goa & Global Locations</span>
+                                                </div>
+                                                <span class="tier-price">₹2,50,000</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2. Interactive Add-ons (Checkboxes) -->
+                                    <div class="calc-group">
+                                        <label class="calc-label"><i class="fa-solid fa-plus-circle"></i> 2. Choose Bespoke Add-ons</label>
+                                        <div class="calc-addons-grid">
+                                            
+                                            <label class="addon-checkbox-card">
+                                                <input type="checkbox" class="calc-addon" value="15000" data-addon-name="4K Drone Aerial Coverage" checked>
+                                                <div class="addon-content">
+                                                    <span class="addon-title"><i class="fa-solid fa-paper-plane"></i> 4K Drone Aerial Cinema</span>
+                                                    <span class="addon-sub">Licensed aerial pilot for grand palace views</span>
+                                                </div>
+                                                <span class="addon-cost">+₹15,000</span>
+                                            </label>
+
+                                            <label class="addon-checkbox-card">
+                                                <input type="checkbox" class="calc-addon" value="30000" data-addon-name="Romantic Pre-Wedding Shoot" checked>
+                                                <div class="addon-content">
+                                                    <span class="addon-title"><i class="fa-solid fa-heart"></i> Pre-Wedding Concept Shoot</span>
+                                                    <span class="addon-sub">Full 1-day outdoor sunset romantic shoot</span>
+                                                </div>
+                                                <span class="addon-cost">+₹30,000</span>
+                                            </label>
+
+                                            <label class="addon-checkbox-card">
+                                                <input type="checkbox" class="calc-addon" value="12000" data-addon-name="Same-Day Instagram Reels Teaser">
+                                                <div class="addon-content">
+                                                    <span class="addon-title"><i class="fa-brands fa-instagram"></i> Express 24-Hr Reels Edit</span>
+                                                    <span class="addon-sub">2 high-octane 9:16 reels for social media</span>
+                                                </div>
+                                                <span class="addon-cost">+₹12,000</span>
+                                            </label>
+
+                                            <label class="addon-checkbox-card">
+                                                <input type="checkbox" class="calc-addon" value="18000" data-addon-name="Italian Leather Heirloom Album (40 Pages)">
+                                                <div class="addon-content">
+                                                    <span class="addon-title"><i class="fa-solid fa-book-open"></i> Italian Leather Heirloom Album</span>
+                                                    <span class="addon-sub">Hand-bound 40-page velvet box heirloom</span>
+                                                </div>
+                                                <span class="addon-cost">+₹18,000</span>
+                                            </label>
+
+                                            <label class="addon-checkbox-card">
+                                                <input type="checkbox" class="calc-addon" value="8000" data-addon-name="Raw 4K Footage on Wood SSD">
+                                                <div class="addon-content">
+                                                    <span class="addon-title"><i class="fa-solid fa-hard-drive"></i> Raw Footage on Engraved SSD</span>
+                                                    <span class="addon-sub">Complete untouched 4K raw archives in wooden box</span>
+                                                </div>
+                                                <span class="addon-cost">+₹8,000</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Right: Live Summary Box -->
+                                <div class="calc-summary-col">
+                                    <div class="calc-summary-glass-card">
+                                        <span class="summary-badge"><i class="fa-solid fa-sparkles"></i> LIVE ESTIMATE</span>
+                                        <h4 class="summary-heading">Your Tailored Production</h4>
+                                        <div class="summary-divider"></div>
+
+                                        <div class="summary-breakdown-list" id="calcSummaryList">
+                                            <!-- Dynamically updated by JS -->
+                                        </div>
+
+                                        <div class="summary-total-box">
+                                            <span class="total-caption">Estimated Investment</span>
+                                            <div class="total-figure" id="calcTotalDisplay">₹1,70,000</div>
+                                            <span class="total-note">*Includes full production, editing & master color grading</span>
+                                        </div>
+
+                                        <div class="summary-actions">
+                                            <button type="button" class="btn-nude btn-block" id="btnBookCustomEstimate">
+                                                <i class="fa-solid fa-calendar-check"></i>
+                                                <span>BOOK THIS CUSTOM ESTIMATE</span>
+                                            </button>
+                                            <button type="button" class="btn-whatsapp btn-block" id="btnSendEstimateWhatsApp">
+                                                <i class="fa-brands fa-whatsapp"></i>
+                                                <span>SHARE ESTIMATE ON WHATSAPP</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 2: STUDIO DIRECTORS & LEAD MASTERS SPOTLIGHT
+                         (Chaitya Koradiya & Shrey Doshi)
+                         ----------------------------------------------------------- -->
+                    <div class="slide-subblock">
+                        <div class="block-subheading text-center">
+                            <span class="subheading-tag">CREATIVE LEADERSHIP</span>
+                            <h3 class="block-title">Meet Your Visual Directors</h3>
+                            <p class="block-desc">Direct creative alignment with the artists who personally conceptualize, film, and color grade your love story.</p>
+                        </div>
+
+                        <div class="directors-dual-grid">
+                            
+                            <!-- Director 1: Chaitya Koradiya -->
+                            <div class="director-card">
+                                <div class="director-header">
+                                    <div class="director-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=350&q=80" alt="Chaitya Koradiya" class="director-avatar-img">
+                                        <span class="director-online-dot" title="Available for Booking"></span>
+                                    </div>
+                                    <div class="director-meta">
+                                        <span class="director-role-tag">DIRECTOR OF CINEMATOGRAPHY</span>
+                                        <h4 class="director-name">Chaitya Koradiya</h4>
+                                        <span class="director-phone"><i class="fa-brands fa-whatsapp"></i> +91 63548 96783</span>
+                                    </div>
+                                </div>
+
+                                <p class="director-bio">
+                                    Master visual storyteller with 10+ years specializing in royal palace weddings and high-budget visual films. Certified DaVinci Resolve colorist known for rich filmic grain, timeless skin tones, and emotive soundtrack pacing that leaves families with happy tears.
+                                </p>
+
+                                <div class="director-stats-row">
+                                    <div class="d-stat">
+                                        <strong>500+</strong>
+                                        <span>Films Directed</span>
+                                    </div>
+                                    <div class="d-stat">
+                                        <strong>Sony FX9/FX3</strong>
+                                        <span>Cinema Bodies</span>
+                                    </div>
+                                    <div class="d-stat">
+                                        <strong>10+ Yrs</strong>
+                                        <span>Royal Experience</span>
+                                    </div>
+                                </div>
+
+                                <div class="director-actions">
+                                    <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20would%20like%20to%20discuss%20cinematography%20for%20my%20wedding" target="_blank" rel="noopener" class="btn-director-wa">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                        <span>Chat with Chaitya</span>
+                                    </a>
+                                    <a href="tel:+916354896783" class="btn-director-call">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <span>Call</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Director 2: Shrey Doshi -->
+                            <div class="director-card">
+                                <div class="director-header">
+                                    <div class="director-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=350&q=80" alt="Shrey Doshi" class="director-avatar-img">
+                                        <span class="director-online-dot" title="Available for Booking"></span>
+                                    </div>
+                                    <div class="director-meta">
+                                        <span class="director-role-tag">CREATIVE DIRECTOR & CANDID MASTER</span>
+                                        <h4 class="director-name">Shrey Doshi</h4>
+                                        <span class="director-phone"><i class="fa-brands fa-whatsapp"></i> +91 76219 87470</span>
+                                    </div>
+                                </div>
+
+                                <p class="director-bio">
+                                    Internationally published candid photographer who excels in editorial romance, geometric natural light, and discreet unobtrusive documentation. Believes the greatest photographs are the unscripted laughs, stolen glances, and sacred silent blessings.
+                                </p>
+
+                                <div class="director-stats-row">
+                                    <div class="d-stat">
+                                        <strong>450+</strong>
+                                        <span>Weddings Shot</span>
+                                    </div>
+                                    <div class="d-stat">
+                                        <strong>G-Master Glass</strong>
+                                        <span>Ultra-Fast Primes</span>
+                                    </div>
+                                    <div class="d-stat">
+                                        <strong>Fearless</strong>
+                                        <span>Award Winner</span>
+                                    </div>
+                                </div>
+
+                                <div class="director-actions">
+                                    <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20would%20like%20to%20discuss%20candid%20photography%20for%20my%20wedding" target="_blank" rel="noopener" class="btn-director-wa">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                        <span>Chat with Shrey</span>
+                                    </a>
+                                    <a href="tel:+917621987470" class="btn-director-call">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <span>Call</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 3: FLAGSHIP STUDIO EXPERIENCE LOUNGE & PHYSICAL ALBUM BAR
+                         ----------------------------------------------------------- -->
+                    <div class="slide-subblock">
+                        <div class="block-subheading text-center">
+                            <span class="subheading-tag">PHYSICAL SPACE</span>
+                            <h3 class="block-title">Flagship Studio Lounge & Experience Center</h3>
+                            <p class="block-desc">Experience our 150" 4K private screening cinema room, feel real handcrafted Italian leather albums, and discuss your moodboard over artisan coffee.</p>
+                        </div>
+
+                        <div class="studio-lounge-grid">
+                            
+                            <!-- Studio Address & Visiting Details -->
+                            <div class="studio-location-card">
+                                <div class="location-card-header">
+                                    <div class="location-icon-badge">
+                                        <i class="fa-solid fa-building-columns"></i>
+                                    </div>
+                                    <div>
+                                        <span class="location-kicker">AHMEDABAD HEADQUARTERS</span>
+                                        <h4 class="location-name">AAKAR Signature Studio Lounge</h4>
+                                    </div>
+                                </div>
+
+                                <div class="location-address-box">
+                                    <p><i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> 402-404, Heritage Grandeur, Near Sindhu Bhavan Road, Bodakdev, Ahmedabad, Gujarat 380054</p>
+                                    <p><i class="fa-solid fa-clock"></i> <strong>Studio Hours:</strong> Monday – Saturday: 10:00 AM – 8:00 PM</p>
+                                    <p><i class="fa-solid fa-calendar-check"></i> <strong>Sunday:</strong> Reserved for Pre-Booked Private Screenings</p>
+                                    <p><i class="fa-solid fa-envelope"></i> <strong>Inquiry Email:</strong> hello@aakarfilms.com</p>
+                                </div>
+
+                                <div class="location-actions">
+                                    <a href="https://maps.google.com/?q=Sindhu+Bhavan+Road+Bodakdev+Ahmedabad" target="_blank" rel="noopener" class="btn-location-map">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                        <span>Open in Google Maps</span>
+                                    </a>
+                                    <button type="button" class="btn-nude trigger-book-modal" data-default-service="In-Person Studio Coffee Consultation">
+                                        <i class="fa-solid fa-mug-hot"></i>
+                                        <span>Book Studio Coffee Meeting</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Studio Amenities Quad Grid -->
+                            <div class="studio-amenities-grid">
+                                
+                                <div class="amenity-item">
+                                    <div class="amenity-icon">
+                                        <i class="fa-solid fa-film"></i>
+                                    </div>
+                                    <h5>150" 4K Screening Cinema</h5>
+                                    <p>Watch full-length 4K wedding films with Dolby Atmos audio to witness our cinema quality.</p>
+                                </div>
+
+                                <div class="amenity-item">
+                                    <div class="amenity-icon">
+                                        <i class="fa-solid fa-book-bookmark"></i>
+                                    </div>
+                                    <h5>Heirloom Album Bar</h5>
+                                    <p>Touch real Italian leather, crystal acrylic, and velvet heirloom photo album cover finishes.</p>
+                                </div>
+
+                                <div class="amenity-item">
+                                    <div class="amenity-icon">
+                                        <i class="fa-solid fa-palette"></i>
+                                    </div>
+                                    <h5>Moodboard & Styling Bay</h5>
+                                    <p>Curate custom wardrobe palettes, lighting aesthetics, and event timelines with our directors.</p>
+                                </div>
+
+                                <div class="amenity-item">
+                                    <div class="amenity-icon">
+                                        <i class="fa-solid fa-champagne-glasses"></i>
+                                    </div>
+                                    <h5>VIP Private Lounge</h5>
+                                    <p>Private, unhurried consultations with artisanal refreshments and bespoke contract drafting.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 4: IN-PAGE VIP RESERVATION & INQUIRY SUITE
+                         (Direct CRM connection to Admin Dashboard)
+                         ----------------------------------------------------------- -->
+                    <div class="slide-subblock">
+                        <div class="block-subheading text-center">
+                            <span class="subheading-tag">DIRECT INQUIRY</span>
+                            <h3 class="block-title">VIP Date Reservation & Consultation Suite</h3>
+                            <p class="block-desc">Submit your wedding dates directly below. Our production office will verify calendar availability and reply within 4 hours.</p>
+                        </div>
+
+                        <div class="inpage-booking-card">
+                            <form class="inpage-form" id="inpageBookingForm">
+                                <div class="inpage-form-grid">
+                                    
+                                    <div class="form-group">
+                                        <label><i class="fa-regular fa-user"></i> Bride & Groom / Client Full Names *</label>
+                                        <input type="text" id="inpageName" placeholder="e.g. Riya Patel & Dev Sharma" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><i class="fa-brands fa-whatsapp"></i> WhatsApp / Phone Number *</label>
+                                        <input type="tel" id="inpagePhone" placeholder="+91 98250 XXXXX" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><i class="fa-regular fa-envelope"></i> Email Address</label>
+                                        <input type="email" id="inpageEmail" placeholder="yourname@gmail.com">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><i class="fa-regular fa-calendar"></i> Primary Wedding / Shoot Date *</label>
+                                        <input type="date" id="inpageDate" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><i class="fa-solid fa-camera"></i> Shoot Type / Collection</label>
+                                        <select id="inpageShootType">
+                                            <option value="Wedding Photography">Grand Wedding & Reception</option>
+                                            <option value="Pre-Wedding Shoot">Royal Pre-Wedding Shoot</option>
+                                            <option value="Gold Royal Edition (₹1,25,000)" selected>Gold Royal Heritage Package (₹1,25,000)</option>
+                                            <option value="Platinum Imperial VIP (₹2,50,000)">Platinum Imperial VIP Destination (₹2,50,000)</option>
+                                            <option value="Silver Classic (₹45,000)">Silver Classic Intimate (₹45,000)</option>
+                                            <option value="Maternity Shoot">Maternity & Fine Art Portrait</option>
+                                            <option value="Baby Photography">Newborn & Baby Milestone</option>
+                                            <option value="Fashion Photography">Editorial Fashion & Brand Cinema</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><i class="fa-solid fa-location-dot"></i> City / Venue Location</label>
+                                        <input type="text" id="inpageLocation" placeholder="e.g. Udaipur, Ahmedabad, Jaipur, Goa">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group" style="margin-top: 14px;">
+                                    <label><i class="fa-regular fa-message"></i> Tell Us About Your Celebration (Vision, Guest Count, Venues)</label>
+                                    <textarea id="inpageNotes" rows="3" placeholder="Tell Chaitya & Shrey about your envision, theme, ceremonies or special requests..."></textarea>
+                                </div>
+
+                                <div class="inpage-submit-row">
+                                    <button type="submit" class="btn-nude" id="btnInpageSubmit">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>SUBMIT VIP INQUIRY</span>
+                                    </button>
+                                    <span class="inpage-guarantee"><i class="fa-solid fa-lock"></i> Direct calendar hold & strict privacy guarantee</span>
+                                </div>
+
+                                <div class="form-success-notice" id="inpageSuccess" style="display:none; margin-top: 20px;">
+                                    <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                                    <h3>Inquiry Confirmed!</h3>
+                                    <p>Thank you! Your date reservation request has been transmitted directly to Chaitya Koradiya & Shrey Doshi. We will connect with you on WhatsApp within 4 hours.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 5: CURATED INSTAGRAM FILM GRID PREVIEW (@aakarfilms.official)
+                         ----------------------------------------------------------- -->
+                    <div class="slide-subblock">
+                        <div class="block-subheading text-center">
+                            <span class="subheading-tag">SOCIAL GALLERY</span>
+                            <h3 class="block-title">Follow The Journey @aakarfilms.official</h3>
+                            <p class="block-desc">Over 45,000 couples and wedding connoisseurs follow our daily cinematic film cuts on Instagram.</p>
+                        </div>
+
+                        <div class="insta-film-grid">
+                            
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Royal Udaipur Wedding" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span>14.2K Views</span>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Varmala Ceremony" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>2.8K Likes</span>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=400&q=80" alt="Lake Pichola Sunset" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span>22.5K Views</span>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Sangeet Night Drone" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>3.1K Likes</span>
+                                </div>
+                            </a>
+
+                            <a href="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=400&q=80" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=400&q=80" alt="Pre-Wedding Romance" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span>18.9K Views</span>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-film-card">
+                                <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=400&q=80" alt="Maternity Miracle" class="insta-img">
+                                <div class="insta-overlay">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>1.9K Likes</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- -----------------------------------------------------------
+                         FEATURE 6: SLIDE 4 FOOTER ACTIONS & NAVIGATION
+                         ----------------------------------------------------------- -->
+                    <div class="slide-footer-nav text-center">
+                        <button class="btn-portfolio" id="btnSlideBackToPackages">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>← 03. PACKAGES & REVIEWS</span>
+                        </button>
+                        <button class="btn-portfolio" id="btnSlideBackToPortfolioFrom4">
+                            <i class="fa-solid fa-images"></i>
+                            <span>02. PORTFOLIO</span>
+                        </button>
+                        <button class="btn-portfolio" id="btnSlideToHeroFrom4">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            <span>01. BACK TO HERO</span>
+                        </button>
+                        <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20photography%20packages" target="_blank" rel="noopener" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WHATSAPP CHAITYA (+91 63548 96783)</span>
+                        </a>
+                        <a href="https://wa.me/917621987470?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20photography%20packages" target="_blank" rel="noopener" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WHATSAPP SHREY (+91 76219 87470)</span>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
         </div>
 
-        <!-- Luxury Interactive Slide Navigation Bar (3 Slides) -->
+        <!-- Luxury Interactive Slide Navigation Bar (4 Slides) -->
         <nav class="slider-nav-pills" id="sliderNavPills" aria-label="Page slider navigation">
             <button class="nav-pill active" data-slide="0" aria-label="Slide 1: Archive">
                 <span class="pill-num">01</span>
@@ -658,6 +1188,10 @@
             <button class="nav-pill" data-slide="2" aria-label="Slide 3: Packages & Reviews">
                 <span class="pill-num">03</span>
                 <span class="pill-label">Packages & Reviews</span>
+            </button>
+            <button class="nav-pill" data-slide="3" aria-label="Slide 4: Studio & Connect">
+                <span class="pill-num">04</span>
+                <span class="pill-label">Studio & Connect</span>
             </button>
         </nav>
 

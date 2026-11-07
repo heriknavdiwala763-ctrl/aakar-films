@@ -86,8 +86,8 @@ class PageAutoSlider {
         this.viewport = document.getElementById('sliderViewport');
 
         this.currentIndex = 0;
-        this.totalSlides = this.slides.length || 3;
-        this.slideDurations = [3500, 4200, 4800]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages)
+        this.totalSlides = this.slides.length || 4;
+        this.slideDurations = [3800, 4500, 5000, 5500]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages), Slide 4 (Connect & Estimator)
         this.timer = null;
         this.isPaused = false;
 
@@ -129,10 +129,42 @@ class PageAutoSlider {
             });
         }
 
+        // Slide 3 -> Slide 4: "04. STUDIO CONNECT & ESTIMATOR" button
+        const btnSlideToConnect = document.getElementById('btnSlideToConnect');
+        if (btnSlideToConnect) {
+            btnSlideToConnect.addEventListener('click', () => {
+                this.goToSlide(3);
+            });
+        }
+
         // Slide 3 -> Slide 1: "BACK TO HERO" button
         const btnSlideToHero = document.getElementById('btnSlideToHero');
         if (btnSlideToHero) {
             btnSlideToHero.addEventListener('click', () => {
+                this.goToSlide(0);
+            });
+        }
+
+        // Slide 4 -> Slide 3: "← 03. PACKAGES & REVIEWS" button
+        const btnSlideBackToPackages = document.getElementById('btnSlideBackToPackages');
+        if (btnSlideBackToPackages) {
+            btnSlideBackToPackages.addEventListener('click', () => {
+                this.goToSlide(2);
+            });
+        }
+
+        // Slide 4 -> Slide 2: "02. PORTFOLIO" button
+        const btnSlideBackToPortfolioFrom4 = document.getElementById('btnSlideBackToPortfolioFrom4');
+        if (btnSlideBackToPortfolioFrom4) {
+            btnSlideBackToPortfolioFrom4.addEventListener('click', () => {
+                this.goToSlide(1);
+            });
+        }
+
+        // Slide 4 -> Slide 1: "01. BACK TO HERO" button
+        const btnSlideToHeroFrom4 = document.getElementById('btnSlideToHeroFrom4');
+        if (btnSlideToHeroFrom4) {
+            btnSlideToHeroFrom4.addEventListener('click', () => {
                 this.goToSlide(0);
             });
         }
@@ -414,5 +446,181 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    /* -------------------------------------------------------------------------
+       4. Interactive Wedding Package & Cost Estimator (Slide 4)
+       ------------------------------------------------------------------------- */
+    const durationRadios = document.querySelectorAll('input[name="calcDuration"]');
+    const addonCheckboxes = document.querySelectorAll('.calc-addon');
+    const calcSummaryList = document.getElementById('calcSummaryList');
+    const calcTotalDisplay = document.getElementById('calcTotalDisplay');
+    const btnBookCustomEstimate = document.getElementById('btnBookCustomEstimate');
+    const btnSendEstimateWhatsApp = document.getElementById('btnSendEstimateWhatsApp');
+
+    function calculateBespokePackage() {
+        if (!calcSummaryList || !calcTotalDisplay) return;
+
+        let total = 0;
+        let selectedDurationName = '2 Days Royal Wedding';
+        let selectedDurationPrice = 125000;
+
+        // 1. Get Selected Duration
+        durationRadios.forEach(radio => {
+            const card = radio.closest('.calc-tier-card');
+            if (radio.checked) {
+                selectedDurationPrice = parseInt(radio.value, 10) || 0;
+                selectedDurationName = radio.getAttribute('data-tier-name') || 'Coverage';
+                total += selectedDurationPrice;
+                if (card) card.classList.add('active');
+            } else {
+                if (card) card.classList.remove('active');
+            }
+        });
+
+        // HTML for breakdown list
+        let breakdownHTML = `
+            <div class="summary-item-row">
+                <span><i class="fa-solid fa-calendar-check" style="color:var(--color-rose-dark); margin-right:6px;"></i> ${selectedDurationName}</span>
+                <span>₹${selectedDurationPrice.toLocaleString('en-IN')}</span>
+            </div>
+        `;
+
+        // 2. Add-ons
+        let selectedAddons = [];
+        addonCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                const cost = parseInt(cb.value, 10) || 0;
+                const name = cb.getAttribute('data-addon-name') || 'Addon';
+                total += cost;
+                selectedAddons.push({ name, cost });
+                breakdownHTML += `
+                    <div class="summary-item-row">
+                        <span><i class="fa-solid fa-check" style="color:#2E7D32; margin-right:6px;"></i> ${name}</span>
+                        <span>+₹${cost.toLocaleString('en-IN')}</span>
+                    </div>
+                `;
+            }
+        });
+
+        calcSummaryList.innerHTML = breakdownHTML;
+        calcTotalDisplay.textContent = '₹' + total.toLocaleString('en-IN');
+
+        return {
+            durationName: selectedDurationName,
+            total,
+            addons: selectedAddons
+        };
+    }
+
+    if (durationRadios.length > 0) {
+        durationRadios.forEach(r => r.addEventListener('change', calculateBespokePackage));
+        addonCheckboxes.forEach(cb => cb.addEventListener('change', calculateBespokePackage));
+        calculateBespokePackage(); // Initial calculation
+    }
+
+    // Book Custom Estimate Button -> Opens Booking Modal with custom details
+    if (btnBookCustomEstimate) {
+        btnBookCustomEstimate.addEventListener('click', () => {
+            const calcData = calculateBespokePackage();
+            const modal = document.getElementById('bookModal');
+            const shootTypeSelect = document.getElementById('shootType');
+            if (modal) {
+                modal.classList.add('open');
+                if (shootTypeSelect && calcData) {
+                    const customLabel = `Custom Estimate: ${calcData.durationName} (₹${calcData.total.toLocaleString('en-IN')})`;
+                    let customOpt = document.getElementById('customEstimateOption');
+                    if (!customOpt) {
+                        customOpt = document.createElement('option');
+                        customOpt.id = 'customEstimateOption';
+                        shootTypeSelect.appendChild(customOpt);
+                    }
+                    customOpt.value = customLabel;
+                    customOpt.textContent = customLabel;
+                    shootTypeSelect.value = customLabel;
+                }
+            }
+        });
+    }
+
+    // Send Estimate directly on WhatsApp to Chaitya Koradiya
+    if (btnSendEstimateWhatsApp) {
+        btnSendEstimateWhatsApp.addEventListener('click', () => {
+            const calcData = calculateBespokePackage();
+            if (!calcData) return;
+
+            let text = `*📸 BESPOKE ESTIMATE INQUIRY - AAKAR FILMS*%0A%0A` +
+                       `*Selected Tier:* ${encodeURIComponent(calcData.durationName)}%0A` +
+                       `*Add-ons Selected:*%0A`;
+
+            if (calcData.addons.length > 0) {
+                calcData.addons.forEach(a => {
+                    text += `• ${encodeURIComponent(a.name)} (+₹${a.cost.toLocaleString('en-IN')})%0A`;
+                });
+            } else {
+                text += `(No extra add-ons)%0A`;
+            }
+
+            text += `%0A*TOTAL ESTIMATED INVESTMENT:* ₹${calcData.total.toLocaleString('en-IN')}%0A%0A` +
+                    `_Hello Chaitya & Shrey, I configured this custom package on your website and would like to check availability!_`;
+
+            window.open(`https://wa.me/916354896783?text=${text}`, '_blank');
+        });
+    }
+
+    /* -------------------------------------------------------------------------
+       5. In-Page VIP Reservation Form (Slide 4)
+       Connects directly into LocalStorage CRM -> Instantly visible in Admin!
+       ------------------------------------------------------------------------- */
+    const inpageBookingForm = document.getElementById('inpageBookingForm');
+    const inpageSuccess = document.getElementById('inpageSuccess');
+
+    if (inpageBookingForm && inpageSuccess) {
+        inpageBookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('inpageName')?.value.trim() || '';
+            const phone = document.getElementById('inpagePhone')?.value.trim() || '';
+            const date = document.getElementById('inpageDate')?.value || '';
+            const shootType = document.getElementById('inpageShootType')?.value || 'Wedding Photography';
+            const location = document.getElementById('inpageLocation')?.value.trim() || 'Ahmedabad';
+            const notes = document.getElementById('inpageNotes')?.value.trim() || '';
+
+            const submitBtn = document.getElementById('btnInpageSubmit');
+            if (submitBtn) {
+                submitBtn.innerHTML = '<span>TRANSMITTING INQUIRY...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+            }
+
+            // Save to Aakar DB (localStorage CRM)
+            const savedBooking = await AakarDataEngine.saveBooking({
+                name,
+                phone,
+                date,
+                shootType,
+                location: notes ? `${location} (Note: ${notes})` : location
+            });
+
+            // Display success message
+            inpageBookingForm.style.display = 'none';
+            inpageSuccess.style.display = 'block';
+
+            // WhatsApp Direct Action
+            const waUrl = `https://wa.me/916354896783?text=Hello%20Chaitya%20and%20Shrey,%20I%20just%20submitted%20a%20VIP%20inquiry%20for%20${encodeURIComponent(name)}%20(${savedBooking.id})%20on%20${encodeURIComponent(date)}%20for%20${encodeURIComponent(shootType)}.`;
+            
+            let directWaBtn = document.getElementById('inpageWaConfirmBtn');
+            if (!directWaBtn) {
+                directWaBtn = document.createElement('a');
+                directWaBtn.id = 'inpageWaConfirmBtn';
+                directWaBtn.className = 'btn-whatsapp';
+                directWaBtn.style.marginTop = '18px';
+                directWaBtn.style.display = 'inline-flex';
+                directWaBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> <span>Send Instant Notice on WhatsApp</span>';
+                directWaBtn.target = '_blank';
+                directWaBtn.rel = 'noopener';
+                inpageSuccess.appendChild(directWaBtn);
+            }
+            directWaBtn.href = waUrl;
+        });
+    }
 
 });
