@@ -1152,6 +1152,10 @@
                             <i class="fa-solid fa-arrow-left"></i>
                             <span>← 03. PACKAGES & REVIEWS</span>
                         </button>
+                        <button class="btn-nude" id="btnSlideToVideoGallery">
+                            <span>05. CINEMATIC VIDEO GALLERY →</span>
+                            <i class="fa-solid fa-film"></i>
+                        </button>
                         <button class="btn-portfolio" id="btnSlideBackToPortfolioFrom4">
                             <i class="fa-solid fa-images"></i>
                             <span>02. PORTFOLIO</span>
@@ -1173,9 +1177,441 @@
                 </div>
             </section>
 
+            <!-- ===============================================================
+                 SLIDE 5: FIFTH PAGE ("5. Cinematic Video Gallery & 4K Cinema Lounge")
+                 =============================================================== -->
+            <section class="page-slide" id="slide5" data-index="4">
+                <div class="video-gallery-content">
+                    
+                    <!-- Section Header in Pure Light Pink Aesthetic -->
+                    <div class="slide-section-header text-center">
+                        <span class="card-kicker"><i class="fa-solid fa-clapperboard"></i> 5. CINEMATIC VIDEO ARCHIVE • 4K ULTRA HD</span>
+                        <h2 class="slide-main-title">Cinematic Video Gallery</h2>
+                        <div class="card-divider"></div>
+                        <p class="slide-subtitle">
+                            Experience royal emotions preserved in 4K fine-art cinematography. Browse our curated Wedding Highlights, Pre-Wedding Films, trending vertical Instagram Reels, and Behind The Scenes. Watch every film directly on our website below.
+                        </p>
+                    </div>
+
+                    <!-- Category Filter Tabs (Interactive Bar) -->
+                    <div class="video-filter-bar">
+                        <button type="button" class="video-filter-btn active" data-filter="all">
+                            <i class="fa-solid fa-film"></i>
+                            <span>All Films</span>
+                            <span class="filter-count">12</span>
+                        </button>
+                        <button type="button" class="video-filter-btn" data-filter="wedding">
+                            <i class="fa-solid fa-crown"></i>
+                            <span>Wedding Highlights</span>
+                            <span class="filter-count">3</span>
+                        </button>
+                        <button type="button" class="video-filter-btn" data-filter="prewedding">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Pre-Wedding Films</span>
+                            <span class="filter-count">3</span>
+                        </button>
+                        <button type="button" class="video-filter-btn" data-filter="reels">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Instagram Reels (9:16)</span>
+                            <span class="filter-count">4</span>
+                        </button>
+                        <button type="button" class="video-filter-btn" data-filter="bts">
+                            <i class="fa-solid fa-video"></i>
+                            <span>Behind The Scenes</span>
+                            <span class="filter-count">2</span>
+                        </button>
+                    </div>
+
+                    <!-- Video Grid: 12 Video Cards (Direct In-Page Playable) -->
+                    <div class="cinematic-videos-grid" id="cinematicVideosGrid">
+                        
+                        <!-- Feature 1 Divider: Wedding Highlights -->
+                        <div class="video-section-divider" data-category="wedding">
+                            <div class="sec-left">
+                                <i class="fa-solid fa-crown"></i>
+                                <span class="sec-title">1. WEDDING HIGHLIGHTS • 4K ULTRA HD</span>
+                            </div>
+                            <span class="sec-badge">3 Feature Films</span>
+                        </div>
+
+                        <!-- 1. Wedding Highlight: Royal Palace Wedding Symphony -->
+                        <div class="video-card" data-category="wedding" data-title="Royal Palace Wedding Symphony" data-tag="Wedding Highlights" data-desc="Complete 4K feature highlight shot across Jagmandir Island Palace, Udaipur with ARRI cinema color grade." data-video="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K UHD</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 04:15</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Wedding Highlight</span>
+                                <h3 class="video-title">Royal Palace Wedding Symphony</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> Jagmandir Island Palace, Udaipur</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Chaitya Koradiya & Shrey Doshi</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20loved%20the%20Royal%20Palace%20Wedding%20Symphony%20film%20and%20want%20to%20inquire%20for%20my%20wedding" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Wedding Highlight: Sacred Vows & Sangeet Romance -->
+                        <div class="video-card" data-category="wedding" data-title="Sacred Vows & Sangeet Romance" data-tag="Wedding Highlights" data-desc="Emotional vows, golden varmala, and energetic sangeet night choreographed cinematography." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" poster="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K HDR</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 03:45</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Wedding Highlight</span>
+                                <h3 class="video-title">Sacred Vows & Sangeet Romance</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> The Leela Palace, Jaipur</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Shrey Doshi</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/917621987470?text=Hello%20Aakar%20Films,%20I%20loved%20the%20Sacred%20Vows%20Wedding%20Highlight%20film" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Wedding Highlight: Grand Heritage Pheras & Celebration -->
+                        <div class="video-card" data-category="wedding" data-title="Grand Heritage Pheras & Celebration" data-tag="Wedding Highlights" data-desc="Sacred fire rituals and royal mandap fireworks captured with 4-camera sync audio." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" poster="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K FILM</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 05:10</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Wedding Highlight</span>
+                                <h3 class="video-title">Grand Heritage Pheras & Celebration</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> Taj Umaid Bhawan, Jodhpur</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Chaitya & Shrey</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20loved%20the%20Grand%20Heritage%20Pheras%20film" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 Divider: Pre-Wedding Films -->
+                        <div class="video-section-divider" data-category="prewedding">
+                            <div class="sec-left">
+                                <i class="fa-solid fa-heart"></i>
+                                <span class="sec-title">2. PRE-WEDDING FILMS • FINE-ART ROMANCE</span>
+                            </div>
+                            <span class="sec-badge">3 Films</span>
+                        </div>
+
+                        <!-- 4. Pre-Wedding Film: Eternal Desert Sunset Tale -->
+                        <div class="video-card" data-category="prewedding" data-title="Eternal Desert Sunset Tale" data-tag="Pre-Wedding Films" data-desc="Breathtaking golden-hour dunes pre-wedding cinematography with aerial drone perspective." data-video="https://cdn.coverr.co/videos/coverr-raglan-beach-in-new-zealand-958/1080p.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://cdn.coverr.co/videos/coverr-raglan-beach-in-new-zealand-958/1080p.mp4" poster="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://cdn.coverr.co/videos/coverr-raglan-beach-in-new-zealand-958/1080p.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K CINEMA</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 03:20</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Pre-Wedding Film</span>
+                                <h3 class="video-title">Eternal Desert Sunset Tale</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> Sam Sand Dunes, Jaisalmer</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Chaitya Koradiya</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20plan%20a%20Desert%20Sunset%20Pre-Wedding%20shoot" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Pre-Wedding Film: Wildflower Meadows Romance -->
+                        <div class="video-card" data-category="prewedding" data-title="Wildflower Meadows Romance" data-tag="Pre-Wedding Films" data-desc="Natural unscripted chemistry in mist-covered valleys with anamorphic soft focus." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" poster="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K POETRY</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 02:50</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Pre-Wedding Film</span>
+                                <h3 class="video-title">Wildflower Meadows Romance</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> Misty Hills, Mahabaleshwar</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Shrey Doshi</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20love%20the%20Wildflower%20Pre-Wedding%20style" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Pre-Wedding Film: Urban Love & Heritage Marine Fort -->
+                        <div class="video-card" data-category="prewedding" data-title="Urban Love & Heritage Marine Fort" data-tag="Pre-Wedding Films" data-desc="Modern high-fashion attire against ocean coastline and colonial architecture." data-video="https://vjs.zencdn.net/v/oceans.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://vjs.zencdn.net/v/oceans.mp4" poster="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-gem"></i> 4K EDITORIAL</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 03:05</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Pre-Wedding Film</span>
+                                <h3 class="video-title">Urban Love & Heritage Marine Fort</h3>
+                                <p class="video-location"><i class="fa-solid fa-location-dot"></i> South Mumbai & Sea Link Coastline</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Directed by Chaitya Koradiya</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20want%20to%20inquire%20about%20Urban%20Pre-Wedding%20shoot" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 Divider: Instagram Reels -->
+                        <div class="video-section-divider" data-category="reels">
+                            <div class="sec-left">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span class="sec-title">3. INSTAGRAM REELS • 9:16 VERTICAL VIRAL CINEMA</span>
+                            </div>
+                            <span class="sec-badge">4 Smartphone Reels</span>
+                        </div>
+
+                        <!-- 7. Instagram Reel: Bridal Bloom & Royal Kaleeras (Vertical 9:16) -->
+                        <div class="video-card reel-card" data-category="reels" data-title="Bridal Bloom & Royal Kaleeras" data-tag="Instagram Reel (9:16)" data-desc="Viral slow-motion bridal entry with traditional kaleera details and custom color grading." data-video="https://cdn.coverr.co/videos/coverr-the-waves-of-the-sea-5282/1080p.mp4">
+                            <div class="video-media-wrapper reel-aspect">
+                                <video class="card-video-player reel-video" playsinline preload="metadata" crossorigin="anonymous" src="https://cdn.coverr.co/videos/coverr-the-waves-of-the-sea-5282/1080p.mp4" poster="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=500&q=85">
+                                    <source src="https://cdn.coverr.co/videos/coverr-the-waves-of-the-sea-5282/1080p.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Reel"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality reel-badge"><i class="fa-brands fa-instagram"></i> 9:16 REEL</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 00:30</span>
+                                <div class="reel-stats-overlay">
+                                    <span><i class="fa-solid fa-play"></i> 125K</span>
+                                    <span><i class="fa-solid fa-heart"></i> 14.2K</span>
+                                </div>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Trending 9:16 Reel</span>
+                                <h3 class="video-title">Bridal Bloom & Royal Kaleeras</h3>
+                                <p class="video-location"><i class="fa-solid fa-music"></i> Audio: Aakar Royal Symphonies</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20want%20this%20exact%20Reel%20style%20for%20my%20wedding" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Instagram Reel: Royal Couple Varmala Slow-Mo (Vertical 9:16) -->
+                        <div class="video-card reel-card" data-category="reels" data-title="Royal Couple Varmala Slow-Mo" data-tag="Instagram Reel (9:16)" data-desc="Rose petal shower at 120 FPS high-frame rate cinema capture." data-video="https://cdn.coverr.co/videos/coverr-hot-air-balloons-floating-in-the-sky-1873/1080p.mp4">
+                            <div class="video-media-wrapper reel-aspect">
+                                <video class="card-video-player reel-video" playsinline preload="metadata" crossorigin="anonymous" src="https://cdn.coverr.co/videos/coverr-hot-air-balloons-floating-in-the-sky-1873/1080p.mp4" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=85">
+                                    <source src="https://cdn.coverr.co/videos/coverr-hot-air-balloons-floating-in-the-sky-1873/1080p.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Reel"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality reel-badge"><i class="fa-brands fa-instagram"></i> 9:16 REEL</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 00:45</span>
+                                <div class="reel-stats-overlay">
+                                    <span><i class="fa-solid fa-play"></i> 98.4K</span>
+                                    <span><i class="fa-solid fa-heart"></i> 11.5K</span>
+                                </div>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Trending 9:16 Reel</span>
+                                <h3 class="video-title">Royal Couple Varmala Slow-Mo</h3>
+                                <p class="video-location"><i class="fa-solid fa-music"></i> Audio: Afreen Acoustic Mix</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20want%20this%20Varmala%20Slow-Mo%20Reel" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Instagram Reel: The Sacred Ring Exchange (Vertical 9:16) -->
+                        <div class="video-card reel-card" data-category="reels" data-title="The Sacred Ring Exchange" data-tag="Instagram Reel (9:16)" data-desc="Intimate ring ceremony close-up with tearful smiles and genuine candid warmth." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4">
+                            <div class="video-media-wrapper reel-aspect">
+                                <video class="card-video-player reel-video" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" poster="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=500&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Reel"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality reel-badge"><i class="fa-brands fa-instagram"></i> 9:16 REEL</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 00:25</span>
+                                <div class="reel-stats-overlay">
+                                    <span><i class="fa-solid fa-play"></i> 84.1K</span>
+                                    <span><i class="fa-solid fa-heart"></i> 9.8K</span>
+                                </div>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Trending 9:16 Reel</span>
+                                <h3 class="video-title">The Sacred Ring Exchange</h3>
+                                <p class="video-location"><i class="fa-solid fa-music"></i> Audio: Kudmayi Golden Mix</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20love%20the%20Ring%20Exchange%20Reel%20format" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10. Instagram Reel: Sparkler Grand Midnight Entry (Vertical 9:16) -->
+                        <div class="video-card reel-card" data-category="reels" data-title="Sparkler Grand Midnight Entry" data-tag="Instagram Reel (9:16)" data-desc="Spectacular midnight entry pathway illuminated by hundreds of sparkling handhelds." data-video="https://cdn.coverr.co/videos/coverr-three-friends-hugging-each-other-7271/1080p.mp4">
+                            <div class="video-media-wrapper reel-aspect">
+                                <video class="card-video-player reel-video" playsinline preload="metadata" crossorigin="anonymous" src="https://cdn.coverr.co/videos/coverr-three-friends-hugging-each-other-7271/1080p.mp4" poster="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=500&q=85">
+                                    <source src="https://cdn.coverr.co/videos/coverr-three-friends-hugging-each-other-7271/1080p.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play Reel"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality reel-badge"><i class="fa-brands fa-instagram"></i> 9:16 REEL</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 00:40</span>
+                                <div class="reel-stats-overlay">
+                                    <span><i class="fa-solid fa-play"></i> 210K</span>
+                                    <span><i class="fa-solid fa-heart"></i> 26.3K</span>
+                                </div>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Trending 9:16 Reel</span>
+                                <h3 class="video-title">Sparkler Grand Midnight Entry</h3>
+                                <p class="video-location"><i class="fa-solid fa-music"></i> Audio: Channa Mereya Orchestral</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20want%20the%20Sparkler%20Midnight%20Entry%20cinematography" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 4 Divider: Behind The Scenes -->
+                        <div class="video-section-divider" data-category="bts">
+                            <div class="sec-left">
+                                <i class="fa-solid fa-video"></i>
+                                <span class="sec-title">4. BEHIND THE SCENES • CINEMA GEAR & PRODUCTION</span>
+                            </div>
+                            <span class="sec-badge">2 BTS Films</span>
+                        </div>
+
+                        <!-- 11. Behind The Scenes: Cinema Rig & Anamorphic Lenses -->
+                        <div class="video-card" data-category="bts" data-title="Cinema Rig & Anamorphic Lenses" data-tag="Behind The Scenes" data-desc="Step onto our film set to witness the gimbal rigs, drone piloting, and color monitor setups." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" poster="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play BTS Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-film"></i> BTS EXCLUSIVE</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 02:40</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Behind The Scenes</span>
+                                <h3 class="video-title">Cinema Rig & Anamorphic Lenses</h3>
+                                <p class="video-location"><i class="fa-solid fa-clapperboard"></i> Studio Rig: Sony FX3 & Cooke Anamorphic</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Led by Chaitya Koradiya</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20am%20impressed%20by%20your%20BTS%20cinema%20rigs" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12. Behind The Scenes: On-Location Candid Direction -->
+                        <div class="video-card" data-category="bts" data-title="On-Location Candid Direction" data-tag="Behind The Scenes" data-desc="How our visual directors guide couples comfortably to evoke natural laughter and genuine glances." data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4">
+                            <div class="video-media-wrapper">
+                                <video class="card-video-player" playsinline preload="metadata" crossorigin="anonymous" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" poster="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=85">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" type="video/mp4">
+                                    <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-play-overlay">
+                                    <button class="btn-video-play" aria-label="Play BTS Video"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <span class="video-badge-quality"><i class="fa-solid fa-film"></i> BTS EXCLUSIVE</span>
+                                <span class="video-duration-pill"><i class="fa-regular fa-clock"></i> 02:15</span>
+                            </div>
+                            <div class="video-meta-body">
+                                <span class="video-cat-tag">Behind The Scenes</span>
+                                <h3 class="video-title">On-Location Candid Direction</h3>
+                                <p class="video-location"><i class="fa-solid fa-clapperboard"></i> Natural Outdoor Emotion Direction</p>
+                                <p class="video-directors"><i class="fa-solid fa-camera"></i> Led by Shrey Doshi</p>
+                                <div class="video-card-actions">
+                                    <button class="btn-theater-trigger" type="button"><i class="fa-solid fa-expand"></i> Theater 4K Mode</button>
+                                    <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20love%20how%20you%20direct%20candid%20BTS" target="_blank" rel="noopener" class="btn-card-wa" title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide 5 Footer Navigation Actions -->
+                    <div class="slide-footer-nav text-center" style="margin-top: 40px;">
+                        <button class="btn-portfolio" id="btnSlideBackToStudioFrom5">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>← 04. STUDIO & ESTIMATOR</span>
+                        </button>
+                        <button class="btn-portfolio" id="btnSlideToPackagesFrom5">
+                            <i class="fa-solid fa-gem"></i>
+                            <span>03. PACKAGES</span>
+                        </button>
+                        <button class="btn-portfolio" id="btnSlideToPortfolioFrom5">
+                            <i class="fa-solid fa-images"></i>
+                            <span>02. PORTFOLIO</span>
+                        </button>
+                        <button class="btn-portfolio" id="btnSlideToHeroFrom5">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            <span>01. BACK TO HERO</span>
+                        </button>
+                        <button class="btn-nude trigger-book-modal" data-default-service="Cinematic Video Shoot">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span>BOOK CINEMATIC SHOOT</span>
+                        </button>
+                        <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20want%20to%20inquire%20about%20your%20Cinematic%20Video%20packages" target="_blank" rel="noopener" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WHATSAPP CHAITYA</span>
+                        </a>
+                        <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20want%20to%20inquire%20about%20your%20Cinematic%20Video%20packages" target="_blank" rel="noopener" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WHATSAPP SHREY</span>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
         </div>
 
-        <!-- Luxury Interactive Slide Navigation Bar (4 Slides) -->
+        <!-- Luxury Interactive Slide Navigation Bar (5 Slides) -->
         <nav class="slider-nav-pills" id="sliderNavPills" aria-label="Page slider navigation">
             <button class="nav-pill active" data-slide="0" aria-label="Slide 1: Archive">
                 <span class="pill-num">01</span>
@@ -1193,9 +1629,41 @@
                 <span class="pill-num">04</span>
                 <span class="pill-label">Studio & Connect</span>
             </button>
+            <button class="nav-pill" data-slide="4" aria-label="Slide 5: Video Gallery">
+                <span class="pill-num">05</span>
+                <span class="pill-label">Video Gallery</span>
+            </button>
         </nav>
 
     </main>
+
+    <!-- =======================================================================
+         CINEMA THEATER MODAL (4K Full-Screen Video Lightbox)
+         ======================================================================= -->
+    <div class="cinema-theater-modal" id="cinemaTheaterModal" aria-hidden="true" role="dialog">
+        <div class="cinema-modal-backdrop" id="cinemaModalBackdrop"></div>
+        <div class="cinema-modal-container">
+            <button class="cinema-modal-close" id="closeCinemaModal" aria-label="Close cinema player">&times;</button>
+            <div class="cinema-player-wrapper">
+                <video id="cinemaModalVideo" controls playsinline preload="auto" class="cinema-main-player">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="cinema-modal-meta">
+                <div class="cinema-meta-left">
+                    <span class="cinema-meta-tag" id="cinemaModalTag">Wedding Highlights</span>
+                    <h3 class="cinema-meta-title" id="cinemaModalTitle">Royal Destination Wedding</h3>
+                    <p class="cinema-meta-desc" id="cinemaModalDesc">Shot on ARRI Alexa & Sony FX3 with master color grading.</p>
+                </div>
+                <div class="cinema-meta-right">
+                    <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20loved%20your%20cinematic%20film%20and%20want%20to%20inquire%20about%20booking" target="_blank" rel="noopener" class="btn-whatsapp" id="cinemaModalWhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>INQUIRE THIS FILM STYLE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- =======================================================================
          INTERACTIVE MODAL: "BOOK A SHOOT"

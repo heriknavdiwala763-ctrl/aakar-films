@@ -86,8 +86,8 @@ class PageAutoSlider {
         this.viewport = document.getElementById('sliderViewport');
 
         this.currentIndex = 0;
-        this.totalSlides = this.slides.length || 4;
-        this.slideDurations = [3800, 4500, 5000, 5500]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages), Slide 4 (Connect & Estimator)
+        this.totalSlides = this.slides.length || 5;
+        this.slideDurations = [3800, 4500, 5000, 5500, 6000]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages), Slide 4 (Connect & Estimator), Slide 5 (Video Gallery)
         this.timer = null;
         this.isPaused = false;
 
@@ -153,6 +153,14 @@ class PageAutoSlider {
             });
         }
 
+        // Slide 4 -> Slide 5: "05. CINEMATIC VIDEO GALLERY →" button
+        const btnSlideToVideoGallery = document.getElementById('btnSlideToVideoGallery');
+        if (btnSlideToVideoGallery) {
+            btnSlideToVideoGallery.addEventListener('click', () => {
+                this.goToSlide(4);
+            });
+        }
+
         // Slide 4 -> Slide 2: "02. PORTFOLIO" button
         const btnSlideBackToPortfolioFrom4 = document.getElementById('btnSlideBackToPortfolioFrom4');
         if (btnSlideBackToPortfolioFrom4) {
@@ -169,6 +177,35 @@ class PageAutoSlider {
             });
         }
 
+        // Slide 5 Navigation Actions
+        const btnSlideBackToStudioFrom5 = document.getElementById('btnSlideBackToStudioFrom5');
+        if (btnSlideBackToStudioFrom5) {
+            btnSlideBackToStudioFrom5.addEventListener('click', () => {
+                this.goToSlide(3);
+            });
+        }
+
+        const btnSlideToPackagesFrom5 = document.getElementById('btnSlideToPackagesFrom5');
+        if (btnSlideToPackagesFrom5) {
+            btnSlideToPackagesFrom5.addEventListener('click', () => {
+                this.goToSlide(2);
+            });
+        }
+
+        const btnSlideToPortfolioFrom5 = document.getElementById('btnSlideToPortfolioFrom5');
+        if (btnSlideToPortfolioFrom5) {
+            btnSlideToPortfolioFrom5.addEventListener('click', () => {
+                this.goToSlide(1);
+            });
+        }
+
+        const btnSlideToHeroFrom5 = document.getElementById('btnSlideToHeroFrom5');
+        if (btnSlideToHeroFrom5) {
+            btnSlideToHeroFrom5.addEventListener('click', () => {
+                this.goToSlide(0);
+            });
+        }
+
         // Header logo click glides back to Slide 1
         const brandHomeLink = document.getElementById('brandHomeLink');
         if (brandHomeLink) {
@@ -178,7 +215,7 @@ class PageAutoSlider {
             });
         }
 
-        // Interactive Navigation Pills (01 Archive, 02 Portfolio, 03 Packages & Reviews)
+        // Interactive Navigation Pills (01 Archive, 02 Portfolio, 03 Packages, 04 Studio, 05 Video Gallery)
         const navPills = document.querySelectorAll('.nav-pill');
         navPills.forEach((pill) => {
             pill.addEventListener('click', () => {
@@ -194,6 +231,17 @@ class PageAutoSlider {
             this.viewport.addEventListener('mouseenter', () => { this.isPaused = true; });
             this.viewport.addEventListener('mouseleave', () => { this.isPaused = false; });
             this.viewport.addEventListener('touchstart', () => { this.isPaused = true; }, { passive: true });
+        }
+
+        // Check URL hash on page load (e.g. #slide5 or #video-gallery)
+        if (window.location.hash === '#slide5' || window.location.hash === '#video-gallery') {
+            setTimeout(() => {
+                const viewport = document.getElementById('sliderViewport');
+                if (viewport) {
+                    viewport.scrollIntoView({ behavior: 'smooth' });
+                }
+                this.goToSlide(4);
+            }, 300);
         }
 
         // Start automatic cycling
@@ -212,6 +260,16 @@ class PageAutoSlider {
             pill.classList.toggle('active', i === this.currentIndex);
         });
 
+        // Pause any card videos that might be playing when sliding away
+        const cardVideos = document.querySelectorAll('.card-video-player');
+        cardVideos.forEach(v => {
+            if (!v.paused) {
+                v.pause();
+                const wrapper = v.closest('.video-media-wrapper');
+                if (wrapper) wrapper.classList.remove('playing');
+            }
+        });
+
         this.scheduleNextSlide();
     }
 
@@ -221,7 +279,7 @@ class PageAutoSlider {
 
         this.timer = setTimeout(() => {
             // If user has mouse over or modal is open, wait and check again
-            if (this.isPaused || document.querySelector('.modal-overlay.open')) {
+            if (this.isPaused || document.querySelector('.modal-overlay.open') || document.querySelector('.cinema-theater-modal.open')) {
                 this.scheduleNextSlide();
                 return;
             }
@@ -241,6 +299,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize the automatic slider
     const slider = new PageAutoSlider();
+    window.aakarPageSlider = slider;
+
+    /* -------------------------------------------------------------------------
+       Interactive Luxury 3D Parallax Tilt for Floating Cards
+       ------------------------------------------------------------------------- */
+    function init3DCardParallax() {
+        const cinemaCard = document.querySelector('.royal-cinema-card');
+        const heroCard = document.querySelector('.hero-floating-card .floating-card-inner');
+        
+        [cinemaCard, heroCard].forEach(card => {
+            if (!card) return;
+
+            let isHovered = false;
+
+            card.addEventListener('mouseenter', () => {
+                isHovered = true;
+                card.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease';
+            });
+
+            card.addEventListener('mousemove', (e) => {
+                if (!isHovered) return;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                // Subtle realistic 3D tilt angles (max ~8.5 degrees)
+                const rotateX = ((centerY - y) / centerY) * 8.5;
+                const rotateY = ((x - centerX) / centerX) * 8.5;
+
+                card.style.transform = `perspective(1400px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) translateZ(18px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                isHovered = false;
+                card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.4s ease';
+                card.style.transform = 'perspective(1400px) rotateX(0deg) rotateY(0deg) translateY(0) translateZ(0)';
+            });
+        });
+    }
+
+    init3DCardParallax();
 
     /* -------------------------------------------------------------------------
        Royal Cinematic Background Video Controller
@@ -622,5 +723,227 @@ document.addEventListener('DOMContentLoaded', () => {
             directWaBtn.href = waUrl;
         });
     }
+
+    /* -------------------------------------------------------------------------
+       6. CINEMATIC VIDEO GALLERY CONTROLLER (Slide 5)
+       - Category Filter Tabs (All, Wedding Highlights, Pre-Wedding, Reels 9:16, BTS)
+       - In-Card Direct HTML5 Video Play / Pause with dynamic overlay
+       - 4K Full-Screen Cinema Theater Lightbox Modal
+       ------------------------------------------------------------------------- */
+    function initVideoGallery() {
+        const filterBtns = document.querySelectorAll('.video-filter-btn');
+        const videoCards = document.querySelectorAll('.cinematic-videos-grid .video-card');
+        const sectionDividers = document.querySelectorAll('.video-section-divider');
+
+        // 1. Category Filtering Logic
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetFilter = btn.getAttribute('data-filter') || 'all';
+
+                // Update active tab styling
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter category section dividers
+                sectionDividers.forEach(div => {
+                    const divCat = div.getAttribute('data-category');
+                    if (targetFilter === 'all' || divCat === targetFilter) {
+                        div.style.display = 'flex';
+                    } else {
+                        div.style.display = 'none';
+                    }
+                });
+
+                // Filter cards with smooth display transition
+                videoCards.forEach(card => {
+                    const cardCat = card.getAttribute('data-category');
+                    if (targetFilter === 'all' || cardCat === targetFilter) {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                    } else {
+                        // Pause if playing
+                        const v = card.querySelector('.card-video-player');
+                        if (v && !v.paused) {
+                            v.pause();
+                            const wrap = card.querySelector('.video-media-wrapper');
+                            if (wrap) wrap.classList.remove('playing');
+                        }
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 2. Direct In-Card Video Playback
+        videoCards.forEach(card => {
+            const wrapper = card.querySelector('.video-media-wrapper');
+            const video = card.querySelector('.card-video-player');
+            const playOverlay = card.querySelector('.video-play-overlay');
+
+            if (!video || !wrapper) return;
+
+            const toggleCardPlay = (e) => {
+                // If user clicks on the theater mode button or whatsapp button, ignore
+                if (e.target.closest('.btn-theater-trigger') || e.target.closest('.btn-card-wa') || e.target.closest('.reel-ig-badge')) {
+                    return;
+                }
+
+                if (video.paused) {
+                    // Pause any other playing video cards first
+                    document.querySelectorAll('.card-video-player').forEach(otherVid => {
+                        if (otherVid !== video && !otherVid.paused) {
+                            otherVid.pause();
+                            const otherWrap = otherVid.closest('.video-media-wrapper');
+                            if (otherWrap) otherWrap.classList.remove('playing');
+                        }
+                    });
+
+                    // Pause auto slider while watching
+                    if (window.aakarPageSlider) {
+                        window.aakarPageSlider.isPaused = true;
+                    }
+
+                    // Ensure video has direct src set
+                    if (!video.src && card.getAttribute('data-video')) {
+                        video.src = card.getAttribute('data-video');
+                        video.load();
+                    }
+
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            wrapper.classList.add('playing');
+                            video.controls = true;
+                        }).catch(err => {
+                            console.warn('Video play fallback triggered:', err);
+                            video.src = 'https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4';
+                            video.load();
+                            video.play().then(() => {
+                                wrapper.classList.add('playing');
+                                video.controls = true;
+                            }).catch(e => console.error('Video stream error:', e));
+                        });
+                    }
+                } else {
+                    video.pause();
+                    wrapper.classList.remove('playing');
+                }
+            };
+
+            if (playOverlay) {
+                playOverlay.addEventListener('click', toggleCardPlay);
+            }
+            video.addEventListener('click', toggleCardPlay);
+
+            video.addEventListener('ended', () => {
+                wrapper.classList.remove('playing');
+                video.controls = false;
+                if (window.aakarPageSlider) {
+                    window.aakarPageSlider.isPaused = false;
+                }
+            });
+
+            video.addEventListener('pause', () => {
+                wrapper.classList.remove('playing');
+            });
+        });
+
+        // 3. 4K Cinema Theater Lightbox Modal
+        const cinemaModal = document.getElementById('cinemaTheaterModal');
+        const cinemaVideo = document.getElementById('cinemaModalVideo');
+        const cinemaCloseBtn = document.getElementById('closeCinemaModal');
+        const cinemaBackdrop = document.getElementById('cinemaModalBackdrop');
+        const cinemaTag = document.getElementById('cinemaModalTag');
+        const cinemaTitle = document.getElementById('cinemaModalTitle');
+        const cinemaDesc = document.getElementById('cinemaModalDesc');
+        const cinemaWaBtn = document.getElementById('cinemaModalWhatsApp');
+
+        const theaterTriggers = document.querySelectorAll('.btn-theater-trigger');
+
+        const openCinemaTheater = (card) => {
+            if (!cinemaModal || !cinemaVideo) return;
+
+            const videoSrc = card.getAttribute('data-video') || '';
+            const title = card.getAttribute('data-title') || 'Cinematic Film';
+            const tag = card.getAttribute('data-tag') || 'Cinema Highlights';
+            const desc = card.getAttribute('data-desc') || '';
+
+            // Pause any card videos
+            document.querySelectorAll('.card-video-player').forEach(v => {
+                if (!v.paused) {
+                    v.pause();
+                    const w = v.closest('.video-media-wrapper');
+                    if (w) w.classList.remove('playing');
+                }
+            });
+
+            if (cinemaTag) cinemaTag.textContent = tag;
+            if (cinemaTitle) cinemaTitle.textContent = title;
+            if (cinemaDesc) cinemaDesc.textContent = desc;
+            if (cinemaWaBtn) {
+                cinemaWaBtn.href = `https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20am%20watching%20*${encodeURIComponent(title)}*%20(${encodeURIComponent(tag)})%20on%20your%20website%20and%20would%20love%20to%20book%20a%20similar%20cinematic%20film!`;
+            }
+
+            cinemaVideo.src = videoSrc;
+            cinemaModal.classList.add('open');
+            cinemaModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            if (window.aakarPageSlider) {
+                window.aakarPageSlider.isPaused = true;
+            }
+
+            cinemaVideo.load();
+            const cinemaPlayPromise = cinemaVideo.play();
+            if (cinemaPlayPromise !== undefined) {
+                cinemaPlayPromise.catch(e => {
+                    console.warn('Cinema autoplay fallback:', e);
+                    cinemaVideo.src = 'https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4';
+                    cinemaVideo.load();
+                    cinemaVideo.play().catch(err => console.warn(err));
+                });
+            }
+        };
+
+        const closeCinemaTheater = () => {
+            if (!cinemaModal) return;
+            cinemaModal.classList.remove('open');
+            cinemaModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            if (cinemaVideo) {
+                cinemaVideo.pause();
+                cinemaVideo.removeAttribute('src');
+                cinemaVideo.load();
+            }
+
+            if (window.aakarPageSlider) {
+                window.aakarPageSlider.isPaused = false;
+            }
+        };
+
+        theaterTriggers.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const card = btn.closest('.video-card');
+                if (card) {
+                    openCinemaTheater(card);
+                }
+            });
+        });
+
+        if (cinemaCloseBtn) cinemaCloseBtn.addEventListener('click', closeCinemaTheater);
+        if (cinemaBackdrop) cinemaBackdrop.addEventListener('click', closeCinemaTheater);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && cinemaModal && cinemaModal.classList.contains('open')) {
+                closeCinemaTheater();
+            }
+        });
+    }
+
+    // Initialize Video Gallery Controller
+    initVideoGallery();
 
 });
