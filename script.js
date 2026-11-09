@@ -86,8 +86,8 @@ class PageAutoSlider {
         this.viewport = document.getElementById('sliderViewport');
 
         this.currentIndex = 0;
-        this.totalSlides = this.slides.length || 5;
-        this.slideDurations = [3800, 4500, 5000, 5500, 6000]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages), Slide 4 (Connect & Estimator), Slide 5 (Video Gallery)
+        this.totalSlides = this.slides.length || 6;
+        this.slideDurations = [3800, 4500, 5000, 5500, 6000, 6000]; // Timing for Slide 1 (Hero), Slide 2 (Portfolio), Slide 3 (Reviews & Packages), Slide 4 (Connect & Estimator), Slide 5 (Video Gallery), Slide 6 (Heirloom & Client Vault)
         this.timer = null;
         this.isPaused = false;
 
@@ -206,6 +206,50 @@ class PageAutoSlider {
             });
         }
 
+        // Slide 5 -> Slide 6: "06. HEIRLOOM ATELIER & CLIENT VAULT" button
+        const btnSlideToSlide6 = document.getElementById('btnSlideToSlide6');
+        if (btnSlideToSlide6) {
+            btnSlideToSlide6.addEventListener('click', () => {
+                this.goToSlide(5);
+            });
+        }
+
+        // Slide 6 Navigation Actions
+        const btnSlideBackToVideoGalleryFrom6 = document.getElementById('btnSlideBackToVideoGalleryFrom6');
+        if (btnSlideBackToVideoGalleryFrom6) {
+            btnSlideBackToVideoGalleryFrom6.addEventListener('click', () => {
+                this.goToSlide(4);
+            });
+        }
+
+        const btnSlideToStudioFrom6 = document.getElementById('btnSlideToStudioFrom6');
+        if (btnSlideToStudioFrom6) {
+            btnSlideToStudioFrom6.addEventListener('click', () => {
+                this.goToSlide(3);
+            });
+        }
+
+        const btnSlideToPackagesFrom6 = document.getElementById('btnSlideToPackagesFrom6');
+        if (btnSlideToPackagesFrom6) {
+            btnSlideToPackagesFrom6.addEventListener('click', () => {
+                this.goToSlide(2);
+            });
+        }
+
+        const btnSlideToPortfolioFrom6 = document.getElementById('btnSlideToPortfolioFrom6');
+        if (btnSlideToPortfolioFrom6) {
+            btnSlideToPortfolioFrom6.addEventListener('click', () => {
+                this.goToSlide(1);
+            });
+        }
+
+        const btnSlideToHeroFrom6 = document.getElementById('btnSlideToHeroFrom6');
+        if (btnSlideToHeroFrom6) {
+            btnSlideToHeroFrom6.addEventListener('click', () => {
+                this.goToSlide(0);
+            });
+        }
+
         // Header logo click glides back to Slide 1
         const brandHomeLink = document.getElementById('brandHomeLink');
         if (brandHomeLink) {
@@ -215,7 +259,7 @@ class PageAutoSlider {
             });
         }
 
-        // Interactive Navigation Pills (01 Archive, 02 Portfolio, 03 Packages, 04 Studio, 05 Video Gallery)
+        // Interactive Navigation Pills (01 Archive, 02 Portfolio, 03 Packages, 04 Studio, 05 Video Gallery, 06 Heirloom & Vault)
         const navPills = document.querySelectorAll('.nav-pill');
         navPills.forEach((pill) => {
             pill.addEventListener('click', () => {
@@ -233,7 +277,7 @@ class PageAutoSlider {
             this.viewport.addEventListener('touchstart', () => { this.isPaused = true; }, { passive: true });
         }
 
-        // Check URL hash on page load (e.g. #slide5 or #video-gallery)
+        // Check URL hash on page load (e.g. #slide5, #slide6, #video-gallery, #heirloom)
         if (window.location.hash === '#slide5' || window.location.hash === '#video-gallery') {
             setTimeout(() => {
                 const viewport = document.getElementById('sliderViewport');
@@ -241,6 +285,14 @@ class PageAutoSlider {
                     viewport.scrollIntoView({ behavior: 'smooth' });
                 }
                 this.goToSlide(4);
+            }, 300);
+        } else if (window.location.hash === '#slide6' || window.location.hash === '#heirloom' || window.location.hash === '#client-vault') {
+            setTimeout(() => {
+                const viewport = document.getElementById('sliderViewport');
+                if (viewport) {
+                    viewport.scrollIntoView({ behavior: 'smooth' });
+                }
+                this.goToSlide(5);
             }, 300);
         }
 
@@ -945,5 +997,249 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Video Gallery Controller
     initVideoGallery();
+
+    /* -------------------------------------------------------------------------
+       Slide 6: Heirloom Atelier Swatch Material Switcher
+       ------------------------------------------------------------------------- */
+    function initHeirloomSwatches() {
+        const swatchBtns = document.querySelectorAll('.swatch-pill');
+        const featuredAlbumImg = document.getElementById('featuredAlbumImg');
+        const featuredAlbumTitle = document.getElementById('featuredAlbumTitle');
+        const featuredAlbumDesc = document.getElementById('featuredAlbumDesc');
+
+        swatchBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                swatchBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const newImg = btn.getAttribute('data-img');
+                const newTitle = btn.getAttribute('data-title');
+                const newDesc = btn.getAttribute('data-desc');
+
+                if (featuredAlbumImg && newImg) {
+                    featuredAlbumImg.style.opacity = '0.3';
+                    setTimeout(() => {
+                        featuredAlbumImg.src = newImg;
+                        featuredAlbumImg.style.opacity = '1';
+                    }, 180);
+                }
+
+                if (featuredAlbumTitle && newTitle) {
+                    featuredAlbumTitle.textContent = newTitle;
+                }
+
+                if (featuredAlbumDesc && newDesc) {
+                    featuredAlbumDesc.textContent = newDesc;
+                }
+            });
+        });
+    }
+
+    /* -------------------------------------------------------------------------
+       Slide 6: Auspicious Muhurat & Wedding Season Availability Calendar
+       ------------------------------------------------------------------------- */
+    function initMuhuratCalendar() {
+        const monthTabs = document.querySelectorAll('.month-tab');
+        const datesGrid = document.getElementById('muhuratDatesGrid');
+        if (!datesGrid) return;
+
+        const calendarData = {
+            nov26: [
+                { day: "Tuesday", dateNum: "24 Nov", iso: "2026-11-24", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Friday", dateNum: "27 Nov", iso: "2026-11-27", stars: "⭐⭐⭐⭐⭐", status: "limited", label: "1 Team Left" },
+                { day: "Saturday", dateNum: "28 Nov", iso: "2026-11-28", stars: "⭐⭐⭐⭐⭐", status: "locked", label: "Booked" },
+                { day: "Sunday", dateNum: "29 Nov", iso: "2026-11-29", stars: "⭐⭐⭐⭐", status: "avail", label: "Available Slot" }
+            ],
+            dec26: [
+                { day: "Wednesday", dateNum: "02 Dec", iso: "2026-12-02", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Saturday", dateNum: "05 Dec", iso: "2026-12-05", stars: "⭐⭐⭐⭐⭐", status: "locked", label: "Booked" },
+                { day: "Sunday", dateNum: "06 Dec", iso: "2026-12-06", stars: "⭐⭐⭐⭐⭐", status: "limited", label: "1 Team Left" },
+                { day: "Friday", dateNum: "11 Dec", iso: "2026-12-11", stars: "⭐⭐⭐⭐", status: "avail", label: "Available Slot" }
+            ],
+            jan27: [
+                { day: "Friday", dateNum: "15 Jan", iso: "2027-01-15", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Sunday", dateNum: "17 Jan", iso: "2027-01-17", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Friday", dateNum: "22 Jan", iso: "2027-01-22", stars: "⭐⭐⭐⭐⭐", status: "limited", label: "1 Team Left" },
+                { day: "Saturday", dateNum: "30 Jan", iso: "2027-01-30", stars: "⭐⭐⭐⭐", status: "avail", label: "Available Slot" }
+            ],
+            feb27: [
+                { day: "Thursday", dateNum: "04 Feb", iso: "2027-02-04", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Sunday", dateNum: "07 Feb", iso: "2027-02-07", stars: "⭐⭐⭐⭐⭐", status: "locked", label: "Booked" },
+                { day: "Friday", dateNum: "12 Feb", iso: "2027-02-12", stars: "⭐⭐⭐⭐⭐", status: "limited", label: "1 Team Left" },
+                { day: "Sunday", dateNum: "14 Feb", iso: "2027-02-14", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Valentine Muhurat" }
+            ],
+            mar27: [
+                { day: "Tuesday", dateNum: "02 Mar", iso: "2027-03-02", stars: "⭐⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Friday", dateNum: "05 Mar", iso: "2027-03-05", stars: "⭐⭐⭐⭐", status: "avail", label: "Available Slot" },
+                { day: "Sunday", dateNum: "07 Mar", iso: "2027-03-07", stars: "⭐⭐⭐⭐⭐", status: "limited", label: "1 Team Left" },
+                { day: "Thursday", dateNum: "11 Mar", iso: "2027-03-11", stars: "⭐⭐⭐⭐", status: "avail", label: "Available Slot" }
+            ]
+        };
+
+        function renderDates(monthKey) {
+            const list = calendarData[monthKey] || calendarData.nov26;
+            datesGrid.innerHTML = list.map(item => `
+                <div class="muhurat-date-card ${item.status}" data-iso="${item.iso}" data-status="${item.status}" title="${item.status === 'locked' ? 'This date is already locked by another royal couple' : 'Click to Reserve this Date'}">
+                    <div>
+                        <div class="md-header">
+                            <span class="md-day">${item.day}</span>
+                            <span class="md-muhurat-tag">${item.stars}</span>
+                        </div>
+                        <div class="md-date-num">${item.dateNum}</div>
+                    </div>
+                    <span class="md-status-pill ${item.status}">
+                        ${item.status === 'avail' ? '<i class="fa-solid fa-check"></i> ' : ''}${item.label}
+                    </span>
+                </div>
+            `).join('');
+
+            // Wire up click event on available dates
+            const dateCards = datesGrid.querySelectorAll('.muhurat-date-card');
+            dateCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const status = card.getAttribute('data-status');
+                    const iso = card.getAttribute('data-iso');
+                    if (status === 'locked') {
+                        alert('This auspicious date is already booked. Please select another date or contact Chaitya & Shrey directly on WhatsApp for special multi-team arrangements.');
+                        return;
+                    }
+
+                    // Open booking modal with prefilled date
+                    const bookModal = document.getElementById('bookModal');
+                    const shootDateInput = document.getElementById('shootDate');
+                    const shootTypeSelect = document.getElementById('shootType');
+
+                    if (shootDateInput && iso) {
+                        shootDateInput.value = iso;
+                    }
+                    if (shootTypeSelect) {
+                        shootTypeSelect.value = 'Gold Royal Edition (₹1,25,000)';
+                    }
+                    if (bookModal) {
+                        bookModal.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                        if (window.aakarPageSlider) window.aakarPageSlider.isPaused = true;
+                    }
+                });
+            });
+        }
+
+        // Initial render for Nov 2026
+        renderDates('nov26');
+
+        monthTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                monthTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderDates(tab.getAttribute('data-month'));
+            });
+        });
+    }
+
+    /* -------------------------------------------------------------------------
+       Slide 6: Client Vault Demo Lightbox Modal & Interactions
+       ------------------------------------------------------------------------- */
+    function initClientVaultModal() {
+        const vaultModal = document.getElementById('clientVaultModal');
+        const openBtn = document.getElementById('btnOpenClientVaultModal');
+        const closeBtn = document.getElementById('closeClientVaultModal');
+        const filterBtns = document.querySelectorAll('#vaultFilterTabs .vtab-pill');
+        const photoCards = document.querySelectorAll('#vaultDemoGrid .vault-photo-card');
+        const downloadAllBtn = document.getElementById('btnVaultDownloadAll');
+        const shareLinkBtn = document.getElementById('btnVaultShareLink');
+
+        if (!vaultModal) return;
+
+        const openVault = () => {
+            vaultModal.classList.add('open');
+            vaultModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (window.aakarPageSlider) window.aakarPageSlider.isPaused = true;
+        };
+
+        const closeVault = () => {
+            vaultModal.classList.remove('open');
+            vaultModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (window.aakarPageSlider) window.aakarPageSlider.isPaused = false;
+        };
+
+        if (openBtn) openBtn.addEventListener('click', openVault);
+        if (closeBtn) closeBtn.addEventListener('click', closeVault);
+
+        vaultModal.addEventListener('click', (e) => {
+            if (e.target === vaultModal) closeVault();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && vaultModal.classList.contains('open')) {
+                closeVault();
+            }
+        });
+
+        // Photo Favoriting toggle
+        const favBtns = document.querySelectorAll('.btn-photo-fav');
+        favBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isLiked = btn.classList.toggle('liked');
+                if (isLiked) {
+                    btn.innerHTML = '<i class="fa-solid fa-heart" style="color: #DE688E;"></i>';
+                } else {
+                    btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+                }
+            });
+        });
+
+        // Gallery Filter Tabs
+        filterBtns.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterBtns.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.getAttribute('data-vfilter');
+
+                photoCards.forEach(card => {
+                    const cat = card.getAttribute('data-cat');
+                    if (filter === 'all' || cat === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Download All Simulation
+        if (downloadAllBtn) {
+            downloadAllBtn.addEventListener('click', () => {
+                const originalText = downloadAllBtn.innerHTML;
+                downloadAllBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing 4K ZIP...';
+                downloadAllBtn.disabled = true;
+
+                setTimeout(() => {
+                    downloadAllBtn.innerHTML = '<i class="fa-solid fa-check"></i> ZIP Download Started!';
+                    alert('✓ AAKAR FILMS Client Vault:\nSimulated high-bandwidth 4K Master Archive download started (1,280 Photos + 4K Cinema Film, 4.8 GB). In real production, this generates an instant high-speed link.');
+                    setTimeout(() => {
+                        downloadAllBtn.innerHTML = originalText;
+                        downloadAllBtn.disabled = false;
+                    }, 2500);
+                }, 1200);
+            });
+        }
+
+        // Share Link Simulation
+        if (shareLinkBtn) {
+            shareLinkBtn.addEventListener('click', () => {
+                navigator.clipboard?.writeText(window.location.origin + window.location.pathname + '#client-vault-riya-rahul-pin-8842')
+                    .catch(() => {});
+                alert('✓ Gallery PIN: 8842\nPrivate gallery link copied to clipboard. In the client portal, you can share this PIN with wedding guests for direct access.');
+            });
+        }
+    }
+
+    // Initialize Slide 6 Controllers
+    initHeirloomSwatches();
+    initMuhuratCalendar();
+    initClientVaultModal();
 
 });
