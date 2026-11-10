@@ -82,32 +82,82 @@ button {
 
 
 /* --------------------------------------------------------------------------
-   2. Site Header: Studio Logo & Name
+   2. Site Header: Studio Logo & Name (Premium Transparent Navigation Bar)
    -------------------------------------------------------------------------- */
 .site-header {
     width: 100%;
-    background-color: rgba(253, 240, 244, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(236, 215, 223, 0.8);
-    position: sticky;
+    background-color: rgba(253, 240, 244, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.site-header.is-scrolled {
+    background-color: rgba(253, 240, 244, 0.92);
+    border-bottom: 1px solid rgba(236, 215, 223, 0.85);
+    box-shadow: 0 8px 30px rgba(186, 56, 98, 0.1);
 }
 
 .header-container {
-    max-width: 1360px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 16px 36px;
+    padding: 14px 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 }
 
 /* Studio Logo + "AAKAR FILMS" beside it */
 .brand-wrapper {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+}
+
+/* Premium Transparent Navigation Bar Menu Links */
+.header-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.head-nav-link {
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    position: relative;
+    padding: 6px 2px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.head-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--color-rose) 0%, var(--color-rose-dark) 100%);
+    transition: width 0.3s ease;
+}
+
+.head-nav-link:hover {
+    color: var(--color-rose-dark);
+}
+
+.head-nav-link:hover::after,
+.head-nav-link.active::after {
+    width: 100%;
 }
 
 .brand-link {
@@ -291,12 +341,14 @@ button {
 .royal-video-hero {
     position: relative;
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #0E090C;
+    background-color: var(--bg-primary);
+    padding: 105px 24px 60px;
+    box-sizing: border-box;
 }
 
 .royal-video-bg {
@@ -324,6 +376,7 @@ button {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Atmospheric Soft Light Pink Overlay (Keeps Exact Site Background Aesthetic) */
 .royal-video-overlay {
     position: absolute;
     top: 0;
@@ -331,14 +384,14 @@ button {
     width: 100%;
     height: 100%;
     background: 
+        radial-gradient(ellipse at center, 
+            rgba(253, 240, 244, 0.45) 0%, 
+            rgba(253, 240, 244, 0.72) 60%, 
+            rgba(253, 240, 244, 0.95) 100%),
         linear-gradient(180deg, 
-            rgba(20, 10, 15, 0.45) 0%, 
-            rgba(30, 15, 22, 0.35) 40%,
-            rgba(253, 240, 244, 0.75) 80%,
-            rgba(253, 240, 244, 1) 100%),
-        radial-gradient(circle at center, 
-            rgba(0, 0, 0, 0.15) 0%, 
-            rgba(20, 10, 15, 0.6) 100%);
+            rgba(253, 240, 244, 0.45) 0%, 
+            rgba(253, 240, 244, 0.65) 50%, 
+            rgba(253, 240, 244, 1) 100%);
     z-index: 2;
     pointer-events: none;
 }
@@ -348,13 +401,140 @@ button {
     z-index: 5;
     width: 100%;
     max-width: 1140px;
-    padding: 70px 24px 50px;
+    padding: 20px 24px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     perspective: 1400px;
     perspective-origin: center center;
+}
+
+/* Center AAKAR FILMS Logo in Hero Section */
+.hero-center-logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    transform: translateZ(36px);
+}
+
+.hero-logo-emblem {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(222, 104, 142, 0.4);
+    box-shadow: 
+        0 10px 28px rgba(186, 56, 98, 0.2), 
+        inset 0 0 16px rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.hero-logo-emblem:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 16px 36px rgba(186, 56, 98, 0.32);
+    border-color: var(--color-rose-dark);
+}
+
+.hero-center-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: contrast(1.15) brightness(0.95);
+}
+
+.hero-logo-subtext {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+/* Main Heading: EVERY FRAME TELLS A STORY */
+.hero-main-title {
+    font-family: var(--font-serif);
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 0.12em;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    margin: 12px 0 14px;
+    text-shadow: 0 2px 14px rgba(186, 56, 98, 0.12);
+    transform: translateZ(48px);
+}
+
+/* Subtitle: We Capture Emotions, Not Just Moments. */
+.hero-main-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.18rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    max-width: 620px;
+    margin: 0 auto 28px;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+    transform: translateZ(32px);
+}
+
+/* Hero Action Buttons */
+.hero-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    transform: translateZ(48px);
+}
+
+.btn-hero-explore,
+.btn-hero-book {
+    padding: 13px 28px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    border-radius: 30px;
+}
+
+/* Floating Scroll Down Prompt */
+.hero-scroll-cue {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    color: var(--color-rose-dark);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    animation: gentleBounce 2.4s infinite ease-in-out;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-scroll-cue:hover {
+    opacity: 1;
+    color: var(--color-rose);
+}
+
+@keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
 }
 
 /* ==========================================================================
@@ -582,12 +762,12 @@ button {
 
 .page-slider-track {
     display: flex;
-    width: 600%;
+    width: 100%;
     transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .page-slide {
-    width: 16.666667%;
+    width: 100%;
     flex-shrink: 0;
     box-sizing: border-box;
     background-color: var(--bg-primary);
@@ -1699,19 +1879,23 @@ button {
 
 @media (max-width: 768px) {
     .header-container {
-        padding: 14px 20px;
+        padding: 12px 18px;
+    }
+
+    .header-nav-links {
+        display: none; /* Keep mobile header clean */
     }
 
     .brand-logo-img {
-        height: 44px;
+        height: 42px;
     }
 
     .brand-title {
-        font-size: 1.55rem;
+        font-size: 1.45rem;
     }
 
     .brand-tagline {
-        font-size: 0.58rem;
+        font-size: 0.55rem;
     }
 
     .header-whatsapp-link .header-wa-text,
@@ -1733,19 +1917,39 @@ button {
         border-radius: 50%;
     }
 
-
-
     .royal-video-hero {
-        min-height: 80vh;
-        padding: 40px 16px;
+        min-height: 100vh;
+        padding: 85px 14px 40px;
     }
 
     .royal-hero-content {
-        padding: 24px 12px;
+        padding: 16px 8px;
     }
 
     .royal-cinema-card .floating-card-inner {
-        padding: 28px 18px;
+        padding: 30px 18px;
+    }
+
+    .hero-main-title {
+        font-size: 2.1rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-main-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 22px;
+    }
+
+    .hero-action-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-action-buttons button,
+    .hero-action-buttons a {
+        width: 100%;
+        justify-content: center;
     }
 
 

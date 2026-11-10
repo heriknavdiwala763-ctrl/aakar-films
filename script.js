@@ -460,6 +460,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* -------------------------------------------------------------------------
+       Hero Section "Explore Our Work" Button Controller
+       ------------------------------------------------------------------------- */
+    const btnExploreOurWork = document.getElementById('btnExploreOurWork');
+    if (btnExploreOurWork) {
+        btnExploreOurWork.addEventListener('click', () => {
+            const viewport = document.getElementById('sliderViewport');
+            if (viewport) {
+                viewport.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    const btnSlideToPortfolio = document.getElementById('btnSlideToPortfolio');
+    if (btnSlideToPortfolio) {
+        btnSlideToPortfolio.addEventListener('click', () => {
+            if (typeof openBookModal === 'function') {
+                openBookModal('Wedding Photography');
+            } else {
+                const bookModal = document.getElementById('bookModal');
+                if (bookModal) bookModal.classList.add('open');
+            }
+        });
+    }
+
+    /* -------------------------------------------------------------------------
+       Premium Transparent Header Navigation Bar Links Controller
+       ------------------------------------------------------------------------- */
+    const headNavLinks = document.querySelectorAll('.head-nav-link');
+    headNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#') && href !== '#bookModal') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    headNavLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Transparent Header Glassmorphism Scroll Watcher
+    const siteHeader = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+        if (siteHeader) {
+            if (window.scrollY > 40) {
+                siteHeader.classList.add('is-scrolled');
+            } else {
+                siteHeader.classList.remove('is-scrolled');
+            }
+        }
+    }, { passive: true });
+
+    /* -------------------------------------------------------------------------
        Set Minimum Date on Date Picker
        ------------------------------------------------------------------------- */
     const shootDateInput = document.getElementById('shootDate');
