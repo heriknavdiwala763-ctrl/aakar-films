@@ -345,175 +345,91 @@ class PageAutoSlider {
 
 
 // =============================================================================
-// 3. UI EVENT HANDLER: Modals & Form Actions
+// 3. UI EVENT HANDLER: Hero Page & Modals
 // =============================================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Initialize the automatic slider
+    // Initialize slider (safely no-ops when < 2 slides exist)
     const slider = new PageAutoSlider();
     window.aakarPageSlider = slider;
 
     /* -------------------------------------------------------------------------
-       Interactive Luxury 3D Parallax Tilt for Floating Cards
-       ------------------------------------------------------------------------- */
-    function init3DCardParallax() {
-        const cinemaCard = document.querySelector('.royal-cinema-card');
-        const heroCard = document.querySelector('.hero-floating-card .floating-card-inner');
-        
-        [cinemaCard, heroCard].forEach(card => {
-            if (!card) return;
-
-            let isHovered = false;
-
-            card.addEventListener('mouseenter', () => {
-                isHovered = true;
-                card.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease';
-            });
-
-            card.addEventListener('mousemove', (e) => {
-                if (!isHovered) return;
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                // Subtle realistic 3D tilt angles (max ~8.5 degrees)
-                const rotateX = ((centerY - y) / centerY) * 8.5;
-                const rotateY = ((x - centerX) / centerX) * 8.5;
-
-                card.style.transform = `perspective(1400px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) translateZ(18px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                isHovered = false;
-                card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.4s ease';
-                card.style.transform = 'perspective(1400px) rotateX(0deg) rotateY(0deg) translateY(0) translateZ(0)';
-            });
-        });
-    }
-
-    init3DCardParallax();
-
-    /* -------------------------------------------------------------------------
-       Royal Cinematic Background Video Controller
+       Cinematic Background Video — autoplay + fallback chain
        ------------------------------------------------------------------------- */
     const heroVideo = document.getElementById('heroCinemaVideo');
+    const heroYt = document.getElementById('heroYtIframe');
+
     if (heroVideo) {
-        // Ensure autoplay on load
         heroVideo.muted = true;
-        const playPromise = heroVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                console.log('Autoplay deferred until user interaction');
-            });
-        }
-
-        // Automatic fallback if current src fails
-        heroVideo.addEventListener('error', () => {
-            console.warn('Primary video failed, loading backup stream...');
-            if (!heroVideo.dataset.failedOnce) {
-                heroVideo.dataset.failedOnce = 'true';
-                heroVideo.src = 'https://huggingface.co/datasets/FastVideo/Mixkit-Src/resolve/main/videos/mixkit-a-brides-hand-on-the-grooms-shoulder-at-their-wedding-5206_clip_1.mp4';
-                heroVideo.load();
-                heroVideo.play().catch(() => {});
-            }
-        });
-
-        // Attempt to sync video from royal-shutter-studios live link if reachable
-        try {
-            fetch('https://heriknavdiwala763-ctrl.github.io/royal-shutter-studios/', { mode: 'cors' })
-                .then(res => res.ok ? res.text() : null)
-                .then(html => {
-                    if (!html) return;
-                    const doc = new DOMParser().parseFromString(html, 'text/html');
-                    const videoTag = doc.querySelector('video source') || doc.querySelector('video');
-                    if (videoTag) {
-                        let remoteSrc = videoTag.getAttribute('src');
-                        if (remoteSrc) {
-                            if (!remoteSrc.startsWith('http')) {
-                                remoteSrc = new URL(remoteSrc, 'https://heriknavdiwala763-ctrl.github.io/royal-shutter-studios/').href;
-                            }
-                            console.log('Syncing video directly from royal-shutter-studios:', remoteSrc);
-                            heroVideo.src = remoteSrc;
-                            heroVideo.load();
-                            heroVideo.play().catch(() => {});
-                        }
-                    }
-                })
-                .catch(() => {
-                    // CORS/Network restricted - default high-definition video runs smoothly
+        heroVideo.defaultMuted = true;
+        
+        const tryPlay = () => {
+            const playPromise = heroVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    heroVideo.style.opacity = '1';
+                    if (heroYt) heroYt.style.display = 'none';
+                }).catch(() => {
+                    // Autoplay with video tag was blocked or network failed, fallback to YouTube or user click
+                    if (heroYt) heroYt.style.opacity = '1';
                 });
-        } catch (e) {}
-    }
-
-    // Smooth scroll from hero to photo archive below
-    const royalScrollLinks = document.querySelectorAll('a[href^="#sliderViewport"]');
-    royalScrollLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const target = document.getElementById('sliderViewport');
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
             }
-        });
-    });
+        };
 
-    /* -------------------------------------------------------------------------
-       Hero Section "Explore Our Work" Button Controller
-       ------------------------------------------------------------------------- */
-    const btnExploreOurWork = document.getElementById('btnExploreOurWork');
-    if (btnExploreOurWork) {
-        btnExploreOurWork.addEventListener('click', () => {
-            const viewport = document.getElementById('sliderViewport');
-            if (viewport) {
-                viewport.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
+        tryPlay();
 
-    const btnSlideToPortfolio = document.getElementById('btnSlideToPortfolio');
-    if (btnSlideToPortfolio) {
-        btnSlideToPortfolio.addEventListener('click', () => {
-            if (typeof openBookModal === 'function') {
-                openBookModal('Wedding Photography');
-            } else {
-                const bookModal = document.getElementById('bookModal');
-                if (bookModal) bookModal.classList.add('open');
+        // Any click or touch on screen will immediately trigger play if blocked by browser policy
+        const resumeOnUserAction = () => {
+            heroVideo.play().catch(() => {});
+            document.removeEventListener('click', resumeOnUserAction);
+            document.removeEventListener('touchstart', resumeOnUserAction);
+        };
+        document.addEventListener('click', resumeOnUserAction, { once: true });
+        document.addEventListener('touchstart', resumeOnUserAction, { once: true, passive: true });
+
+        // If native video encounters an error, display YouTube
+        heroVideo.addEventListener('error', () => {
+            heroVideo.style.display = 'none';
+            if (heroYt) {
+                heroYt.style.display = 'block';
+                heroYt.style.opacity = '1';
             }
         });
     }
 
     /* -------------------------------------------------------------------------
-       Premium Transparent Header Navigation Bar Links Controller
+       "Explore Our Work" button — opens booking modal with elegant delay
        ------------------------------------------------------------------------- */
-    const headNavLinks = document.querySelectorAll('.head-nav-link');
-    headNavLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#') && href !== '#bookModal') {
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    headNavLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
+    const btnExploreWork = document.getElementById('btnExploreWork');
+    if (btnExploreWork) {
+        btnExploreWork.addEventListener('click', () => {
+            openBookModal('Wedding Photography');
         });
-    });
+    }
 
-    // Transparent Header Glassmorphism Scroll Watcher
+    /* -------------------------------------------------------------------------
+       Transparent Header — glassmorphism activates on scroll
+       ------------------------------------------------------------------------- */
     const siteHeader = document.getElementById('siteHeader');
     window.addEventListener('scroll', () => {
-        if (siteHeader) {
-            if (window.scrollY > 40) {
-                siteHeader.classList.add('is-scrolled');
-            } else {
-                siteHeader.classList.remove('is-scrolled');
-            }
-        }
+        if (!siteHeader) return;
+        siteHeader.classList.toggle('is-scrolled', window.scrollY > 40);
     }, { passive: true });
+
+    /* -------------------------------------------------------------------------
+       Smooth scroll for all internal anchor links
+       ------------------------------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href === '#' || href === '#bookModal') return; // let modal/onclick handle
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 
     /* -------------------------------------------------------------------------
        Set Minimum Date on Date Picker

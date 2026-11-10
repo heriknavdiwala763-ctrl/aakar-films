@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAKAR FILMS — Fine Art Wedding & Lifestyle Photography</title>
+    <title>AAKAR FILMS — Fine Art Wedding &amp; Lifestyle Photography</title>
     
     <!-- Google Fonts: Cormorant Garamond & Jost -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +13,19 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- External Stylesheet (Separate File) -->
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- =======================================================================
-         SITE HEADER: Studio Logo & Name (Consistent across slides)
+         SITE HEADER: Transparent Glassmorphism Nav
          ======================================================================= -->
     <header class="site-header transparent-header" id="siteHeader">
         <div class="header-container">
-            <!-- Studio Logo & Name (Second Image Logo + "AAKAR FILMS" beside it) -->
+            <!-- Studio Logo & Name -->
             <div class="brand-wrapper">
-                <a href="#royalVideoHero" class="brand-link" id="brandHomeLink">
+                <a href="#heroSection" class="brand-link" id="brandHomeLink">
                     <div class="brand-logo-container">
                         <img src="assets/aakar-logo.jpg" alt="Aakar Calligraphy Logo" class="brand-logo-img">
                     </div>
@@ -36,14 +36,14 @@
                 </a>
             </div>
 
-            <!-- Premium Transparent Navigation Bar Links -->
+            <!-- Navigation Links -->
             <nav class="header-nav-links" id="headerNavLinks" aria-label="Main Navigation">
-                <a href="#royalVideoHero" class="head-nav-link active">HOME</a>
-                <a href="#sliderViewport" class="head-nav-link">ARCHIVE</a>
+                <a href="#heroSection" class="head-nav-link active">HOME</a>
+                <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener" class="head-nav-link">WHATSAPP</a>
                 <a href="#bookModal" class="head-nav-link trigger-book-modal" data-default-service="Wedding Photography">BOOK SHOOT</a>
             </nav>
 
-            <!-- Direct Quick Action in Header (Chaitya Koradiya & Shrey Doshi) -->
+            <!-- Header WhatsApp Quick Action -->
             <div class="header-action">
                 <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20would%20like%20to%20inquire%20about%20Aakar%20Films%20photoshoot%20services" target="_blank" rel="noopener" class="header-whatsapp-link" title="WhatsApp: Chaitya Koradiya (+91 63548 96783)">
                     <i class="fa-brands fa-whatsapp"></i>
@@ -68,162 +68,102 @@
     </header>
 
     <!-- =======================================================================
-         FULL-SCREEN CINEMATIC WEDDING BACKGROUND & VIDEO HERO
+         HERO SECTION: Full-Screen Cinematic Landing Page
          ======================================================================= -->
-    <section class="royal-video-hero full-screen-hero" id="royalVideoHero">
-        <!-- Native HTML5 Full-Bleed Background Video Layer (1080p Autoplay Muted Loop) -->
-        <div class="royal-video-bg">
-            <video autoplay muted loop playsinline id="heroCinemaVideo" class="cinema-video-element" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85" src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4">
-                <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+    <section class="hero-cinema-section" id="heroSection">
+
+        <!-- Full-Screen Background: HTML5 Video + Animated Canvas + Backup -->
+        <div class="hero-video-wrap">
+
+            <!-- HTML5 Native Video Tag (Autoplays seamlessly in Chrome, Edge, Safari) -->
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                webkit-playsinline
+                id="heroCinemaVideo"
+                class="hero-video-el"
+                poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85">
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
+                <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-at-their-wedding-4788-large.mp4" type="video/mp4">
             </video>
-            <!-- Royal Luxury Atmospheric Soft Light Pink Overlay (Keeps Exact Aesthetic) -->
-            <div class="royal-video-overlay"></div>
+
+            <!-- YouTube Backup Embed -->
+            <iframe
+                id="heroYtIframe"
+                class="hero-yt-iframe"
+                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&loop=1&controls=0&playsinline=1&playlist=jfKfPfyJRdk"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                title="Cinematic background">
+            </iframe>
+
+            <!-- Luxury Animated Particle & Ambient Glow Canvas (100% Reliable fallback) -->
+            <div class="hero-bg-animated"></div>
+
+            <!-- Cinematic Overlay — preserves #FDF0F4 pink aesthetic -->
+            <div class="hero-overlay"></div>
         </div>
 
-        <!-- Foreground Studio Branding & Call to Actions (Centered Composition) -->
-        <div class="royal-hero-content">
-            <div class="hero-floating-card royal-cinema-card center-hero-showcase">
-                <div class="floating-card-inner">
-                    
-                    <!-- Center માં AAKAR FILMS Logo -->
-                    <div class="hero-center-logo-block">
-                        <div class="hero-logo-emblem">
-                            <img src="assets/aakar-logo.jpg" alt="Aakar Films Calligraphy Logo" class="hero-center-logo-img">
-                        </div>
-                        <span class="hero-logo-subtext">AAKAR FILMS</span>
-                    </div>
+        <!-- Center Content -->
+        <div class="hero-center-content">
 
-                    <!-- Kicker Tagline -->
-                    <span class="card-kicker"><i class="fa-solid fa-crown"></i> ROYAL WEDDING &amp; FINE-ART CINEMATOGRAPHY</span>
-
-                    <!-- Main Heading: EVERY FRAME TELLS A STORY -->
-                    <h1 class="hero-main-title">EVERY FRAME TELLS A STORY</h1>
-
-                    <div class="card-divider"></div>
-
-                    <!-- Subtitle: We Capture Emotions, Not Just Moments. -->
-                    <p class="hero-main-subtitle">
-                        We Capture Emotions, Not Just Moments.
-                    </p>
-
-                    <!-- The 2 Primary Action Buttons (+ WhatsApp) -->
-                    <div class="hero-action-buttons">
-                        <!-- 1. Explore Our Work Button -->
-                        <button type="button" class="btn-portfolio btn-hero-explore" id="btnExploreOurWork">
-                            <i class="fa-regular fa-images"></i>
-                            <span>Explore Our Work</span>
-                        </button>
-
-                        <!-- 2. Book Your Shoot Button -->
-                        <button type="button" class="btn-nude btn-hero-book trigger-book-modal" data-default-service="Wedding Photography">
-                            <i class="fa-regular fa-calendar-check"></i>
-                            <span>Book Your Shoot</span>
-                        </button>
-
-                        <!-- 3. WhatsApp Direct Contact -->
-                        <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20wedding%20photography%20and%20cinematography%20services" target="_blank" rel="noopener" class="btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            <span>WhatsApp Us</span>
-                        </a>
-                    </div>
-
-                </div>
+            <!-- Decorative top line -->
+            <div class="hero-top-line animate-fade-in delay-1">
+                <span></span>
+                <span class="hero-line-text">FINE ART WEDDING &amp; LIFESTYLE CINEMATOGRAPHY</span>
+                <span></span>
             </div>
 
-            <!-- Gentle Floating Scroll Down Prompt -->
-            <a href="#sliderViewport" class="hero-scroll-cue" id="heroScrollCue" aria-label="Explore photography archive">
-                <span class="scroll-cue-text">EXPLORE ARCHIVE</span>
+            <!-- AAKAR FILMS Logo & Name -->
+            <div class="hero-brand-block animate-rise delay-2">
+                <div class="hero-logo-ring">
+                    <img src="assets/aakar-logo.jpg" alt="Aakar Films Logo" class="hero-logo-img">
+                </div>
+                <h1 class="hero-studio-name">AAKAR FILMS</h1>
+            </div>
+
+            <!-- Decorative Divider -->
+            <div class="hero-divider animate-fade-in delay-3">
+                <span class="divider-gem">◆</span>
+            </div>
+
+            <!-- Tagline -->
+            <p class="hero-tagline animate-rise delay-4">
+                We Capture Moments, You Cherish Forever.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="hero-buttons animate-rise delay-5">
+                <button type="button" class="btn-hero-primary" id="btnExploreWork">
+                    <i class="fa-regular fa-images"></i>
+                    <span>Explore Our Work</span>
+                </button>
+                <button type="button" class="btn-hero-secondary trigger-book-modal" data-default-service="Wedding Photography">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Book Your Shoot</span>
+                </button>
+            </div>
+
+            <!-- WhatsApp subtle link -->
+            <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services"
+               target="_blank" rel="noopener"
+               class="hero-wa-link animate-fade-in delay-6">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp Us — +91 63548 96783</span>
+            </a>
+
+            <!-- Scroll Cue -->
+            <a href="#bookModal" class="hero-scroll-cue animate-fade-in delay-6"
+               onclick="document.querySelector('.trigger-book-modal').click(); return false;">
+                <span>BOOK YOUR SHOOT</span>
                 <i class="fa-solid fa-chevron-down"></i>
             </a>
+
         </div>
     </section>
-
-    <!-- =======================================================================
-         AUTOMATIC PAGE SLIDER VIEWPORT (Slide 1: Hero Section | Slide 2: Photography Portfolio)
-         ======================================================================= -->
-    <main class="page-slider-viewport" id="sliderViewport">
-        
-        <!-- Sliding Track containing Slide 1 (First Page) and Slide 2 (Second Page) -->
-        <div class="page-slider-track" id="sliderTrack">
-
-            <!-- ---------------------------------------------------------------
-                 SLIDE 1: FIRST PAGE (Hero Section from Image 1)
-                 --------------------------------------------------------------- -->
-            <section class="page-slide" id="slide1" data-index="0">
-                <div class="hero-section">
-                    <!-- Beautiful 3-Panel Background Photography (Exact Composition) -->
-                    <div class="hero-triptych">
-                        <!-- Panel 1: Bride in lace gown holding bridal bouquet -->
-                        <div class="triptych-panel panel-left">
-                            <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=85" alt="Bride holding white rose bouquet" loading="eager">
-                            <div class="panel-vignette"></div>
-                        </div>
-
-                        <!-- Panel 2: Couple kissing under romantic veil (Center) -->
-                        <div class="triptych-panel panel-center">
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Bride and groom kissing under sheer veil in classical courtyard" loading="eager">
-                            <div class="panel-vignette"></div>
-                        </div>
-
-                        <!-- Panel 3: Bride holding lush floral bouquet -->
-                        <div class="triptych-panel panel-right">
-                            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=85" alt="Close-up of bridal gown and wedding bouquet" loading="eager">
-                            <div class="panel-vignette"></div>
-                        </div>
-                    </div>
-
-                    <!-- Floating Centered Card (Pixel Match to First Image with Logo & Unified Heading) -->
-                    <div class="hero-floating-card">
-                        <div class="floating-card-inner">
-                            <!-- Center માં AAKAR FILMS Logo -->
-                            <div class="hero-center-logo-block">
-                                <div class="hero-logo-emblem">
-                                    <img src="assets/aakar-logo.jpg" alt="Aakar Films Calligraphy Logo" class="hero-center-logo-img">
-                                </div>
-                                <span class="hero-logo-subtext">AAKAR FILMS</span>
-                            </div>
-
-                            <span class="card-kicker"><i class="fa-solid fa-crown"></i> AAKAR WEDDING &amp; LIFESTYLE ARCHIVE</span>
-                            
-                            <!-- Main Heading: EVERY FRAME TELLS A STORY -->
-                            <h1 class="hero-main-title">EVERY FRAME TELLS A STORY</h1>
-                            
-                            <div class="card-divider"></div>
-                            
-                            <!-- Subtitle: We Capture Emotions, Not Just Moments. -->
-                            <p class="hero-main-subtitle">
-                                We Capture Emotions, Not Just Moments.
-                            </p>
-
-                            <!-- The 3 Action Buttons -->
-                            <div class="hero-action-buttons">
-                                <!-- 1. Explore Our Work Button (Smoothly slides to Page 2) -->
-                                <button type="button" class="btn-portfolio" id="btnSlideToPortfolio">
-                                    <i class="fa-regular fa-images"></i>
-                                    <span>Explore Our Work</span>
-                                </button>
-
-                                <!-- 2. Book Your Shoot Button -->
-                                <button type="button" class="btn-nude trigger-book-modal" data-default-service="Wedding Photography">
-                                    <i class="fa-regular fa-calendar-check"></i>
-                                    <span>Book Your Shoot</span>
-                                </button>
-
-                                <!-- 3. WhatsApp Contact Button -->
-                                <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener" class="btn-whatsapp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                    <span>WhatsApp Inquiry</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </main>
 
     <!-- =======================================================================
          INTERACTIVE MODAL: "BOOK A SHOOT"
@@ -243,7 +183,7 @@
             <form class="booking-form" id="bookingForm">
                 <div class="form-group">
                     <label for="clientName">Your Full Name *</label>
-                    <input type="text" id="clientName" placeholder="e.g. Riya & Rahul" required>
+                    <input type="text" id="clientName" placeholder="e.g. Riya &amp; Rahul" required>
                 </div>
 
                 <div class="form-row">
@@ -291,7 +231,7 @@
         </div>
     </div>
 
-    <!-- External JavaScript File (Separate File) -->
+    <!-- External JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>
