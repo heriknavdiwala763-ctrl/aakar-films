@@ -398,6 +398,102 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* -------------------------------------------------------------------------
+       Second Section: Right-to-Left Infinite Scrolling Carousel Controls & Touch
+       ------------------------------------------------------------------------- */
+    const galleryViewport = document.getElementById('galleryCarouselViewport');
+    const galleryTrack = document.getElementById('galleryCarouselTrack');
+    const photoCards = document.querySelectorAll('.photo-card');
+
+    if (galleryViewport && galleryTrack) {
+        // Pause/Resume on touch for mobile devices
+        galleryViewport.addEventListener('touchstart', () => {
+            galleryTrack.classList.add('is-paused');
+        }, { passive: true });
+
+        galleryViewport.addEventListener('touchend', () => {
+            galleryTrack.classList.remove('is-paused');
+        }, { passive: true });
+    }
+
+    // Clicking any photo card opens the booking modal with that category pre-selected
+    photoCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.getAttribute('data-category') || 'Wedding Photography';
+            openBookModal(category);
+        });
+    });
+
+    // "Explore Our Portfolio" button in Section 2 CTA
+    const btnCtaExplorePortfolio = document.getElementById('btnCtaExplorePortfolio');
+    if (btnCtaExplorePortfolio) {
+        btnCtaExplorePortfolio.addEventListener('click', () => {
+            const viewport = document.getElementById('galleryCarouselViewport');
+            if (viewport) {
+                viewport.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
+
+    // Scroll reveal observer (fade-up entrance)
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if ('IntersectionObserver' in window && revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        // Fallback for older browsers
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+    }
+
+    /* -------------------------------------------------------------------------
+       Realistic Falling Petals & Leaves Generator (Interactive Breeze Effect)
+       ------------------------------------------------------------------------- */
+    const fallingLeavesContainer = document.getElementById('fallingLeavesContainer');
+    if (fallingLeavesContainer) {
+        const createFallingLeaf = () => {
+            const leaf = document.createElement('div');
+            const isGreen = Math.random() < 0.28; // 28% soft green leaves, 72% rose petals
+            leaf.className = `leaf-item ${isGreen ? 'leaf-type-green' : 'leaf-type-petal'}`;
+            
+            // Random horizontal start position
+            leaf.style.left = `${Math.random() * 96 + 2}%`;
+            
+            // Random size variations
+            const scale = 0.75 + Math.random() * 0.55;
+            leaf.style.transform = `scale(${scale})`;
+            
+            // Random duration (8 to 15 seconds)
+            const duration = 8 + Math.random() * 7;
+            leaf.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            leaf.style.animationDelay = '0s';
+            
+            fallingLeavesContainer.appendChild(leaf);
+            
+            // Remove after animation completes to keep DOM clean
+            setTimeout(() => {
+                if (leaf && leaf.parentNode) {
+                    leaf.parentNode.removeChild(leaf);
+                }
+            }, duration * 1000);
+        };
+
+        // Periodically spawn new leaves smoothly
+        setInterval(createFallingLeaf, 1400);
+    }
+
+    /* -------------------------------------------------------------------------
        "Explore Our Work" button — opens booking modal with elegant delay
        ------------------------------------------------------------------------- */
     const btnExploreWork = document.getElementById('btnExploreWork');

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAKAR FILMS — Fine Art Wedding &amp; Lifestyle Photography</title>
+    <title>AAKAR FILMS — Photography &amp; Cinematography</title>
     
-    <!-- Google Fonts: Cormorant Garamond & Jost -->
+    <!-- Google Fonts: Playfair Display, Cormorant Garamond, Great Vibes & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,157 +16,593 @@
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="luxury-pink-body">
 
     <!-- =======================================================================
-         SITE HEADER: Transparent Glassmorphism Nav
+         TOP NAVBAR (Pixel-Matched to Reference Screenshot)
          ======================================================================= -->
-    <header class="site-header transparent-header" id="siteHeader">
-        <div class="header-container">
-            <!-- Studio Logo & Name -->
-            <div class="brand-wrapper">
-                <a href="#heroSection" class="brand-link" id="brandHomeLink">
-                    <div class="brand-logo-container">
-                        <img src="assets/aakar-logo.jpg" alt="Aakar Calligraphy Logo" class="brand-logo-img">
-                    </div>
-                    <div class="brand-text-block">
-                        <span class="brand-title">AAKAR</span>
-                        <span class="brand-tagline">FILMS</span>
-                    </div>
-                </a>
-            </div>
+    <header class="luxury-navbar" id="siteHeader">
+        <div class="nav-inner-container">
+            <!-- Left Branding: AAKAR FILMS / PHOTOGRAPHY & CINEMATOGRAPHY -->
+            <a href="#" class="nav-brand-group">
+                <span class="nav-brand-title">AAKAR FILMS</span>
+                <span class="nav-brand-sub">PHOTOGRAPHY &amp; CINEMATOGRAPHY</span>
+            </a>
 
-            <!-- Navigation Links -->
-            <nav class="header-nav-links" id="headerNavLinks" aria-label="Main Navigation">
-                <a href="#heroSection" class="head-nav-link active">HOME</a>
-                <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener" class="head-nav-link">WHATSAPP</a>
-                <a href="#bookModal" class="head-nav-link trigger-book-modal" data-default-service="Wedding Photography">BOOK SHOOT</a>
+            <!-- Center Navigation Links -->
+            <nav class="nav-menu" aria-label="Main navigation">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#signatureExperience" class="nav-link">Experience</a>
+                <a href="#signatureExperience" class="nav-link">Portfolio</a>
+                <div class="nav-dropdown">
+                    <a href="#signatureExperience" class="nav-link nav-dropdown-trigger">
+                        <span>Services</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                </div>
+                <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener" class="nav-link">Contact</a>
             </nav>
 
-            <!-- Header WhatsApp Quick Action -->
-            <div class="header-action">
-                <a href="https://wa.me/916354896783?text=Hello%20Chaitya,%20I%20would%20like%20to%20inquire%20about%20Aakar%20Films%20photoshoot%20services" target="_blank" rel="noopener" class="header-whatsapp-link" title="WhatsApp: Chaitya Koradiya (+91 63548 96783)">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div class="header-wa-text">
-                        <span class="header-wa-number">+91 63548 96783</span>
-                        <span class="header-wa-name">Chaitya Koradiya</span>
-                    </div>
-                </a>
-                <a href="https://wa.me/917621987470?text=Hello%20Shrey,%20I%20would%20like%20to%20inquire%20about%20Aakar%20Films%20photoshoot%20services" target="_blank" rel="noopener" class="header-whatsapp-link" title="WhatsApp: Shrey Doshi (+91 76219 87470)">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div class="header-wa-text">
-                        <span class="header-wa-number">+91 76219 87470</span>
-                        <span class="header-wa-name">Shrey Doshi</span>
-                    </div>
-                </a>
-                <a href="admin/login.html" class="header-admin-link" title="Admin Portal Login">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Admin</span>
-                </a>
+            <!-- Right Action: Book Your Shoot Pill Button -->
+            <div class="nav-cta-wrapper">
+                <button type="button" class="btn-nav-book trigger-book-modal" data-default-service="Wedding Photography">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Book Your Shoot</span>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- =======================================================================
-         HERO SECTION: Full-Screen Cinematic Landing Page
+         HERO SECTION: Pure Luxury Silk & Floral Pink Experience
          ======================================================================= -->
-    <section class="hero-cinema-section" id="heroSection">
+    <section class="luxury-hero-section" id="home">
 
-        <!-- Full-Screen Background: HTML5 Video + Animated Canvas + Backup -->
-        <div class="hero-video-wrap">
-
-            <!-- HTML5 Native Video Tag (Autoplays seamlessly in Chrome, Edge, Safari) -->
-            <video
-                autoplay
-                muted
-                loop
-                playsinline
-                webkit-playsinline
-                id="heroCinemaVideo"
-                class="hero-video-el"
-                poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85">
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
-                <source src="https://cdn.coverr.co/videos/coverr-a-loving-couple-holding-hands-and-walking-on-the-beach-2228/1080p.mp4" type="video/mp4">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-at-their-wedding-4788-large.mp4" type="video/mp4">
-            </video>
-
-            <!-- YouTube Backup Embed -->
-            <iframe
-                id="heroYtIframe"
-                class="hero-yt-iframe"
-                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&loop=1&controls=0&playsinline=1&playlist=jfKfPfyJRdk"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                title="Cinematic background">
-            </iframe>
-
-            <!-- Luxury Animated Particle & Ambient Glow Canvas (100% Reliable fallback) -->
-            <div class="hero-bg-animated"></div>
-
-            <!-- Cinematic Overlay — preserves #FDF0F4 pink aesthetic -->
-            <div class="hero-overlay"></div>
-        </div>
-
-        <!-- Center Content -->
-        <div class="hero-center-content">
-
-            <!-- Decorative top line -->
-            <div class="hero-top-line animate-fade-in delay-1">
-                <span></span>
-                <span class="hero-line-text">FINE ART WEDDING &amp; LIFESTYLE CINEMATOGRAPHY</span>
-                <span></span>
-            </div>
-
-            <!-- AAKAR FILMS Logo & Name -->
-            <div class="hero-brand-block animate-rise delay-2">
-                <div class="hero-logo-ring">
-                    <img src="assets/aakar-logo.jpg" alt="Aakar Films Logo" class="hero-logo-img">
+                <!-- Flowing Pink Silk Overlay Textures & Ambient Lighting -->
+                <div class="hero-silk-bg" aria-hidden="true">
+                    <!-- Top Right Flowing Silk Swag -->
+                    <div class="silk-swag silk-top-right"></div>
+                    <!-- Bottom Left Flowing Silk Swag -->
+                    <div class="silk-swag silk-bottom-left"></div>
+                    <!-- Soft Radial Center Glow -->
+                    <div class="hero-soft-glow"></div>
                 </div>
-                <h1 class="hero-studio-name">AAKAR FILMS</h1>
+
+                <!-- Floral Corner Accents: Fresh Baby's Breath & Sakura Sprigs -->
+                <div class="floral-accent floral-top-left" aria-hidden="true">
+                    <svg class="floral-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M-20 -20 C60 50, 110 120, 160 210 M110 120 C170 100, 230 140, 280 180 M60 50 C120 40, 200 60, 250 110" stroke="#7A564A" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="160" cy="210" r="14" fill="#F8B4C8" opacity="0.85"/>
+                        <circle cx="156" cy="206" r="8" fill="#FFF0F5"/>
+                        <circle cx="280" cy="180" r="12" fill="#F49EBA" opacity="0.9"/>
+                        <circle cx="277" cy="177" r="7" fill="#FFFFFF"/>
+                        <circle cx="250" cy="110" r="15" fill="#F6A8C2" opacity="0.85"/>
+                        <circle cx="246" cy="107" r="8" fill="#FFF2F7"/>
+                        <circle cx="120" cy="100" r="10" fill="#F7B2C6"/>
+                        <circle cx="80" cy="140" r="11" fill="#F39AB6"/>
+                        <circle cx="210" cy="150" r="13" fill="#F8B6CA"/>
+                        <circle cx="180" cy="80" r="12" fill="#F4A2BE"/>
+                        <circle cx="40" cy="90" r="9" fill="#F7B5C8"/>
+                    </svg>
+                </div>
+
+                <div class="floral-accent floral-bottom-right" aria-hidden="true">
+                    <svg class="floral-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M340 340 C260 270, 210 200, 160 110 M210 200 C150 220, 90 180, 40 140 M260 270 C200 280, 120 260, 70 210" stroke="#7A564A" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="160" cy="110" r="14" fill="#F8B4C8" opacity="0.85"/>
+                        <circle cx="164" cy="114" r="8" fill="#FFF0F5"/>
+                        <circle cx="40" cy="140" r="12" fill="#F49EBA" opacity="0.9"/>
+                        <circle cx="43" cy="143" r="7" fill="#FFFFFF"/>
+                        <circle cx="70" cy="210" r="15" fill="#F6A8C2" opacity="0.85"/>
+                        <circle cx="74" cy="213" r="8" fill="#FFF2F7"/>
+                        <circle cx="200" cy="220" r="10" fill="#F7B2C6"/>
+                        <circle cx="240" cy="180" r="11" fill="#F39AB6"/>
+                        <circle cx="110" cy="170" r="13" fill="#F8B6CA"/>
+                        <circle cx="140" cy="240" r="12" fill="#F4A2BE"/>
+                        <circle cx="280" cy="230" r="9" fill="#F7B5C8"/>
+                    </svg>
+                </div>
+
+                <!-- Realistic Falling Rose Petals & Green Leaf Canopy Layer -->
+                <div class="falling-leaves-container" id="fallingLeavesContainer" aria-hidden="true">
+                    <div class="leaf-item leaf-type-petal leaf-p1"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p2"></div>
+                    <div class="leaf-item leaf-type-green leaf-g1"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p3"></div>
+                    <div class="leaf-item leaf-type-green leaf-g2"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p4"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p5"></div>
+                    <div class="leaf-item leaf-type-green leaf-g3"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p6"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p7"></div>
+                    <div class="leaf-item leaf-type-green leaf-g4"></div>
+                    <div class="leaf-item leaf-type-petal leaf-p8"></div>
+                </div>
+
+                <!-- Main Hero Center Stage -->
+                <div class="luxury-hero-container">
+
+                    <!-- Circular Calligraphy Badge with Thin Side Lines -->
+                    <div class="hero-crest-row">
+                        <span class="crest-line"></span>
+                        <div class="hero-calligraphy-badge">
+                            <img src="assets/aakar-logo.jpg" alt="Aakar Calligraphy Emblem" class="crest-img">
+                        </div>
+                        <span class="crest-line"></span>
+                    </div>
+
+                    <!-- Main Heading: AAKAR FILMS -->
+                    <h1 class="hero-luxury-title">
+                        <span class="title-aakar">A A K A R</span>
+                        <span class="title-films">F I L M S</span>
+                    </h1>
+
+                    <!-- Decorative Center Diamond Accent with Thin Lines -->
+                    <div class="hero-accent-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-diamond">✦</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <!-- Signature Tagline: "Every Frame Tells a Story" -->
+                    <h2 class="hero-signature-tagline">
+                        Every <span class="tagline-highlight">Frame</span> Tells a <span class="tagline-highlight">Story</span>
+                    </h2>
+
+                    <!-- Editorial Sub-Description -->
+                    <p class="hero-subtext">
+                        We Capture Moments, You Cherish Forever.
+                    </p>
+
+                    <!-- Dual Action Buttons -->
+                    <div class="hero-action-buttons">
+                        <button type="button" class="btn-luxury-outline" id="btnExploreWork">
+                            <i class="fa-regular fa-images"></i>
+                            <span>Explore Our Work</span>
+                        </button>
+                        <button type="button" class="btn-luxury-solid trigger-book-modal" data-default-service="Wedding Photography">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span>Book Your Shoot</span>
+                        </button>
+                    </div>
+
+                    <!-- Scroll Down Mouse Indicator -->
+                    <div class="hero-scroll-wrapper">
+                        <a href="#signatureExperience" class="scroll-down-link" id="heroScrollBtn">
+                            <div class="scroll-mouse-icon">
+                                <span class="mouse-wheel"></span>
+                            </div>
+                            <span class="scroll-text">
+                                <span class="scroll-line"></span>
+                                Scroll Down
+                                <span class="scroll-line"></span>
+                            </span>
+                            <i class="fa-solid fa-chevron-down scroll-chevron"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+    <!-- =======================================================================
+         SECOND SECTION: "OUR SIGNATURE EXPERIENCE"
+         Luxury Editorial Section with Right-to-Left Auto-Scrolling Gallery
+         ======================================================================= -->
+    <section class="signature-experience-section" id="signatureExperience">
+
+        <!-- Ambient Silk Glow & Soft Gradient Lighting -->
+        <div class="section-ambient-glow" aria-hidden="true"></div>
+
+        <div class="section-container">
+
+            <!-- 2. SECTION HEADING -->
+            <div class="section-header-block scroll-reveal">
+                <span class="section-kicker">AAKAR FILMS ARCHIVE</span>
+                <h2 class="section-main-heading">OUR SIGNATURE EXPERIENCE</h2>
+                <div class="section-decor-divider">
+                    <span class="decor-line"></span>
+                    <span class="decor-star">✦</span>
+                    <span class="decor-line"></span>
+                </div>
+                <p class="section-subtitle">
+                    Capturing emotions, creating timeless memories.
+                </p>
             </div>
 
-            <!-- Decorative Divider -->
-            <div class="hero-divider animate-fade-in delay-3">
-                <span class="divider-gem">◆</span>
+            <!-- 3. RIGHT-TO-LEFT AUTOMATIC IMAGE SCROLLING (INFINITE LOOP) -->
+            <div class="gallery-carousel-viewport" id="galleryCarouselViewport">
+                <div class="gallery-carousel-track" id="galleryCarouselTrack">
+
+                    <!-- SET 1 (8 CATEGORIES) -->
+                    <!-- 1. Wedding Photography -->
+                    <article class="photo-card" data-category="Wedding Photography">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                                alt="Royal Indian Wedding Photography by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">01 &bull; ROYAL HERITAGE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Wedding Photography</h3>
+                            <p class="photo-card-sub">Timeless vows, sacred rituals &amp; grand emotions</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 2. Pre-Wedding Photography -->
+                    <article class="photo-card" data-category="Pre-Wedding Shoot">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                                alt="Romantic Pre-Wedding Stories by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">02 &bull; ROMANTIC ESCAPE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Pre-Wedding Photography</h3>
+                            <p class="photo-card-sub">Cinematic poetic love stories at scenic vistas</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 3. Cinematic Wedding Films -->
+                    <article class="photo-card" data-category="Cinematic Wedding Films">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+                                alt="Cinematic Wedding Films by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">03 &bull; 4K MASTER CINEMA</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Cinematic Wedding Films</h3>
+                            <p class="photo-card-sub">Hollywood-grade color grading &amp; sound narrative</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 4. Engagement Photography -->
+                    <article class="photo-card" data-category="Engagement Photography">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
+                                alt="Engagement Ceremonies by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">04 &bull; RING CEREMONY</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Engagement Photography</h3>
+                            <p class="photo-card-sub">Intimate exchanges, diamond rings &amp; joyful celebrations</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 5. Couple Portraits -->
+                    <article class="photo-card" data-category="Couple Portraits">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
+                                alt="Fine Art Couple Portraits by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">05 &bull; FINE ART PORTRAITS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Couple Portraits</h3>
+                            <p class="photo-card-sub">Luminous editorial poses crafted with natural grace</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 6. Traditional Photography -->
+                    <article class="photo-card" data-category="Traditional Photography">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=80"
+                                alt="Traditional Heritage Rituals by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">06 &bull; CULTURAL HERITAGE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Traditional Photography</h3>
+                            <p class="photo-card-sub">Rich cultural customs, family blessings &amp; mandap rituals</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 7. Luxury Events -->
+                    <article class="photo-card" data-category="Luxury Events">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+                                alt="Luxury Celebrations & Galas by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">07 &bull; OPULENT GALAS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Luxury Events</h3>
+                            <p class="photo-card-sub">High-profile receptions, cocktail galas &amp; sangeet nights</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 8. Destination Weddings -->
+                    <article class="photo-card" data-category="Destination Weddings">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=800&q=80"
+                                alt="Destination Weddings Worldwide by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">08 &bull; WORLDWIDE ATLAS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Destination Weddings</h3>
+                            <p class="photo-card-sub">Palaces of Udaipur, beaches of Goa &amp; international shores</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE LOOP (NO JUMPS) -->
+                    <!-- 1. Wedding Photography -->
+                    <article class="photo-card" data-category="Wedding Photography" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                                alt="Royal Indian Wedding Photography by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">01 &bull; ROYAL HERITAGE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Wedding Photography</h3>
+                            <p class="photo-card-sub">Timeless vows, sacred rituals &amp; grand emotions</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 2. Pre-Wedding Photography -->
+                    <article class="photo-card" data-category="Pre-Wedding Shoot" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                                alt="Romantic Pre-Wedding Stories by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">02 &bull; ROMANTIC ESCAPE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Pre-Wedding Photography</h3>
+                            <p class="photo-card-sub">Cinematic poetic love stories at scenic vistas</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 3. Cinematic Wedding Films -->
+                    <article class="photo-card" data-category="Cinematic Wedding Films" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+                                alt="Cinematic Wedding Films by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">03 &bull; 4K MASTER CINEMA</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Cinematic Wedding Films</h3>
+                            <p class="photo-card-sub">Hollywood-grade color grading &amp; sound narrative</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 4. Engagement Photography -->
+                    <article class="photo-card" data-category="Engagement Photography" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
+                                alt="Engagement Ceremonies by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">04 &bull; RING CEREMONY</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Engagement Photography</h3>
+                            <p class="photo-card-sub">Intimate exchanges, diamond rings &amp; joyful celebrations</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 5. Couple Portraits -->
+                    <article class="photo-card" data-category="Couple Portraits" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
+                                alt="Fine Art Couple Portraits by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">05 &bull; FINE ART PORTRAITS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Couple Portraits</h3>
+                            <p class="photo-card-sub">Luminous editorial poses crafted with natural grace</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 6. Traditional Photography -->
+                    <article class="photo-card" data-category="Traditional Photography" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=80"
+                                alt="Traditional Heritage Rituals by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">06 &bull; CULTURAL HERITAGE</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Traditional Photography</h3>
+                            <p class="photo-card-sub">Rich cultural customs, family blessings &amp; mandap rituals</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 7. Luxury Events -->
+                    <article class="photo-card" data-category="Luxury Events" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+                                alt="Luxury Celebrations & Galas by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">07 &bull; OPULENT GALAS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Luxury Events</h3>
+                            <p class="photo-card-sub">High-profile receptions, cocktail galas &amp; sangeet nights</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- 8. Destination Weddings -->
+                    <article class="photo-card" data-category="Destination Weddings" aria-hidden="true">
+                        <div class="photo-card-media">
+                            <img
+                                src="https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=800&q=80"
+                                alt="Destination Weddings Worldwide by Aakar Films"
+                                loading="lazy">
+                            <div class="photo-card-overlay"></div>
+                            <span class="card-category-badge">08 &bull; WORLDWIDE ATLAS</span>
+                        </div>
+                        <div class="photo-card-info">
+                            <h3 class="photo-card-title">Destination Weddings</h3>
+                            <p class="photo-card-sub">Palaces of Udaipur, beaches of Goa &amp; international shores</p>
+                            <span class="photo-card-cta">
+                                <span>Explore Collection</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                </div>
             </div>
 
-            <!-- Tagline -->
-            <p class="hero-tagline animate-rise delay-4">
-                We Capture Moments, You Cherish Forever.
-            </p>
+            <!-- 5. FOUR ELEGANT SERVICE HIGHLIGHTS -->
+            <div class="highlights-grid scroll-reveal">
 
-            <!-- Action Buttons -->
-            <div class="hero-buttons animate-rise delay-5">
-                <button type="button" class="btn-hero-primary" id="btnExploreWork">
-                    <i class="fa-regular fa-images"></i>
-                    <span>Explore Our Work</span>
-                </button>
-                <button type="button" class="btn-hero-secondary trigger-book-modal" data-default-service="Wedding Photography">
-                    <i class="fa-regular fa-calendar-check"></i>
-                    <span>Book Your Shoot</span>
-                </button>
+                <!-- Feature 1 -->
+                <div class="highlight-item">
+                    <div class="highlight-icon-box">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h4 class="highlight-title">Timeless Wedding Stories</h4>
+                    <p class="highlight-desc">Capturing sacred pheras, emotional tears, and heartfelt laughter in exquisite editorial frames.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="highlight-item">
+                    <div class="highlight-icon-box">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h4 class="highlight-title">Cinematic Storytelling</h4>
+                    <p class="highlight-desc">Director-grade 4K films with bespoke sound design that look and feel like movies on the silver screen.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="highlight-item">
+                    <div class="highlight-icon-box">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <h4 class="highlight-title">Creative Pre-Wedding Shoots</h4>
+                    <p class="highlight-desc">Romantic couple escapes conceived with custom themes, cinematic styling, and evocative light.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="highlight-item">
+                    <div class="highlight-icon-box">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h4 class="highlight-title">Premium Event Coverage</h4>
+                    <p class="highlight-desc">Comprehensive crew coverage for high-profile receptions, engagement galas, and destination soirees.</p>
+                </div>
+
             </div>
 
-            <!-- WhatsApp subtle link -->
-            <a href="https://wa.me/916354896783?text=Hello%20Aakar%20Films,%20I%20would%20like%20to%20inquire%20about%20your%20services"
-               target="_blank" rel="noopener"
-               class="hero-wa-link animate-fade-in delay-6">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp Us — +91 63548 96783</span>
-            </a>
-
-            <!-- Scroll Cue -->
-            <a href="#bookModal" class="hero-scroll-cue animate-fade-in delay-6"
-               onclick="document.querySelector('.trigger-book-modal').click(); return false;">
-                <span>BOOK YOUR SHOOT</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
+            <!-- 6. CALL TO ACTION BLOCK -->
+            <div class="experience-cta-block scroll-reveal">
+                <div class="cta-inner-card">
+                    <span class="cta-mini-tag">START YOUR FOREVER STORY</span>
+                    <h3 class="cta-heading">Let's Create Something Beautiful</h3>
+                    <p class="cta-desc">Your special moments deserve to be remembered forever.</p>
+                    <div class="cta-buttons-row">
+                        <button type="button" class="btn-luxury-outline" id="btnCtaExplorePortfolio">
+                            <i class="fa-regular fa-images"></i>
+                            <span>Explore Our Portfolio</span>
+                        </button>
+                        <button type="button" class="btn-luxury-solid trigger-book-modal" data-default-service="Wedding Photography">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span>Book Your Shoot</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>
 
     <!-- =======================================================================
-         INTERACTIVE MODAL: "BOOK A SHOOT"
+         INTERACTIVE BOOKING MODAL
          ======================================================================= -->
     <div class="modal-overlay" id="bookModal">
         <div class="modal-box">
