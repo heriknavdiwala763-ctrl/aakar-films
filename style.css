@@ -565,7 +565,7 @@
     font-family: var(--font-serif);
     font-size: clamp(2.0rem, 4.6vw, 3.4rem);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     color: #1F151B;
     letter-spacing: 0.01em;
     margin: 0 0 12px;
@@ -573,14 +573,14 @@
 
 .tagline-highlight {
     color: #BA3862;
-    font-style: italic;
+    font-style: normal;
     font-weight: 500;
 }
 
 /* Subtitle: "We Capture Moments, You Cherish Forever." */
 .hero-subtext {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(1.05rem, 2.1vw, 1.35rem);
     font-weight: 400;
     color: #4C3C44;
@@ -866,7 +866,7 @@
 
 .iw-gold-accent {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     letter-spacing: 0.28em;
     background: linear-gradient(135deg, #FFFDF8 0%, #F5E6CC 35%, #D4AF37 75%, #F0D9AA 100%);
@@ -904,7 +904,7 @@
 
 .iw-subtitle {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(1.15rem, 2.5vw, 1.55rem);
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -1177,7 +1177,7 @@
 
 .section-subtitle {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(1.15rem, 2.2vw, 1.45rem);
     font-weight: 400;
     color: #5A4750;
@@ -1449,7 +1449,7 @@
 
 .cta-desc {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(1.05rem, 2.0vw, 1.3rem);
     color: #55444C;
     margin: 0 0 32px;
@@ -2216,7 +2216,7 @@ button {
    ============================== */
 .hero-tagline {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(1.08rem, 2.8vw, 1.46rem);
     font-weight: 300;
     letter-spacing: 0.03em;
@@ -2590,7 +2590,7 @@ button {
 
 .slide-subtitle {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: 1.12rem;
     color: var(--color-text-muted);
     max-width: 720px;
@@ -2805,7 +2805,7 @@ button {
 
 .testimonial-quote {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-style: normal;
     font-size: 1.05rem;
     line-height: 1.7;
     color: var(--color-text-muted);
@@ -6094,7 +6094,7 @@ button {
 
 .editorial-title em {
     font-family: var(--font-serif, 'Cormorant Garamond', serif);
-    font-style: italic;
+    font-style: normal;
     color: var(--color-rose-deep, #BA3862);
     font-weight: 500;
 }
