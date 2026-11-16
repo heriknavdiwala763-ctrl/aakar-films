@@ -2551,3 +2551,151 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   DEEP ROYAL BURGUNDY (#2A1013) THEME FOR ADMIN LOGIN & DASHBOARD
+   ========================================================================== */
+
+:root {
+    --bg-pink: #2A1013 !important;
+    --bg-secondary: #38161A !important;
+    --bg-card: #321317 !important;
+    --color-text-main: #FFFFFF !important;
+    --color-text-muted: #BBA5A8 !important;
+    --color-text-light: #8E787C !important;
+    --color-border: rgba(226, 114, 144, 0.25) !important;
+    --color-rose-dark: #A82449 !important;
+}
+
+body, html, .studio-login-body, .admin-layout {
+    background-color: #2A1013 !important;
+    background: #2A1013 !important;
+    color: #FFFFFF !important;
+}
+
+.studio-grid-overlay {
+    background-image: 
+        linear-gradient(to right, rgba(226, 114, 144, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 114, 144, 0.08) 1px, transparent 1px) !important;
+}
+
+.login-glass-card {
+    background: rgba(50, 19, 23, 0.92) !important;
+    border: 1px solid rgba(226, 114, 144, 0.3) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6) !important;
+    color: #FFFFFF !important;
+}
+
+.login-title {
+    color: #FFFFFF !important;
+}
+
+.login-tagline {
+    color: #E27290 !important;
+}
+
+.login-sub {
+    color: #BBA5A8 !important;
+}
+
+.form-label {
+    color: #F5EAEB !important;
+}
+
+.form-input {
+    background: #3A171C !important;
+    color: #FFFFFF !important;
+    border-color: rgba(226, 114, 144, 0.3) !important;
+}
+
+.form-input:focus {
+    border-color: #E27290 !important;
+    box-shadow: 0 0 0 3px rgba(226, 114, 144, 0.25) !important;
+}
+
+.input-icon {
+    color: #BBA5A8 !important;
+}
+
+.password-requirements-card {
+    background: rgba(31, 11, 14, 0.7) !important;
+    border-color: rgba(226, 114, 144, 0.2) !important;
+}
+
+.requirements-title {
+    color: #E27290 !important;
+}
+
+.req-item {
+    color: #BBA5A8 !important;
+}
+
+.req-item.valid {
+    color: #4CAF50 !important;
+}
+
+.btn-login-submit {
+    background: linear-gradient(135deg, #A82449 0%, #7E1533 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.demo-credentials-box {
+    color: #BBA5A8 !important;
+}
+
+.btn-demo-fill {
+    background: rgba(56, 22, 26, 0.8) !important;
+    color: #E27290 !important;
+    border-color: rgba(226, 114, 144, 0.3) !important;
+}
+
+/* Dashboard Sidebar & Topbar */
+.admin-sidebar {
+    background: #1F0B0E !important;
+    border-right: 1px solid rgba(226, 114, 144, 0.15) !important;
+}
+
+.admin-topbar {
+    background: #250E11 !important;
+    border-bottom: 1px solid rgba(226, 114, 144, 0.15) !important;
+}
+
+.admin-brand-title, .topbar-title, .kpi-val, .client-name {
+    color: #FFFFFF !important;
+}
+
+.admin-brand-sub, .topbar-sub, .kpi-lbl {
+    color: #BBA5A8 !important;
+}
+
+.nav-item-btn {
+    color: #F5EAEB !important;
+}
+
+.nav-item-btn:hover, .nav-item-btn.active {
+    background: rgba(168, 36, 73, 0.25) !important;
+    color: #FFFFFF !important;
+    border-color: #A82449 !important;
+}
+
+.kpi-card, .dashboard-widget-card, .bookings-table-container, .modal-box {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+.bookings-table th {
+    background: #250E11 !important;
+    color: #E27290 !important;
+}
+
+.bookings-table td {
+    border-color: rgba(226, 114, 144, 0.1) !important;
+    color: #F5EAEB !important;
+}
+
+.bookings-table tr:hover {
+    background: rgba(56, 22, 26, 0.7) !important;
+}
