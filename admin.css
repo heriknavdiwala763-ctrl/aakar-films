@@ -2699,3 +2699,639 @@ body, html, .studio-login-body, .admin-layout {
 .bookings-table tr:hover {
     background: rgba(56, 22, 26, 0.7) !important;
 }
+
+/* ==========================================================================
+   PERFECT DARK BURGUNDY (#2A1013) THEME FOR DASHBOARD.HTML
+   ========================================================================== */
+
+/* Overall Page Layout */
+body.dashboard-body,
+.admin-layout,
+.admin-main-container,
+.dashboard-content-area {
+    background: #2A1013 !important;
+    background-color: #2A1013 !important;
+    color: #FFFFFF !important;
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+    background: #1F0B0E !important;
+    border-right: 1px solid rgba(226, 114, 144, 0.18) !important;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.sidebar-title {
+    color: #FFFFFF !important;
+}
+
+.sidebar-subtitle,
+.sidebar-section-label {
+    color: #E27290 !important;
+}
+
+/* Sidebar Nav Items */
+.nav-item {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.2) !important;
+    color: #F5EAEB !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.nav-item i {
+    color: #E27290 !important;
+}
+
+.nav-item:hover {
+    background: #42181E !important;
+    color: #FFFFFF !important;
+    border-color: #E27290 !important;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #A82449 0%, #7E1533 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 6px 18px rgba(168, 36, 73, 0.45) !important;
+}
+
+.nav-item.active i {
+    color: #FFFFFF !important;
+}
+
+.badge-tag {
+    background: rgba(226, 114, 144, 0.25) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(226, 114, 144, 0.4) !important;
+}
+
+.nav-item-customer-highlight {
+    background: #38161A !important;
+    border-color: #E27290 !important;
+    color: #FFFFFF !important;
+}
+
+.admin-user-pill {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.25) !important;
+}
+
+.user-name {
+    color: #FFFFFF !important;
+}
+
+.user-role {
+    color: #BBA5A8 !important;
+}
+
+.btn-sidebar-logout {
+    background: rgba(56, 22, 26, 0.8) !important;
+    color: #E27290 !important;
+    border: 1px solid rgba(226, 114, 144, 0.25) !important;
+}
+
+.btn-sidebar-logout:hover {
+    background: #A82449 !important;
+    color: #FFFFFF !important;
+}
+
+/* Topbar Header */
+.admin-topbar {
+    background: #250E11 !important;
+    border-bottom: 1px solid rgba(226, 114, 144, 0.18) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.topbar-kicker {
+    color: #E27290 !important;
+}
+
+.topbar-title {
+    color: #FFFFFF !important;
+    font-style: normal !important;
+}
+
+.topbar-clock {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.2) !important;
+    color: #F5EAEB !important;
+}
+
+.btn-primary-action {
+    background: linear-gradient(135deg, #A82449 0%, #7E1533 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 6px 18px rgba(168, 36, 73, 0.35) !important;
+}
+
+.btn-topbar-customer {
+    background: #321317 !important;
+    color: #F5EAEB !important;
+    border: 1px solid rgba(226, 114, 144, 0.25) !important;
+}
+
+.btn-topbar-customer:hover {
+    background: #42181E !important;
+    color: #FFFFFF !important;
+}
+
+/* Metric KPI Cards (Total Inquiries, Pipeline, Shoots, Rating) */
+.metric-card {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.22) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35) !important;
+    color: #FFFFFF !important;
+}
+
+.metric-title {
+    color: #E27290 !important;
+    font-weight: 600 !important;
+}
+
+.metric-value {
+    color: #FFFFFF !important;
+    font-style: normal !important;
+    font-family: var(--font-sans) !important;
+}
+
+.metric-caption {
+    color: #BBA5A8 !important;
+}
+
+.metric-badge {
+    background: rgba(226, 114, 144, 0.2) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(226, 114, 144, 0.3) !important;
+}
+
+.metric-growth.positive {
+    background: rgba(76, 175, 80, 0.2) !important;
+    color: #66BB6A !important;
+    border: 1px solid rgba(76, 175, 80, 0.3) !important;
+}
+
+.metric-icon-box {
+    background: #3E181E !important;
+    color: #E27290 !important;
+    border: 1px solid rgba(226, 114, 144, 0.3) !important;
+}
+
+/* Dashboard Content Cards (Recent Inquiries, Call Sheet, Service Distribution) */
+.dash-card,
+.full-table-card {
+    background: #321317 !important;
+    border: 1px solid rgba(226, 114, 144, 0.22) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+    color: #FFFFFF !important;
+}
+
+.card-title {
+    color: #FFFFFF !important;
+    font-style: normal !important;
+}
+
+.card-subtitle {
+    color: #BBA5A8 !important;
+}
+
+.card-link {
+    color: #E27290 !important;
+}
+
+/* CRM Table Styling */
+.table-responsive {
+    background: transparent !important;
+}
+
+.inquiries-table,
+.studio-data-table {
+    color: #FFFFFF !important;
+}
+
+.inquiries-table thead th,
+.studio-data-table thead th {
+    background: #250E11 !important;
+    color: #E27290 !important;
+    border-bottom: 1px solid rgba(226, 114, 144, 0.25) !important;
+}
+
+.inquiries-table tbody tr,
+.studio-data-table tbody tr {
+    border-bottom: 1px solid rgba(226, 114, 144, 0.12) !important;
+    transition: background 0.2s ease !important;
+}
+
+.inquiries-table tbody tr:hover,
+.studio-data-table tbody tr:hover {
+    background: rgba(56, 22, 26, 0.7) !important;
+}
+
+.client-name-bold {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.client-phone-sub {
+    color: #BBA5A8 !important;
+}
+
+.shoot-date-text {
+    color: #F5EAEB !important;
+}
+
+.shoot-badge {
+    background: #3E181E !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(226, 114, 144, 0.35) !important;
+}
+
+.status-badge.status-pending {
+    background: rgba(255, 152, 0, 0.2) !important;
+    color: #FFB74D !important;
+    border: 1px solid rgba(255, 152, 0, 0.4) !important;
+}
+
+.status-badge.status-confirmed {
+    background: rgba(76, 175, 80, 0.2) !important;
+    color: #81C784 !important;
+    border: 1px solid rgba(76, 175, 80, 0.4) !important;
+}
+
+.btn-table-whatsapp {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+}
+
+/* Call Sheet Card */
+.call-sheet-header h4 {
+    color: #FFFFFF !important;
+}
+
+.badge-live {
+    background: rgba(76, 175, 80, 0.25) !important;
+    color: #81C784 !important;
+    border: 1px solid #4CAF50 !important;
+}
+
+.call-meta-item {
+    color: #F5EAEB !important;
+}
+
+.call-meta-item i {
+    color: #E27290 !important;
+}
+
+.call-crew-meta,
+.call-gear-meta {
+    color: #BBA5A8 !important;
+}
+
+/* Service Distribution Progress Bars */
+.dist-label {
+    color: #FFFFFF !important;
+}
+
+.dist-percent {
+    color: #E27290 !important;
+}
+
+.dist-bar-track {
+    background: #250E11 !important;
+    border: 1px solid rgba(226, 114, 144, 0.15) !important;
+}
+
+.dist-bar-fill {
+    background: linear-gradient(90deg, #A82449 0%, #E27290 100%) !important;
+}
+
+/* Reset any unwanted italics */
+* {
+    font-style: normal !important;
+}
+
+/* ==========================================================================
+   ULTRA-HIGH CONTRAST TEXT & FONTS FOR ADMIN DASHBOARD & LOGIN
+   ========================================================================== */
+
+/* Universal High-Visibility Font Rules */
+body.dashboard-body,
+.admin-layout,
+.admin-sidebar,
+.admin-topbar,
+.dashboard-content-area,
+.studio-login-body {
+    color: #FFFFFF !important;
+}
+
+/* Sidebar Text & Icons Visibility */
+.sidebar-title {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.sidebar-subtitle {
+    color: #FFB3C6 !important;
+    font-weight: 600 !important;
+}
+
+.sidebar-section-label {
+    color: #FFA3BA !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+}
+
+.nav-item {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.nav-item span {
+    color: #FFFFFF !important;
+}
+
+.nav-item i {
+    color: #FF94B1 !important;
+}
+
+.nav-item:hover,
+.nav-item:hover span {
+    color: #FFFFFF !important;
+}
+
+.nav-item.active,
+.nav-item.active span,
+.nav-item.active i {
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.user-name {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.user-role {
+    color: #FFCCD7 !important;
+}
+
+/* Topbar Header Text */
+.topbar-kicker {
+    color: #FFA3BA !important;
+    font-weight: 700 !important;
+}
+
+.topbar-title {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+#liveClockText {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.topbar-clock i {
+    color: #FFB3C6 !important;
+}
+
+.btn-topbar-customer,
+.btn-topbar-customer span {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+/* KPI Cards Titles & Values */
+.metric-title {
+    color: #FFCCD7 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+}
+
+.metric-value,
+.metric-value h3,
+#kpiTotalBookings,
+#kpiTotalRevenue,
+#kpiUpcomingShoots,
+#kpiRatingScore {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+}
+
+.metric-caption {
+    color: #EAD5D9 !important;
+    font-weight: 500 !important;
+}
+
+.metric-badge {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+/* CRM Table Titles & Contents */
+.card-title,
+.card-header-left h3,
+.card-header-left h4 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.card-subtitle {
+    color: #EAD5D9 !important;
+    font-weight: 500 !important;
+}
+
+.card-link {
+    color: #FF94B1 !important;
+    font-weight: 600 !important;
+}
+
+.inquiries-table thead th,
+.studio-data-table thead th {
+    color: #FFCCD7 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+}
+
+.client-name-bold,
+.client-name {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+.client-phone-sub {
+    color: #EAD5D9 !important;
+    font-weight: 500 !important;
+}
+
+.shoot-date-text,
+.shoot-badge {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+/* Right Cards: Call Sheet & Service Distribution */
+.call-sheet-header h4 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.call-meta-item {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+.call-crew-meta,
+.call-gear-meta {
+    color: #EAD5D9 !important;
+}
+
+.dist-label {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.dist-percent {
+    color: #FFB3C6 !important;
+    font-weight: 700 !important;
+}
+
+/* Login Page Labels & Inputs */
+.login-title {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.login-tagline {
+    color: #FFB3C6 !important;
+    font-weight: 600 !important;
+}
+
+.login-sub {
+    color: #EAD5D9 !important;
+}
+
+.form-label,
+.form-label span {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.form-input {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.requirements-title {
+    color: #FFB3C6 !important;
+    font-weight: 600 !important;
+}
+
+.req-item span {
+    color: #EAD5D9 !important;
+}
+
+.req-item.valid span {
+    color: #76FF03 !important;
+    font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   FORCE HIGH-VISIBILITY TEXT ON SIDEBAR BUTTONS
+   ========================================================================== */
+
+/* Unselected Sidebar Buttons: Dark Luxury Wine with Crisp White Text */
+aside.admin-sidebar .sidebar-menu button.nav-item,
+aside.admin-sidebar .sidebar-menu a.nav-item {
+    background: #38161A !important;
+    background-color: #38161A !important;
+    border: 1.5px solid rgba(226, 114, 144, 0.35) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item span,
+aside.admin-sidebar .sidebar-menu a.nav-item span {
+    color: #FFFFFF !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item i,
+aside.admin-sidebar .sidebar-menu a.nav-item i {
+    color: #FF94B1 !important;
+    font-size: 1.15rem !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Hover State */
+aside.admin-sidebar .sidebar-menu button.nav-item:hover,
+aside.admin-sidebar .sidebar-menu a.nav-item:hover {
+    background: #4A1B22 !important;
+    border-color: #FF94B1 !important;
+    transform: translateY(-2px) !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item:hover span,
+aside.admin-sidebar .sidebar-menu a.nav-item:hover span {
+    color: #FFFFFF !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item:hover i,
+aside.admin-sidebar .sidebar-menu a.nav-item:hover i {
+    color: #FFFFFF !important;
+}
+
+/* Active / Selected Button (Overview) */
+aside.admin-sidebar .sidebar-menu button.nav-item.active {
+    background: linear-gradient(135deg, #BA3862 0%, #8E1F43 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 6px 20px rgba(186, 56, 98, 0.5) !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item.active span {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+aside.admin-sidebar .sidebar-menu button.nav-item.active i {
+    color: #FFFFFF !important;
+}
+
+/* Count Badge (e.g. 6) */
+.badge-tag,
+#badgeBookingCount {
+    background: #FF2A6D !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Customer Dashboard Switcher Button */
+.nav-item-customer-highlight {
+    background: #38161A !important;
+    border: 1.5px solid #FF94B1 !important;
+}
+
+.nav-item-customer-highlight span {
+    color: #FFFFFF !important;
+}
+
+.nav-item-customer-highlight i {
+    color: #FF94B1 !important;
+}

@@ -6830,3 +6830,87 @@ body.luxury-pink-body {
     color: #FFFFFF !important;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) !important;
 }
+
+/* ==========================================================================
+   ULTRA-HIGH CONTRAST FOR MAIN WEBSITE ON BURGUNDY BACKGROUND
+   ========================================================================== */
+
+.hero-luxury-title span,
+.title-aakar,
+.title-films {
+    color: #FFFFFF !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+.hero-signature-tagline {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.tagline-highlight {
+    color: #FF94B1 !important;
+    font-weight: 700 !important;
+}
+
+.hero-subtext {
+    color: #F5EAEB !important;
+    font-weight: 500 !important;
+}
+
+.section-main-heading,
+.section-title,
+.editorial-title,
+.services-main-heading,
+.highlight-title,
+.cta-heading,
+.banner-heading,
+.card-service-title,
+.pillar-box h5 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.section-subtitle,
+.story-lead-p,
+.services-main-sub,
+.highlight-desc,
+.cta-desc,
+.banner-sub,
+.card-service-desc,
+.pillar-box p,
+.story-sub-p,
+.card-feature-list li {
+    color: #F5EAEB !important;
+    font-weight: 400 !important;
+}
+
+.section-kicker,
+.kicker-label,
+.banner-tag,
+.services-kicker {
+    color: #FFA3BA !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+}
+
+.stat-num {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.stat-label {
+    color: #FFCCD7 !important;
+    font-weight: 600 !important;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #FF94B1 !important;
+    font-weight: 700 !important;
+}
