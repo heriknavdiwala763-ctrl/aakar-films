@@ -813,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput ? passwordInput.value : '';
 
         if (!email) {
-            showAlert('Please enter your admin email address.');
+            showAlert('Please enter your admin username.');
             if (emailInput) emailInput.focus();
             return;
         }
@@ -821,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Strict verification of password rules (Capital, Number, Special char, Min 8)
         const isValid = validatePasswordRequirements(password);
         if (!isValid) {
-            showAlert('Password must contain at least 1 capital letter (A-Z), 1 number (0-9), and 1 special character (!@#$).');
+            showAlert('Password must contain at least 1 Capital letter (A-Z), 1 Number (0-9), and 1 Special character (!@#$%...).');
             if (passwordInput) passwordInput.focus();
             return;
         }
